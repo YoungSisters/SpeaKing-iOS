@@ -40,8 +40,12 @@ class HomeView: UIView {
     }
     
     func setTableViewDelegate() {
+        tableView.register(HomeHeaderTableViewCell.self, forCellReuseIdentifier: HomeHeaderTableViewCell.cellIdentifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+
     }
 }
 
@@ -52,6 +56,12 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeHeaderTableViewCell.cellIdentifier) as! HomeHeaderTableViewCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 180
     }
 }

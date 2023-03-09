@@ -7,7 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
+    
+    var contentView: HomeView {
+        return view as! HomeView
+    }
+    
+    override func loadView() {
+        super.loadView()
+        view = HomeView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

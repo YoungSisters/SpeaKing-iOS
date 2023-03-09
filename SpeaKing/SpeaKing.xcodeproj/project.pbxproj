@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		89058E3E29B7046500A39615 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89058E3D29B7046500A39615 /* SnapKit */; };
+		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
+		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
+		89058E4C29B70AAD00A39615 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4B29B70AAD00A39615 /* Color.swift */; };
 		89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714D29B481290048DAA9 /* AppDelegate.swift */; };
 		89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714F29B481290048DAA9 /* SceneDelegate.swift */; };
-		89E3715229B481290048DAA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* ViewController.swift */; };
+		89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* HomeViewController.swift */; };
 		89E3715729B4812A0048DAA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89E3715629B4812A0048DAA9 /* Assets.xcassets */; };
 		89E3715A29B4812A0048DAA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E3715829B4812A0048DAA9 /* LaunchScreen.storyboard */; };
 		89E3716529B4812A0048DAA9 /* SpeaKingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3716429B4812A0048DAA9 /* SpeaKingTests.swift */; };
@@ -36,10 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89058E4529B7060D00A39615 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		89058E4929B7065400A39615 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		89058E4B29B70AAD00A39615 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E3714F29B481290048DAA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		89E3715129B481290048DAA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89E3715129B481290048DAA9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		89E3715629B4812A0048DAA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89E3715929B4812A0048DAA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89E3715B29B4812A0048DAA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +82,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89058E3F29B705B000A39615 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89058E4429B7060300A39615 /* Extensions */,
+				89058E4329B705FB00A39615 /* Helpers */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89058E4029B705B500A39615 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89058E4229B705E400A39615 /* Screen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89058E4129B705B800A39615 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89E3715129B481290048DAA9 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		89058E4229B705E400A39615 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				89058E4929B7065400A39615 /* HomeView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		89058E4329B705FB00A39615 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89058E4529B7060D00A39615 /* Constants.swift */,
+				89058E4B29B70AAD00A39615 /* Color.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		89058E4429B7060300A39615 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		89E3714129B481290048DAA9 = {
 			isa = PBXGroup;
 			children = (
@@ -99,9 +154,11 @@
 		89E3714C29B481290048DAA9 /* SpeaKing */ = {
 			isa = PBXGroup;
 			children = (
+				89058E3F29B705B000A39615 /* Model */,
+				89058E4029B705B500A39615 /* View */,
+				89058E4129B705B800A39615 /* Controller */,
 				89E3714D29B481290048DAA9 /* AppDelegate.swift */,
 				89E3714F29B481290048DAA9 /* SceneDelegate.swift */,
-				89E3715129B481290048DAA9 /* ViewController.swift */,
 				89E3715629B4812A0048DAA9 /* Assets.xcassets */,
 				89E3715829B4812A0048DAA9 /* LaunchScreen.storyboard */,
 				89E3715B29B4812A0048DAA9 /* Info.plist */,
@@ -262,9 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89E3715229B481290048DAA9 /* ViewController.swift in Sources */,
+				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
 				89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */,
+				89058E4A29B7065400A39615 /* HomeView.swift in Sources */,
+				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
+				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

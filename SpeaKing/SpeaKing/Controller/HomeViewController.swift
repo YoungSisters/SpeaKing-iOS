@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+//    var homeView = HomeView(frame: UIScreen.main.bounds)
+    
     var contentView: HomeView {
         return view as! HomeView
     }
@@ -21,6 +23,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+//        view.addSubview(homeView)
     }
 
 

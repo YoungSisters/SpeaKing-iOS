@@ -21,8 +21,13 @@ class HomeHeaderTableViewCell: UITableViewCell {
         return label
     }()
     
+    var newSpeakingButton = NewSpeakingButtonView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = .clear
+        
         layout()
         setTitleLabel()
     }
@@ -37,6 +42,14 @@ class HomeHeaderTableViewCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        addSubview(newSpeakingButton)
+        
+        newSpeakingButton.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(32)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.height.equalTo(100)
         }
     }
     

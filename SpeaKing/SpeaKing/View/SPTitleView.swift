@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TitleLabelView: UIView {
+class SPTitleView: UIView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -52,7 +52,7 @@ class TitleLabelView: UIView {
     }
 }
 
-extension TitleLabelView {
+extension SPTitleView {
     func layout() {
         let stackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
         stackView.spacing = 4

@@ -43,7 +43,6 @@ class HomeView: UIView {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     override var intrinsicContentSize: CGSize {

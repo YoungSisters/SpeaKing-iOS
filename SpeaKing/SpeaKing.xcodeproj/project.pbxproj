@@ -11,6 +11,8 @@
 		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
 		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
 		89058E4C29B70AAD00A39615 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4B29B70AAD00A39615 /* Color.swift */; };
+		890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C47ED29BC417900AD4375 /* HomeSectionHeaderView.swift */; };
+		890C47F029BC43C400AD4375 /* TitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C47EF29BC43C400AD4375 /* TitleLabelView.swift */; };
 		8939A64229BA15BD0092C967 /* HomeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64129BA15BD0092C967 /* HomeHeaderTableViewCell.swift */; };
 		8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */; };
 		8939A64829BA1B300092C967 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64729BA1B300092C967 /* FontSize.swift */; };
@@ -49,6 +51,8 @@
 		89058E4529B7060D00A39615 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89058E4929B7065400A39615 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89058E4B29B70AAD00A39615 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		890C47ED29BC417900AD4375 /* HomeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionHeaderView.swift; sourceTree = "<group>"; };
+		890C47EF29BC43C400AD4375 /* TitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelView.swift; sourceTree = "<group>"; };
 		8939A64129BA15BD0092C967 /* HomeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		8939A64729BA1B300092C967 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 		89058E4029B705B500A39615 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				890C47EF29BC43C400AD4375 /* TitleLabelView.swift */,
 				89058E4229B705E400A39615 /* Home */,
 			);
 			path = View;
@@ -126,8 +131,9 @@
 			children = (
 				89058E4929B7065400A39615 /* HomeView.swift */,
 				8939A64129BA15BD0092C967 /* HomeHeaderTableViewCell.swift */,
-				8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */,
 				8939A64F29BA367C0092C967 /* HomeHeaderView.swift */,
+				890C47ED29BC417900AD4375 /* HomeSectionHeaderView.swift */,
+				8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				890C47F029BC43C400AD4375 /* TitleLabelView.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
@@ -350,6 +357,7 @@
 				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
 				8939A64C29BA2C960092C967 /* UIImageView.swift in Sources */,
 				8939A64229BA15BD0092C967 /* HomeHeaderTableViewCell.swift in Sources */,
+				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,

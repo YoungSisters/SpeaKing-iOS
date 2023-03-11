@@ -9,15 +9,6 @@ import UIKit
 
 class HomeHeaderView: UIView {
     
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        
-        label.textColor = Color.Main
-        label.numberOfLines = 0
-
-        return label
-    }()
-    
     var newSpeakingButton = NewSpeakingButtonView()
     
     override init(frame: CGRect) {
@@ -26,7 +17,6 @@ class HomeHeaderView: UIView {
         backgroundColor = .clear
         
         layout()
-        setTitleLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -40,26 +30,21 @@ class HomeHeaderView: UIView {
 
 extension HomeHeaderView {
     func layout() {
-        addSubview(titleLabel)
+        let titleLabelView = TitleLabelView(title: "반가워요, 닉네임 님!", subtitle: "오늘도 SpeaKing과 함께 달려볼까요?")
         
-        titleLabel.snp.makeConstraints { make in
+        addSubview(titleLabelView)
+        
+        titleLabelView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
-            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(24)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide)
         }
         
         addSubview(newSpeakingButton)
         
         newSpeakingButton.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(32)
+            make.top.equalTo(titleLabelView.snp.bottom).offset(32)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(100)
         }
-    }
-    
-    func setTitleLabel() {
-        titleLabel.attributedText = NSMutableAttributedString()
-            .title(string: "반가워요, 닉네임 님!")
-            .subtitle(string: "오늘도 SpeaKing과 함께 달려볼까요?")
-        titleLabel.sizeToFit()
     }
 }

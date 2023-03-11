@@ -81,6 +81,6 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 200 : 150
+        return section == 0 ? 200 : 180
     }
 }

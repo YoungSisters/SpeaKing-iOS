@@ -12,13 +12,24 @@ class HomeSectionHeaderView: UIView {
     var titleLabelView = SPTitleView(title: "나의 SpeaKing", subtitle: nil)
     var searchTextField = SPTextField(placeholder: "나의 Speaking 검색")
     
-//    lazy var searchTextField: UIS
+    lazy var mySpeakingCountLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "0개의 SpeaKing"
+        label.font = .systemFont(ofSize: FontSize.subhead)
+        label.textColor = Color.Main
+        
+        return label
+    }()
     
+    var mySpeakingFilterButton = SPFilterButton(type: .system)
+    var mySpeakingOrderFilterButton = SPFilterButton(type: .system)
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        style()
         configureSearchTextField()
+        configureFilterButtons()
         layout()
     }
     
@@ -45,6 +56,11 @@ extension HomeSectionHeaderView {
         searchTextField.leftView = leftView
     }
     
+    func configureFilterButtons() {
+        mySpeakingFilterButton.setTitle("전체", for: .normal)
+        mySpeakingOrderFilterButton.setTitle("최신순", for: .normal)
+    }
+    
     func layout() {
         addSubview(titleLabelView)
         
@@ -58,6 +74,26 @@ extension HomeSectionHeaderView {
         searchTextField.snp.makeConstraints { make in
             make.top.equalTo(titleLabelView.snp.bottom).offset(16)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+        
+        addSubview(mySpeakingCountLabel)
+        
+        mySpeakingCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField.snp.bottom).offset(24)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(24)
+        }
+        
+        
+        let stackView = UIStackView(arrangedSubviews: [mySpeakingFilterButton, mySpeakingOrderFilterButton])
+        
+        stackView.spacing = 4
+        stackView.distribution = .fillEqually
+        
+        addSubview(stackView)
+
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(searchTextField.snp.bottom).offset(24)
+            make.trailing.equalTo(safeAreaLayoutGuide).inset(24)
         }
     }
 }

@@ -32,16 +32,17 @@ class HomeView: UIView {
     }
     
     func configureTableView() {
+        tableView.register(HomeSpeakingTableViewCell.self, forCellReuseIdentifier: HomeSpeakingTableViewCell.cellIdentifier)
+        tableView.separatorStyle = .none
+        
         addSubview(tableView)
         
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalTo(safeAreaLayoutGuide)
         }
     }
     
     func setTableViewDelegate() {
-        tableView.register(HomeHeaderTableViewCell.self, forCellReuseIdentifier: HomeHeaderTableViewCell.cellIdentifier)
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -59,13 +60,13 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: HomeHeaderTableViewCell.cellIdentifier) as! HomeHeaderTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeSpeakingTableViewCell.cellIdentifier) as! HomeSpeakingTableViewCell
         
-        return UITableViewCell()
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 100 + 16
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

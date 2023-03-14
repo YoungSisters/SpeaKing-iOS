@@ -6,14 +6,37 @@
 //
 
 import UIKit
+import SnapKit
 
 class CategoryView: UIView {
-
+    
+    private let categories = ["인터뷰 연습", "회화"]
+    
+    var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.backgroundColor = Color.White
+        tableView.layer.cornerRadius = 16
+        
+        return tableView
+    }()
+    
+    lazy var bottomButton: SPBottomButton = {
+        let button = SPBottomButton(type: .custom)
+        
+        button.setTitle("완료", for: .normal)
+        
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        configureTableView()
     }
     
     required init?(coder: NSCoder) {
@@ -26,12 +49,84 @@ class CategoryView: UIView {
 
 }
 
+// MARK: - Setup
 extension CategoryView {
     func style() {
-        backgroundColor = .orange
+        backgroundColor = Color.Background
+        titleView.backgroundColor = Color.Background
     }
     
     func layout() {
+        addSubview(bottomButton)
+
+        bottomButton.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(50)
+        }
+        
+        addSubview(tableView)
+        
+        tableView.snp.makeConstraints { make in
+            make.bottom.equalTo(bottomButton.snp.top).offset(-24)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+        
+        addSubview(titleView)
+        
+        titleView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).inset(16)
+            make.leading.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(tableView.snp.top).offset(-16)
+        }
         
     }
+    
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(CategoryNewTableViewCell.self, forCellReuseIdentifier: CategoryNewTableViewCell.cellIdentifier)
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.cellIdentifier)
+        
+        tableView.separatorColor = Color.Background
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        
+    }
+}
+
+// MARK: - UITableView
+extension CategoryView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CategoryNewTableViewCell.cellIdentifier, for: indexPath) as! CategoryNewTableViewCell
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.cellIdentifier, for: indexPath) as! CategoryTableViewCell
+            
+            cell.titleLabel.text = categories[indexPath.row - 1]
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            print("메롱")
+        } else {
+            let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+            cell.isSelected.toggle()
+            cell.setSelected(cell.isSelected, animated: true)
+        }
+    }
+    
 }

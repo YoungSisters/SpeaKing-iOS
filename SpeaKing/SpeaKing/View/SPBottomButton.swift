@@ -11,6 +11,7 @@ class SPBottomButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.addShadow()
         self.layer.cornerRadius = 16
         self.backgroundColor = Color.Purple
         self.titleLabel?.font = .boldSystemFont(ofSize: FontSize.body)

@@ -31,6 +31,8 @@
 		8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222629C03AAB00DB2F12 /* SPBottomButton.swift */; };
 		8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222929C043FF00DB2F12 /* SectionModel.swift */; };
 		8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */; };
+		89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5329C0C804003A669E /* CategoryTableViewCell.swift */; };
+		89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */; };
 		898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */; };
 		898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */; };
 		898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */; };
@@ -88,6 +90,8 @@
 		8948222629C03AAB00DB2F12 /* SPBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBottomButton.swift; sourceTree = "<group>"; };
 		8948222929C043FF00DB2F12 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingTitleTableViewCell.swift; sourceTree = "<group>"; };
+		89601C5329C0C804003A669E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategorySelectionView.swift; sourceTree = "<group>"; };
 		898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityTableViewCell.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				898CE58429C0935000724370 /* CategoryView.swift */,
+				89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */,
+				89601C5329C0C804003A669E /* CategoryTableViewCell.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -437,6 +443,7 @@
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
+				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
 				89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */,
 				890C47F829BC765900AD4375 /* SPFilterButton.swift in Sources */,
@@ -446,6 +453,7 @@
 				8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */,
 				890C47F229BC61BD00AD4375 /* SPTextField.swift in Sources */,
 				8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */,
+				89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */,
 				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
 				898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */,
 				8939A64C29BA2C960092C967 /* UIImageView.swift in Sources */,

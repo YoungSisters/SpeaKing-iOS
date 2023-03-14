@@ -1,5 +1,5 @@
 //
-//  NewSpeakingTitleTableViewCell.swift
+//  NewSpeakingCategoryTableViewCell.swift
 //  SpeaKing
 //
 //  Created by 이서영 on 2023/03/14.
@@ -8,15 +8,11 @@
 import UIKit
 import SnapKit
 
-class NewSpeakingTitleTableViewCell: UITableViewCell {
+class NewSpeakingCategoryTableViewCell: UITableViewCell {
     
-    static let cellIdentifier = "TitleCell"
+    static let cellIdentifier = "CategoryCell"
     
-    lazy var titleTextField: SPTextField = {
-        let textField = SPTextField(placeholder: "최대 20자까지 입력 가능해요.")
-        
-        return textField
-    }()
+    var categorySelectionView = NewSpeakingCategorySelectionView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,18 +33,24 @@ class NewSpeakingTitleTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
 }
 
-extension NewSpeakingTitleTableViewCell {
+extension NewSpeakingCategoryTableViewCell {
     func style() {
-        backgroundColor = .clear
-        selectionStyle = .none
+        self.backgroundColor = .clear
     }
     
     func layout() {
-        addSubview(titleTextField)
+        addSubview(categorySelectionView)
         
-        titleTextField.snp.makeConstraints { make in
+        categorySelectionView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(32)
         }

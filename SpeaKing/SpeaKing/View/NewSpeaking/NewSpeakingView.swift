@@ -78,6 +78,9 @@ extension NewSpeakingView {
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.sectionFooterHeight = 0
+        
+        tableView.register(NewSpeakingTitleTableViewCell.self, forCellReuseIdentifier: NewSpeakingTitleTableViewCell.cellIdentifier)
+        tableView.register(NewSpeakingCategoryTableViewCell.self, forCellReuseIdentifier: NewSpeakingCategoryTableViewCell.cellIdentifier)
     }
 }
 
@@ -88,12 +91,21 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = NewSpeakingTitleTableViewCell()
-        cell.contentView.isUserInteractionEnabled = false
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingTitleTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingTitleTableViewCell
+            
+            cell.contentView.isUserInteractionEnabled = false
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingCategoryTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingCategoryTableViewCell
+            
+            return cell
+        }
         
-        return cell
     }
     
+    // MARK: - Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

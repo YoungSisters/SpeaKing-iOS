@@ -31,6 +31,8 @@
 		8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222629C03AAB00DB2F12 /* SPBottomButton.swift */; };
 		8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222929C043FF00DB2F12 /* SectionModel.swift */; };
 		8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */; };
+		898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */; };
+		898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */; };
 		89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714D29B481290048DAA9 /* AppDelegate.swift */; };
 		89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714F29B481290048DAA9 /* SceneDelegate.swift */; };
 		89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* HomeViewController.swift */; };
@@ -82,6 +84,8 @@
 		8948222629C03AAB00DB2F12 /* SPBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBottomButton.swift; sourceTree = "<group>"; };
 		8948222929C043FF00DB2F12 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingTitleTableViewCell.swift; sourceTree = "<group>"; };
+		898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategorySelectionView.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E3714F29B481290048DAA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			children = (
 				8948222429C02DD300DB2F12 /* NewSpeakingView.swift */,
 				8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */,
+				898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */,
+				898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */,
 			);
 			path = NewSpeaking;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
+				898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */,
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
@@ -418,6 +425,7 @@
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				890C47F429BC68A500AD4375 /* UITextField.swift in Sources */,
+				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89479F3029BCE12500C5D1ED /* HomeSpeakingCellView.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,

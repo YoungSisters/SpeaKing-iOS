@@ -15,12 +15,26 @@ class NewSpeakingViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view = NewSpeakingView()
+        setupNewSpeakingView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setupNewSpeakingView() {
+        let newSpeakingView = NewSpeakingView()
+        newSpeakingView.delegate = self
+        view = newSpeakingView
+    }
+}
+
+extension NewSpeakingViewController: NewSpeakingViewDelegate {
+    func categorySelectionTapped() {
+        let categoryViewController = CategoryViewController()
+        
+        self.navigationController?.pushViewController(categoryViewController, animated: true)
     }
 }

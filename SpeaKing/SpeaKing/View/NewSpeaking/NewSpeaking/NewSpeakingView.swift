@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol NewSpeakingViewDelegate {
+    func categorySelectionTapped()
+}
+
 class NewSpeakingView: UIView {
     
     lazy var tableView: UITableView = {
@@ -27,6 +31,8 @@ class NewSpeakingView: UIView {
     }()
     
     private let section = [SectionModel(title: "SpeaKing 제목", subtitle: nil), SectionModel(title: "카테고리", subtitle: nil), SectionModel(title: "상황 선택", subtitle: "SpeaKing이 상황에 맞는 결과를 분석해드려요.")]
+    
+    var delegate: NewSpeakingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -116,7 +122,9 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 1 {
+            delegate?.categorySelectionTapped()
+        } else if indexPath.section == 2 {
             let cell = tableView.cellForRow(at: indexPath) as! NewSpeakingFormalityTableViewCell
             cell.isSelected.toggle()
             cell.setSelected(cell.isSelected, animated: false)

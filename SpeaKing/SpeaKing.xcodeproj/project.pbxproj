@@ -35,6 +35,8 @@
 		898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */; };
 		898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */; };
 		898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */; };
+		898CE58329C0933700724370 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58229C0933700724370 /* CategoryViewController.swift */; };
+		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
 		89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714D29B481290048DAA9 /* AppDelegate.swift */; };
 		89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714F29B481290048DAA9 /* SceneDelegate.swift */; };
 		89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* HomeViewController.swift */; };
@@ -90,6 +92,8 @@
 		898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategorySelectionView.swift; sourceTree = "<group>"; };
 		898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityView.swift; sourceTree = "<group>"; };
+		898CE58229C0933700724370 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E3714F29B481290048DAA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			children = (
 				89E3715129B481290048DAA9 /* HomeViewController.swift */,
 				8948222229C02DC400DB2F12 /* NewSpeakingViewController.swift */,
+				898CE58229C0933700724370 /* CategoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,12 +206,8 @@
 		8948222129C02DAC00DB2F12 /* NewSpeaking */ = {
 			isa = PBXGroup;
 			children = (
-				8948222429C02DD300DB2F12 /* NewSpeakingView.swift */,
-				8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */,
-				898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */,
-				898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */,
-				898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */,
-				898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */,
+				898CE58029C0931800724370 /* NewSpeaking */,
+				898CE58129C0932400724370 /* Category */,
 			);
 			path = NewSpeaking;
 			sourceTree = "<group>";
@@ -217,6 +218,27 @@
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		898CE58029C0931800724370 /* NewSpeaking */ = {
+			isa = PBXGroup;
+			children = (
+				8948222429C02DD300DB2F12 /* NewSpeakingView.swift */,
+				8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */,
+				898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */,
+				898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */,
+				898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */,
+				898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */,
+			);
+			path = NewSpeaking;
+			sourceTree = "<group>";
+		};
+		898CE58129C0932400724370 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				898CE58429C0935000724370 /* CategoryView.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		89E3714129B481290048DAA9 = {
@@ -413,6 +435,7 @@
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
 				898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */,
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
+				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
 				89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */,
@@ -429,6 +452,7 @@
 				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,
+				898CE58329C0933700724370 /* CategoryViewController.swift in Sources */,
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				890C47F429BC68A500AD4375 /* UITextField.swift in Sources */,

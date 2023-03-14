@@ -38,6 +38,13 @@ class NewSpeakingFormalityTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if selected {
+            self.formalityView.layer.borderWidth = 2
+            self.formalityView.layer.borderColor = Color.Purple?.cgColor
+        } else {
+            self.formalityView.layer.borderWidth = 0
+        }
+        
     }
 
 }
@@ -45,6 +52,7 @@ class NewSpeakingFormalityTableViewCell: UITableViewCell {
 extension NewSpeakingFormalityTableViewCell {
     func style() {
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     func layout() {

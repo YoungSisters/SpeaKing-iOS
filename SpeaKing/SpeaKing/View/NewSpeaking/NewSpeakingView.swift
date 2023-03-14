@@ -31,8 +31,6 @@ class NewSpeakingView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.dismissKeyboardWhenTappedAround()
-        
         style()
         layout()
         
@@ -75,6 +73,7 @@ extension NewSpeakingView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.allowsSelection = true
         
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.sectionFooterHeight = 0
@@ -114,6 +113,14 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 2 {
+            let cell = tableView.cellForRow(at: indexPath) as! NewSpeakingFormalityTableViewCell
+            cell.isSelected.toggle()
+            cell.setSelected(cell.isSelected, animated: false)
+        }
     }
     
     // MARK: - Sections

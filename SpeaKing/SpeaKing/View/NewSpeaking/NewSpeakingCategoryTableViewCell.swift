@@ -45,6 +45,7 @@ class NewSpeakingCategoryTableViewCell: UITableViewCell {
 extension NewSpeakingCategoryTableViewCell {
     func style() {
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     func layout() {

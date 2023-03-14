@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol HomeViewDelegate {
+    func pushNewSpeaking()
+}
+
 class HomeView: UIView {
     
     lazy var tableView: UITableView = {
@@ -26,6 +30,8 @@ class HomeView: UIView {
         configureTableView()
         setTableViewDelegate()
     }
+    
+    var delegate: HomeViewDelegate?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -53,6 +59,12 @@ class HomeView: UIView {
     
 }
 
+extension HomeView: NewSpeakingButtonDelegate {
+    func buttonTapped() {
+        delegate?.pushNewSpeaking()
+    }
+}
+
 // MARK: - UITableView
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +87,7 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = HomeHeaderView()
+        headerView.newSpeakingButton.delegate = self
         
         let sectionHeaderView = HomeSectionHeaderView()
         

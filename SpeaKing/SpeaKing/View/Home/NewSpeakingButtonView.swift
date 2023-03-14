@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewSpeakingButtonDelegate {
+    func buttonTapped()
+}
+
 class NewSpeakingButtonView: UIView {
     
     lazy var titleLabel: UILabel = {
@@ -33,11 +37,16 @@ class NewSpeakingButtonView: UIView {
         return imageView
     }()
     
+    var delegate: NewSpeakingButtonDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(buttonTapped))
+        self.addGestureRecognizer(tapGestureRecognizer)
     }
     
     required init?(coder: NSCoder) {
@@ -67,5 +76,9 @@ extension NewSpeakingButtonView {
             make.leading.equalToSuperview().offset(32)
             make.centerY.equalToSuperview()
         }
+    }
+    
+    @objc func buttonTapped() {
+        delegate?.buttonTapped()
     }
 }

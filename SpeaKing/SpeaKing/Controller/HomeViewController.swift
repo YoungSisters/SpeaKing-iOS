@@ -8,24 +8,28 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
-//    var homeView = HomeView(frame: UIScreen.main.bounds)
-    
     var contentView: HomeView {
         return view as! HomeView
     }
     
     override func loadView() {
         super.loadView()
-        view = HomeView()
+        setupHomeView()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        view.addSubview(homeView)
     }
-
-
+    
+    func setupHomeView() {
+        let homeView = HomeView()
+        homeView.delegate = self
+        view = homeView
+    }
 }
 
+extension HomeViewController: HomeViewDelegate {
+    func pushNewSpeaking() {
+        self.navigationController?.pushViewController(NewSpeakingViewController(), animated: true)
+    }
+}

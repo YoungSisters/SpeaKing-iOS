@@ -81,13 +81,14 @@ extension NewSpeakingView {
         
         tableView.register(NewSpeakingTitleTableViewCell.self, forCellReuseIdentifier: NewSpeakingTitleTableViewCell.cellIdentifier)
         tableView.register(NewSpeakingCategoryTableViewCell.self, forCellReuseIdentifier: NewSpeakingCategoryTableViewCell.cellIdentifier)
+        tableView.register(NewSpeakingFormalityTableViewCell.self, forCellReuseIdentifier: NewSpeakingFormalityTableViewCell.cellIdentifier)
     }
 }
 
 // MARK: - UITableView
 extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section != 2 ? 1 : 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,9 +98,19 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
             cell.contentView.isUserInteractionEnabled = false
             
             return cell
-        } else {
+        } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingCategoryTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingCategoryTableViewCell
             
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingFormalityTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingFormalityTableViewCell
+            
+            let cellText = [["💼", "Formality", "학업, 비즈니스, 시험 등을 위한 말하기예요."], ["🎮", "Informal", "일상적인 말하기예요."]]
+            
+            cell.formalityView.iconLabel.text = cellText[indexPath.row][0]
+            cell.formalityView.titleLabel.text = cellText[indexPath.row][1]
+            cell.formalityView.descriptionLabel.text = cellText[indexPath.row][2]
+
             return cell
         }
         

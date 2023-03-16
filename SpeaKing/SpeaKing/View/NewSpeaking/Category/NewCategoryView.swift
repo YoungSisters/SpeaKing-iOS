@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewCategoryViewDelegate {
+    func dismissNewCategoryView()
+}
+
 class NewCategoryView: UIView {
     
     var titleLabel = SPTitleView(title: "카테고리 이름", subtitle: nil)
@@ -20,11 +24,15 @@ class NewCategoryView: UIView {
         return button
     }()
     
+    var delegate: NewCategoryViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -63,5 +71,9 @@ extension NewCategoryView {
             make.top.equalTo(titleLabel.snp.bottom).offset(16)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
+    }
+    
+    @objc func doneButtonTapped() {
+        delegate?.dismissNewCategoryView()
     }
 }

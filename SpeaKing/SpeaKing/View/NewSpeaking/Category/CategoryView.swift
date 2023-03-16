@@ -8,9 +8,15 @@
 import UIKit
 import SnapKit
 
+protocol CategoryViewDelegate {
+    func newCategoryTapped()
+}
+
 class CategoryView: UIView {
     
     private let categories = ["인터뷰 연습", "회화"]
+    
+    var delegate: CategoryViewDelegate?
     
     var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
     
@@ -100,8 +106,6 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
-        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryNewTableViewCell.cellIdentifier, for: indexPath) as! CategoryNewTableViewCell
             
@@ -121,7 +125,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            print("메롱")
+            delegate?.newCategoryTapped()
         } else {
             let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
             cell.isSelected.toggle()

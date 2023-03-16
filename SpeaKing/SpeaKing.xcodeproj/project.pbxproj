@@ -47,6 +47,8 @@
 		89E3716529B4812A0048DAA9 /* SpeaKingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3716429B4812A0048DAA9 /* SpeaKingTests.swift */; };
 		89E3716F29B4812A0048DAA9 /* SpeaKingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3716E29B4812A0048DAA9 /* SpeaKingUITests.swift */; };
 		89E3717129B4812A0048DAA9 /* SpeaKingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3717029B4812A0048DAA9 /* SpeaKingUITestsLaunchTests.swift */; };
+		89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */; };
+		89F52DCF29C2FF42000A5EB4 /* NewCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F52DCE29C2FF42000A5EB4 /* NewCategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		89E3716A29B4812A0048DAA9 /* SpeaKingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeaKingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3716E29B4812A0048DAA9 /* SpeaKingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeaKingUITests.swift; sourceTree = "<group>"; };
 		89E3717029B4812A0048DAA9 /* SpeaKingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeaKingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryViewController.swift; sourceTree = "<group>"; };
+		89F52DCE29C2FF42000A5EB4 /* NewCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 				89E3715129B481290048DAA9 /* HomeViewController.swift */,
 				8948222229C02DC400DB2F12 /* NewSpeakingViewController.swift */,
 				898CE58229C0933700724370 /* CategoryViewController.swift */,
+				89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				898CE58429C0935000724370 /* CategoryView.swift */,
 				89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */,
 				89601C5329C0C804003A669E /* CategoryTableViewCell.swift */,
+				89F52DCE29C2FF42000A5EB4 /* NewCategoryView.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -467,8 +473,10 @@
 				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89479F3029BCE12500C5D1ED /* HomeSpeakingCellView.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
+				89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,
 				898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */,
+				89F52DCF29C2FF42000A5EB4 /* NewCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

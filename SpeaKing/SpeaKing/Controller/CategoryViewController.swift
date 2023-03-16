@@ -15,7 +15,8 @@ class CategoryViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view = CategoryView()
+        setupCategoryView()
+        
     }
 
     override func viewDidLoad() {
@@ -24,15 +25,26 @@ class CategoryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupCategoryView() {
+        let categoryView = CategoryView()
+        categoryView.delegate = self
+        view = categoryView
     }
-    */
+}
 
+extension CategoryViewController: CategoryViewDelegate {
+    func newCategoryTapped() {
+        let newCategoryViewController = NewCategoryViewController()
+        let navigationController = UINavigationController(rootViewController: newCategoryViewController)
+        if #available(iOS 15.0, *) {
+            if let sheet = navigationController.sheetPresentationController {
+                if #available(iOS 16.0, *) {
+                    sheet.detents = [.custom { _ in 285 } ]
+                } else {
+                    sheet.detents = [.medium()]
+                }
+            }
+        }
+        self.present(navigationController, animated: true)
+    }
 }

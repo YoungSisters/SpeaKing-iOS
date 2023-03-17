@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol RecordingViewDelegate {
+    func stopRecording()
+    func pauseRecording()
+    func playRecording()
+    func finishRecording()
+}
+
 class RecordingView: UIView {
     
     var micView = RecordingMicView()
@@ -63,6 +70,9 @@ class RecordingView: UIView {
         
         return button
     }()
+    
+    var isPaused = false
+    var delegate: RecordingViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -142,5 +152,35 @@ extension RecordingView {
         stopButton.layer.cornerRadius = 50 / 2
         pauseButton.layer.cornerRadius = 60 / 2
         doneButton.layer.cornerRadius = 50 / 2
+        
+        stopButton.addTarget(self, action: #selector(stopButtonTapped), for: .touchUpInside)
+        pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+    }
+    
+    func setPauseButtonImage() {
+        pauseButton.setImage(UIImage(systemName: isPaused ? "play.fill" : "pause.fill"), for: .normal)
+    }
+}
+
+// MARK: - Button Event
+extension RecordingView {
+    @objc func stopButtonTapped() {
+        delegate?.stopRecording()
+    }
+    
+    @objc func pauseButtonTapped() {
+        isPaused.toggle()
+        setPauseButtonImage()
+        
+        if isPaused {
+            delegate?.pauseRecording()
+        } else {
+            delegate?.playRecording()
+        }
+    }
+    
+    @objc func doneButtonTapped() {
+        delegate?.finishRecording()
     }
 }

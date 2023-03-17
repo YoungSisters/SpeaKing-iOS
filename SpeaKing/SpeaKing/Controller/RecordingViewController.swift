@@ -26,8 +26,26 @@ class RecordingViewController: UIViewController {
     
     func setupRecordingView() {
         let recordingView = RecordingView()
-//        recordingView.delegate = self
+        recordingView.delegate = self
         
         view = recordingView
+    }
+}
+
+extension RecordingViewController: RecordingViewDelegate {
+    func stopRecording() {
+        print("stop")
+    }
+    
+    func pauseRecording() {
+        print("pause")
+    }
+    
+    func playRecording() {
+        print("play")
+    }
+    
+    func finishRecording() {
+        print("finish")
     }
 }

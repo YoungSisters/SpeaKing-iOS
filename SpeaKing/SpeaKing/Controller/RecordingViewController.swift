@@ -46,6 +46,9 @@ extension RecordingViewController: RecordingViewDelegate {
     }
     
     func finishRecording() {
-        print("finish")
+        let loadingViewController = STTLoadingViewController()
+        loadingViewController.modalPresentationStyle = .fullScreen
+        
+        self.present(loadingViewController, animated: true)
     }
 }

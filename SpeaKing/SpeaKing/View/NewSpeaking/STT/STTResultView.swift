@@ -13,6 +13,8 @@ class STTResultView: UIView {
     
     var textView = SPResultTextView()
     
+    var playerView = STTPlayerView()
+    
     lazy var nextButton: SPBottomButton = {
         let button = SPBottomButton(type: .custom)
         
@@ -66,6 +68,14 @@ extension STTResultView {
         nextButton.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(50)
+        }
+        
+        addSubview(playerView)
+        
+        playerView.snp.makeConstraints { make in
+            make.top.equalTo(textView.snp.bottom).offset(32)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+            make.bottom.equalTo(nextButton.snp.top).offset(-32)
         }
     }
 }

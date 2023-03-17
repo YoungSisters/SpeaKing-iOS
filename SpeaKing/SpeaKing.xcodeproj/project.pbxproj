@@ -55,6 +55,9 @@
 		89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */; };
 		89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */; };
 		89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD429C440630017BAD8 /* SPLoadingView.swift */; };
+		89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */; };
+		89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD829C447CB0017BAD8 /* STTResultView.swift */; };
+		89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +129,9 @@
 		89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTLoadingView.swift; sourceTree = "<group>"; };
 		89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTLoadingViewController.swift; sourceTree = "<group>"; };
 		89F9BFD429C440630017BAD8 /* SPLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLoadingView.swift; sourceTree = "<group>"; };
+		89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultViewController.swift; sourceTree = "<group>"; };
+		89F9BFD829C447CB0017BAD8 /* STTResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultView.swift; sourceTree = "<group>"; };
+		89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPResultTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +178,7 @@
 				890C47F729BC765900AD4375 /* SPFilterButton.swift */,
 				8948222629C03AAB00DB2F12 /* SPBottomButton.swift */,
 				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
+				89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */,
 				89058E4229B705E400A39615 /* Home */,
 				8948222129C02DAC00DB2F12 /* NewSpeaking */,
 			);
@@ -187,6 +194,7 @@
 				89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */,
 				89F9BFC929C436230017BAD8 /* RecordingViewController.swift */,
 				89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */,
+				89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -233,7 +241,7 @@
 				898CE58029C0931800724370 /* NewSpeaking */,
 				898CE58129C0932400724370 /* Category */,
 				89F9BFC829C4313A0017BAD8 /* Recording */,
-				89F9BFCF29C43FE40017BAD8 /* STTLoading */,
+				89F9BFCF29C43FE40017BAD8 /* STT */,
 			);
 			path = NewSpeaking;
 			sourceTree = "<group>";
@@ -331,12 +339,13 @@
 			path = Recording;
 			sourceTree = "<group>";
 		};
-		89F9BFCF29C43FE40017BAD8 /* STTLoading */ = {
+		89F9BFCF29C43FE40017BAD8 /* STT */ = {
 			isa = PBXGroup;
 			children = (
 				89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */,
+				89F9BFD829C447CB0017BAD8 /* STTResultView.swift */,
 			);
-			path = STTLoading;
+			path = STT;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +486,7 @@
 			files = (
 				890C47F029BC43C400AD4375 /* SPTitleView.swift in Sources */,
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
+				89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */,
 				89F9BFCE29C437020017BAD8 /* RecordingMicView.swift in Sources */,
 				89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
@@ -515,8 +525,10 @@
 				89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,
 				898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */,
+				89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */,
 				89F9BFCA29C436230017BAD8 /* RecordingViewController.swift in Sources */,
 				89F52DCF29C2FF42000A5EB4 /* NewCategoryView.swift in Sources */,
+				89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

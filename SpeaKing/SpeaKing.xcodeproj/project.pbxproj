@@ -52,6 +52,9 @@
 		89F9BFCA29C436230017BAD8 /* RecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFC929C436230017BAD8 /* RecordingViewController.swift */; };
 		89F9BFCC29C4362F0017BAD8 /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFCB29C4362F0017BAD8 /* RecordingView.swift */; };
 		89F9BFCE29C437020017BAD8 /* RecordingMicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFCD29C437020017BAD8 /* RecordingMicView.swift */; };
+		89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */; };
+		89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */; };
+		89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD429C440630017BAD8 /* SPLoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		89F9BFC929C436230017BAD8 /* RecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingViewController.swift; sourceTree = "<group>"; };
 		89F9BFCB29C4362F0017BAD8 /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		89F9BFCD29C437020017BAD8 /* RecordingMicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingMicView.swift; sourceTree = "<group>"; };
+		89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTLoadingView.swift; sourceTree = "<group>"; };
+		89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTLoadingViewController.swift; sourceTree = "<group>"; };
+		89F9BFD429C440630017BAD8 /* SPLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				890C47F129BC61BD00AD4375 /* SPTextField.swift */,
 				890C47F729BC765900AD4375 /* SPFilterButton.swift */,
 				8948222629C03AAB00DB2F12 /* SPBottomButton.swift */,
+				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
 				89058E4229B705E400A39615 /* Home */,
 				8948222129C02DAC00DB2F12 /* NewSpeaking */,
 			);
@@ -179,6 +186,7 @@
 				898CE58229C0933700724370 /* CategoryViewController.swift */,
 				89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */,
 				89F9BFC929C436230017BAD8 /* RecordingViewController.swift */,
+				89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +233,7 @@
 				898CE58029C0931800724370 /* NewSpeaking */,
 				898CE58129C0932400724370 /* Category */,
 				89F9BFC829C4313A0017BAD8 /* Recording */,
+				89F9BFCF29C43FE40017BAD8 /* STTLoading */,
 			);
 			path = NewSpeaking;
 			sourceTree = "<group>";
@@ -320,6 +329,14 @@
 				89F9BFCD29C437020017BAD8 /* RecordingMicView.swift */,
 			);
 			path = Recording;
+			sourceTree = "<group>";
+		};
+		89F9BFCF29C43FE40017BAD8 /* STTLoading */ = {
+			isa = PBXGroup;
+			children = (
+				89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */,
+			);
+			path = STTLoading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,7 +478,9 @@
 				890C47F029BC43C400AD4375 /* SPTitleView.swift in Sources */,
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
 				89F9BFCE29C437020017BAD8 /* RecordingMicView.swift in Sources */,
+				89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
+				89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */,
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
 				89F9BFCC29C4362F0017BAD8 /* RecordingView.swift in Sources */,
 				898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */,
@@ -482,6 +501,7 @@
 				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
 				898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */,
 				8939A64C29BA2C960092C967 /* UIImageView.swift in Sources */,
+				89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */,
 				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,

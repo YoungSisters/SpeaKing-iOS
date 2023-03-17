@@ -131,14 +131,14 @@ extension STTPlayerView {
         addSubview(currentTimeLabel)
         
         currentTimeLabel.snp.makeConstraints { make in
-            make.top.equalTo(slider.snp.bottom).offset(8)
+            make.top.equalTo(slider.snp.bottom).offset(4)
             make.leading.equalTo(slider.snp.leading)
         }
         
         addSubview(totalTimeLabel)
         
         totalTimeLabel.snp.makeConstraints { make in
-            make.top.equalTo(slider.snp.bottom).offset(8)
+            make.top.equalTo(slider.snp.bottom).offset(4)
             make.trailing.equalTo(slider.snp.trailing)
         }
         let stackView = UIStackView(arrangedSubviews: [backwardButton, pauseButton, forwardButton])

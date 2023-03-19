@@ -13,7 +13,21 @@ class STTResultView: UIView {
     
     var textView = SPResultTextView()
     
-    var playerView = STTPlayerView()
+    var playerView = SPPlayerView()
+    
+    lazy var playerBackgroundView: UIView = {
+        let view = UIView()
+        view.addShadow()
+        view.layer.cornerRadius = 16
+        view.backgroundColor = Color.White
+        
+        view.addSubview(playerView)
+        playerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        return view
+    }()
     
     lazy var nextButton: SPBottomButton = {
         let button = SPBottomButton(type: .custom)
@@ -60,7 +74,7 @@ extension STTResultView {
         textView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(16)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
-            make.height.equalTo(330)
+            make.height.lessThanOrEqualTo(330)
         }
         
         addSubview(nextButton)
@@ -70,9 +84,9 @@ extension STTResultView {
             make.height.equalTo(50)
         }
         
-        addSubview(playerView)
+        addSubview(playerBackgroundView)
         
-        playerView.snp.makeConstraints { make in
+        playerBackgroundView.snp.makeConstraints { make in
             make.top.equalTo(textView.snp.bottom).offset(32)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.bottom.equalTo(nextButton.snp.top).offset(-32)

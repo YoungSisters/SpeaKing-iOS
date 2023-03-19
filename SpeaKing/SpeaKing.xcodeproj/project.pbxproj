@@ -33,13 +33,15 @@
 		8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */; };
 		89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5329C0C804003A669E /* CategoryTableViewCell.swift */; };
 		89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */; };
+		898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49629C6BC6400411364 /* SpeakingResultView.swift */; };
+		898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */; };
 		898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */; };
 		898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */; };
 		898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */; };
 		898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */; };
 		898CE58329C0933700724370 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58229C0933700724370 /* CategoryViewController.swift */; };
 		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
-		89A179B529C4A22E002BCF6C /* STTPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B429C4A22E002BCF6C /* STTPlayerView.swift */; };
+		89A179B529C4A22E002BCF6C /* SPPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B429C4A22E002BCF6C /* SPPlayerView.swift */; };
 		89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B729C4B346002BCF6C /* SpeakingResultLoadingView.swift */; };
 		89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */; };
 		89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */; };
@@ -108,13 +110,15 @@
 		8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingTitleTableViewCell.swift; sourceTree = "<group>"; };
 		89601C5329C0C804003A669E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewTableViewCell.swift; sourceTree = "<group>"; };
+		898AA49629C6BC6400411364 /* SpeakingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultView.swift; sourceTree = "<group>"; };
+		898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultViewController.swift; sourceTree = "<group>"; };
 		898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategorySelectionView.swift; sourceTree = "<group>"; };
 		898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityView.swift; sourceTree = "<group>"; };
 		898CE58229C0933700724370 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		89A179B429C4A22E002BCF6C /* STTPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTPlayerView.swift; sourceTree = "<group>"; };
+		89A179B429C4A22E002BCF6C /* SPPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPPlayerView.swift; sourceTree = "<group>"; };
 		89A179B729C4B346002BCF6C /* SpeakingResultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingView.swift; sourceTree = "<group>"; };
 		89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingViewController.swift; sourceTree = "<group>"; };
 		89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingDoneViewController.swift; sourceTree = "<group>"; };
@@ -189,8 +193,10 @@
 				8948222629C03AAB00DB2F12 /* SPBottomButton.swift */,
 				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
 				89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */,
+				89A179B429C4A22E002BCF6C /* SPPlayerView.swift */,
 				89058E4229B705E400A39615 /* Home */,
 				8948222129C02DAC00DB2F12 /* NewSpeaking */,
+				897F6A2F29C5FFB8000B8E33 /* SpeakingResult */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,14 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				89E3715129B481290048DAA9 /* HomeViewController.swift */,
-				8948222229C02DC400DB2F12 /* NewSpeakingViewController.swift */,
-				898CE58229C0933700724370 /* CategoryViewController.swift */,
-				89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */,
-				89F9BFC929C436230017BAD8 /* RecordingViewController.swift */,
-				89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */,
-				89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */,
-				89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */,
-				89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */,
+				898AA49529C6BC2300411364 /* NewSpeaking */,
+				898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,6 +265,29 @@
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		897F6A2F29C5FFB8000B8E33 /* SpeakingResult */ = {
+			isa = PBXGroup;
+			children = (
+				898AA49629C6BC6400411364 /* SpeakingResultView.swift */,
+			);
+			path = SpeakingResult;
+			sourceTree = "<group>";
+		};
+		898AA49529C6BC2300411364 /* NewSpeaking */ = {
+			isa = PBXGroup;
+			children = (
+				8948222229C02DC400DB2F12 /* NewSpeakingViewController.swift */,
+				898CE58229C0933700724370 /* CategoryViewController.swift */,
+				89F52DCC29C2FF38000A5EB4 /* NewCategoryViewController.swift */,
+				89F9BFC929C436230017BAD8 /* RecordingViewController.swift */,
+				89F9BFD229C440050017BAD8 /* STTLoadingViewController.swift */,
+				89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */,
+				89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */,
+				89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */,
+			);
+			path = NewSpeaking;
 			sourceTree = "<group>";
 		};
 		898CE58029C0931800724370 /* NewSpeaking */ = {
@@ -365,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				89F9BFD029C43FFB0017BAD8 /* STTLoadingView.swift */,
-				89A179B429C4A22E002BCF6C /* STTPlayerView.swift */,
 				89F9BFD829C447CB0017BAD8 /* STTResultView.swift */,
 			);
 			path = STT;
@@ -531,6 +553,7 @@
 				8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */,
 				890C47F229BC61BD00AD4375 /* SPTextField.swift in Sources */,
 				8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */,
+				898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */,
 				89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */,
 				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
 				898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */,
@@ -547,10 +570,11 @@
 				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */,
 				89479F3029BCE12500C5D1ED /* HomeSpeakingCellView.swift in Sources */,
-				89A179B529C4A22E002BCF6C /* STTPlayerView.swift in Sources */,
+				89A179B529C4A22E002BCF6C /* SPPlayerView.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
 				89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,
+				898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */,
 				898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */,
 				89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */,
 				89F9BFCA29C436230017BAD8 /* RecordingViewController.swift in Sources */,

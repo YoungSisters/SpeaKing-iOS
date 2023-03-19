@@ -7,7 +7,7 @@
 
 import UIKit
 
-class STTPlayerView: UIView {
+class SPPlayerView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -78,7 +78,6 @@ class STTPlayerView: UIView {
         super.init(frame: frame)
         
         configureButtons()
-        style()
         layout()
     }
     
@@ -92,7 +91,7 @@ class STTPlayerView: UIView {
 
 }
 
-extension STTPlayerView {
+extension SPPlayerView {
     func configureButtons() {
         backwardButton.snp.makeConstraints { make in
             make.size.equalTo(24)
@@ -105,12 +104,6 @@ extension STTPlayerView {
         pauseButton.snp.makeConstraints { make in
             make.size.equalTo(50)
         }
-    }
-    
-    func style() {
-        self.backgroundColor = Color.White
-        self.layer.cornerRadius = 16
-        self.addShadow()
     }
     
     func layout() {
@@ -149,6 +142,7 @@ extension STTPlayerView {
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
+            make.top.equalTo(totalTimeLabel.snp.bottom).offset(16)
             make.bottom.equalToSuperview().inset(24)
             make.centerX.equalToSuperview()
         }

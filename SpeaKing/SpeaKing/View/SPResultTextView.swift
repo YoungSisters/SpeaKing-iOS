@@ -53,3 +53,9 @@ extension SPResultTextView {
         }
     }
 }
+
+extension SPResultTextView {
+    func setTextViewText(text: String) {
+        self.textView.text = text
+    }
+}

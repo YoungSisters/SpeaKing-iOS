@@ -58,7 +58,7 @@ extension STTResultView {
     func style() {
         self.backgroundColor = Color.Background
         self.dismissKeyboardWhenTappedAround()
-        textView.textView.text = "Well I can remember as a small child probably between the age of three and seven going to Asheville and visit my grandmother uh umm and uh my grandfather but he died when I was fairly young so I mostly remember visiting my grandmother. She lived in a small house at Asheville. The uh the small  neighborhood I remember she lived in was very uh quiet mostly older people and uh we used to go around the small neighborhood and visit lot of her old friends. "
+        textView.setTextViewText(text: "Well I can remember as a small child probably between the age of three and seven going to Asheville and visit my grandmother uh umm and uh my grandfather but he died when I was fairly young so I mostly remember visiting my grandmother. She lived in a small house at Asheville. The uh the small  neighborhood I remember she lived in was very uh quiet mostly older people and uh we used to go around the small neighborhood and visit lot of her old friends. ")
     }
     
     func layout() {
@@ -74,7 +74,6 @@ extension STTResultView {
         textView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(16)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
-            make.height.lessThanOrEqualTo(330)
         }
         
         addSubview(nextButton)

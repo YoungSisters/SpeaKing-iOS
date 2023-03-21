@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */; };
 		89058E3E29B7046500A39615 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89058E3D29B7046500A39615 /* SnapKit */; };
 		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
 		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
@@ -35,6 +36,9 @@
 		89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */; };
 		898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49629C6BC6400411364 /* SpeakingResultView.swift */; };
 		898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */; };
+		898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */; };
+		898AA49E29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */; };
+		898AA4A029C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */; };
 		898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */; };
 		898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */; };
 		898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */; };
@@ -85,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultCollectionReusableView.swift; sourceTree = "<group>"; };
 		89058E4529B7060D00A39615 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89058E4929B7065400A39615 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89058E4B29B70AAD00A39615 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -112,6 +117,9 @@
 		89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewTableViewCell.swift; sourceTree = "<group>"; };
 		898AA49629C6BC6400411364 /* SpeakingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultView.swift; sourceTree = "<group>"; };
 		898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultViewController.swift; sourceTree = "<group>"; };
+		898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronunciationScoreCollectionViewCell.swift; sourceTree = "<group>"; };
+		898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingSpeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		898CE57A29C0812A00724370 /* NewSpeakingCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategorySelectionView.swift; sourceTree = "<group>"; };
 		898CE57C29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityTableViewCell.swift; sourceTree = "<group>"; };
@@ -270,6 +278,7 @@
 		897F6A2F29C5FFB8000B8E33 /* SpeakingResult */ = {
 			isa = PBXGroup;
 			children = (
+				898AA49A29C6D57200411364 /* Cell */,
 				898AA49629C6BC6400411364 /* SpeakingResultView.swift */,
 			);
 			path = SpeakingResult;
@@ -288,6 +297,17 @@
 				89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */,
 			);
 			path = NewSpeaking;
+			sourceTree = "<group>";
+		};
+		898AA49A29C6D57200411364 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */,
+				898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */,
+				898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */,
+				89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		898CE58029C0931800724370 /* NewSpeaking */ = {
@@ -529,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */,
 				890C47F029BC43C400AD4375 /* SPTitleView.swift in Sources */,
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
 				89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */,
@@ -544,7 +565,9 @@
 				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
+				898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
+				898AA4A029C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift in Sources */,
 				89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */,
 				890C47F829BC765900AD4375 /* SPFilterButton.swift in Sources */,
 				89479F2E29BCE08900C5D1ED /* HomeSpeakingTableViewCell.swift in Sources */,
@@ -581,6 +604,7 @@
 				89F52DCF29C2FF42000A5EB4 /* NewCategoryView.swift in Sources */,
 				89A179BE29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift in Sources */,
 				89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */,
+				898AA49E29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,7 +779,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,7 +806,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

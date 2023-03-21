@@ -82,19 +82,18 @@ extension SpeakingResultView {
     }
     
     func layout() {
-        addSubview(playerBackgroundView)
-        
-        playerBackgroundView.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(safeAreaLayoutGuide)
-            make.bottom.equalToSuperview()
-        }
-        
         addSubview(collectionView)
         
         collectionView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
-//            make..equalTo(safeAreaLayoutGuide).inset(16)
-            make.bottom.equalTo(playerBackgroundView.snp.top)
+        }
+        
+        addSubview(playerBackgroundView)
+        
+        playerBackgroundView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom)
+            make.leading.trailing.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
         }
     }
 }
@@ -155,15 +154,13 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .textView:
             return CGSize(width: width, height: 330)
         case .pronunciationScore:
-            return CGSize(width: width, height: 150)
+            return CGSize(width: width, height: 125)
         case .speed:
-            return CGSize(width: width, height: 150)
-//        case .vocabulary:
-//            <#code#>
-//        case .formality:
-//            <#code#>
-        default:
-            return CGSize(width: width, height: 330)
+            return CGSize(width: width, height: 145)
+        case .vocabulary:
+            return CGSize(width: width, height: 200)
+        case .formality:
+            return CGSize(width: width, height: 190)
         }
     }
     

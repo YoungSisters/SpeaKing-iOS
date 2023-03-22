@@ -6,15 +6,92 @@
 //
 
 import UIKit
+import Charts
 
 class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "SpeakingSpeedCell"
+    
+    private let values = [180.0, 150.0]
+    private let nameData = ["기준", "User"]
+    
+    var barChartView = HorizontalBarChartView()
+    
+    lazy var commentLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "코멘트"
+        label.font = .systemFont(ofSize: FontSize.subhead)
+        label.textAlignment = .center
+        label.textColor = Color.Main
+        
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+
+        configureChart()
+        setChart(dataPoints: nameData, values: values)
+    }
+    
+    func setChart(dataPoints: [String], values: [Double]) {
+        
+        // 데이터 생성
+        var dataEntries: [BarChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "판매량")
+        
+        // 차트 컬러
+        chartDataSet.colors = [Color.Gray!, Color.Purple!]
+        
+        // 데이터 삽입
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        // bar 위에 뜨는 값 폰트 설정
+        chartData.setValueFont(.systemFont(ofSize: FontSize.caption))
+        chartData.setValueTextColor(Color.Main!)
+
+        barChartView.data = chartData
+        
+        // 데이터 value 소수점 자릿수 없애기
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        chartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        
+        // 선택 안되게
+        chartDataSet.highlightEnabled = false
+        // 줌 안되게
+        barChartView.doubleTapToZoomEnabled = false
+        // 범례 숨기기
+        barChartView.legend.enabled = false
+        barChartView.isUserInteractionEnabled = false
+
+        // X축 레이블 위치 조정
+        barChartView.xAxis.labelPosition = .bottom
+        // X축 레이블 포맷 지정
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: nameData)
+        
+        // 세로 grid 없애기
+        barChartView.xAxis.drawGridLinesEnabled = false
+        
+        // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
+        barChartView.xAxis.setLabelCount(nameData.count, force: false)
+        
+        // 왼쪽, 오른쪽 레이블 제거
+        barChartView.rightAxis.enabled = false
+        barChartView.leftAxis.enabled = false
+        
+        // 맥시멈
+        barChartView.leftAxis.axisMaximum = 200
+        // 미니멈
+        barChartView.leftAxis.axisMinimum = 0
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +111,21 @@ extension SpeakingSpeedCollectionViewCell {
     }
     
     func layout() {
+        let stackView = UIStackView(arrangedSubviews: [barChartView, commentLabel])
+        stackView.axis = .vertical
+        stackView.spacing = 16
         
+        addSubview(stackView)
+
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.top.bottom.equalToSuperview().inset(24)
+        }
+    }
+    
+    func configureChart() {
+        barChartView.noDataText = "데이터가 없습니다."
+        barChartView.noDataFont = .systemFont(ofSize: FontSize.body)
+        barChartView.noDataTextColor = Color.Main!
     }
 }

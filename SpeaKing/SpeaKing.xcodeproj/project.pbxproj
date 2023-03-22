@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */; };
+		89038A6E29C98E8400238B75 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 89038A6D29C98E8400238B75 /* Charts */; };
 		89058E3E29B7046500A39615 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89058E3D29B7046500A39615 /* SnapKit */; };
 		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
 		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
@@ -162,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89058E3E29B7046500A39615 /* SnapKit in Frameworks */,
+				89038A6E29C98E8400238B75 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +433,7 @@
 			name = SpeaKing;
 			packageProductDependencies = (
 				89058E3D29B7046500A39615 /* SnapKit */,
+				89038A6D29C98E8400238B75 /* Charts */,
 			);
 			productName = SpeaKing;
 			productReference = 89E3714A29B481290048DAA9 /* SpeaKing.app */;
@@ -506,6 +509,7 @@
 			mainGroup = 89E3714129B481290048DAA9;
 			packageReferences = (
 				89058E3C29B7046500A39615 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				89038A6C29C98E8400238B75 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 89E3714B29B481290048DAA9 /* Products */;
 			projectDirPath = "";
@@ -938,6 +942,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		89038A6C29C98E8400238B75 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 		89058E3C29B7046500A39615 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -949,6 +961,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		89038A6D29C98E8400238B75 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89038A6C29C98E8400238B75 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
 		89058E3D29B7046500A39615 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 89058E3C29B7046500A39615 /* XCRemoteSwiftPackageReference "SnapKit" */;

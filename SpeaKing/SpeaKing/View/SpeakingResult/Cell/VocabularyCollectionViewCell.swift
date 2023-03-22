@@ -1,31 +1,20 @@
 //
-//  SpeakingSpeedCollectionViewCell.swift
+//  VocabularyCollectionViewCell.swift
 //  SpeaKing
 //
-//  Created by 이서영 on 2023/03/19.
+//  Created by 이서영 on 2023/03/23.
 //
 
 import UIKit
 import Charts
 
-class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
-    static let cellIdentifier = "SpeakingSpeedCell"
+class VocabularyCollectionViewCell: UICollectionViewCell {
+    static let cellIdentifier = "VocabularyCell"
     
-    private let values = [180.0, 150.0]
-    private let nameData = ["기준", "User"]
+    private let values: [Double] = [8, 6, 3, 8, 6, 3]
+    private let nameData = ["기준", "User", "으앙", "기준", "User", "으앙"]
     
-    var barChartView = HorizontalBarChartView()
-    
-    lazy var commentLabel: UILabel = {
-        let label = UILabel()
-        
-        label.text = "코멘트"
-        label.font = .systemFont(ofSize: FontSize.subhead)
-        label.textAlignment = .center
-        label.textColor = Color.Main
-        
-        return label
-    }()
+    var chartView = BarChartView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,7 +38,7 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "판매량")
         
         // 차트 컬러
-        chartDataSet.colors = [Color.Gray!, Color.Purple!]
+        chartDataSet.colors = [Color.Purple!]
         
         // 데이터 삽입
         let chartData = BarChartData(dataSet: chartDataSet)
@@ -58,9 +47,9 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         chartData.setValueFont(.systemFont(ofSize: FontSize.caption))
         chartData.setValueTextColor(Color.Main!)
         // bar 너비 조절
-        chartData.barWidth = 0.7
+        chartData.barWidth = 0.3
 
-        barChartView.data = chartData
+        chartView.data = chartData
         
         // 데이터 value 소수점 자릿수 없애기
         let formatter = NumberFormatter()
@@ -70,34 +59,34 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         // 선택 안되게
         chartDataSet.highlightEnabled = false
         // 줌 안되게
-        barChartView.doubleTapToZoomEnabled = false
+        chartView.doubleTapToZoomEnabled = false
         // 범례 숨기기
-        barChartView.legend.enabled = false
-        barChartView.isUserInteractionEnabled = false
+        chartView.legend.enabled = false
+        chartView.isUserInteractionEnabled = false
 
         // X축 레이블 위치 조정
-        barChartView.xAxis.labelPosition = .bottom
+        chartView.xAxis.labelPosition = .bottom
         // X축 레이블 포맷 지정
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: nameData)
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: nameData)
         // X축 라벨 폰트 설정
-        barChartView.xAxis.labelTextColor = Color.Main!
-        barChartView.xAxis.labelFont = .systemFont(ofSize: FontSize.caption)
+        chartView.xAxis.labelTextColor = Color.Main!
+        chartView.xAxis.labelFont = .systemFont(ofSize: FontSize.caption)
+        chartView.xAxis.drawAxisLineEnabled = false
         
         // 세로 grid 없애기
-        barChartView.xAxis.drawGridLinesEnabled = false
-        barChartView.xAxis.drawAxisLineEnabled = false
+        chartView.xAxis.drawGridLinesEnabled = false
         
         // X축 레이블 갯수 최대로 설정 (이 코드 안쓸 시 Jan Mar May 이런식으로 띄엄띄엄 조금만 나옴)
-        barChartView.xAxis.setLabelCount(nameData.count, force: false)
+        chartView.xAxis.setLabelCount(nameData.count, force: false)
         
         // 왼쪽, 오른쪽 레이블 제거
-        barChartView.rightAxis.enabled = false
-        barChartView.leftAxis.enabled = false
+        chartView.rightAxis.enabled = false
+        chartView.leftAxis.enabled = false
         
         // 맥시멈
-        barChartView.leftAxis.axisMaximum = 200
+//        chartView.leftAxis.axisMaximum = 200
         // 미니멈
-        barChartView.leftAxis.axisMinimum = 0
+        chartView.leftAxis.axisMinimum = 0
     }
     
     required init?(coder: NSCoder) {
@@ -109,7 +98,7 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension SpeakingSpeedCollectionViewCell {
+extension VocabularyCollectionViewCell {
     func style() {
         self.backgroundColor = Color.White
         self.layer.cornerRadius = 16
@@ -117,21 +106,16 @@ extension SpeakingSpeedCollectionViewCell {
     }
     
     func layout() {
-        let stackView = UIStackView(arrangedSubviews: [barChartView, commentLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        
-        addSubview(stackView)
+        addSubview(chartView)
 
-        stackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.top.bottom.equalToSuperview().inset(16)
+        chartView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
         }
     }
     
     func configureChart() {
-        barChartView.noDataText = "데이터가 없습니다."
-        barChartView.noDataFont = .systemFont(ofSize: FontSize.body)
-        barChartView.noDataTextColor = Color.Main!
+        chartView.noDataText = "데이터가 없습니다."
+        chartView.noDataFont = .systemFont(ofSize: FontSize.body)
+        chartView.noDataTextColor = Color.Main!
     }
 }

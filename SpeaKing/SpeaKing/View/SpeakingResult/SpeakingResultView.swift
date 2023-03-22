@@ -29,6 +29,7 @@ class SpeakingResultView: UIView {
         collectionView.register(SpeakingResultTextViewCollectionViewCell.self, forCellWithReuseIdentifier: SpeakingResultTextViewCollectionViewCell.cellIdentifier)
         collectionView.register(PronunciationScoreCollectionViewCell.self, forCellWithReuseIdentifier: PronunciationScoreCollectionViewCell.cellIdentifier)
         collectionView.register(SpeakingSpeedCollectionViewCell.self, forCellWithReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier)
+        collectionView.register(VocabularyCollectionViewCell.self, forCellWithReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier)
         
         return collectionView
     }()
@@ -134,8 +135,10 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingSpeedCollectionViewCell
             
             return cell
-//        case .vocabulary:
-//            <#code#>
+        case .vocabulary:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier, for: indexPath) as! VocabularyCollectionViewCell
+            
+            return cell
 //        case .formality:
 //            <#code#>
         default:

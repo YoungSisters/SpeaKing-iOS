@@ -30,6 +30,7 @@ class SpeakingResultView: UIView {
         collectionView.register(PronunciationScoreCollectionViewCell.self, forCellWithReuseIdentifier: PronunciationScoreCollectionViewCell.cellIdentifier)
         collectionView.register(SpeakingSpeedCollectionViewCell.self, forCellWithReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier)
         collectionView.register(VocabularyCollectionViewCell.self, forCellWithReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier)
+        collectionView.register(FormalityCheckCollectionViewCell.self, forCellWithReuseIdentifier: FormalityCheckCollectionViewCell.cellIdentifier)
         
         return collectionView
     }()
@@ -139,10 +140,8 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier, for: indexPath) as! VocabularyCollectionViewCell
             
             return cell
-//        case .formality:
-//            <#code#>
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingSpeedCollectionViewCell
+        case .formality:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FormalityCheckCollectionViewCell.cellIdentifier, for: indexPath) as! FormalityCheckCollectionViewCell
             
             return cell
         }
@@ -163,7 +162,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .vocabulary:
             return CGSize(width: width, height: 200)
         case .formality:
-            return CGSize(width: width, height: 190)
+            return CGSize(width: width, height: 200)
         }
     }
     

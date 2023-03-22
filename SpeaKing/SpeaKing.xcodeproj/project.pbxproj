@@ -52,6 +52,8 @@
 		89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */; };
 		89A179BE29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179BD29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift */; };
 		89B867CE29CB54C500A97402 /* VocabularyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */; };
+		89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */; };
+		89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867D129CB65D800A97402 /* FormalitySentenceView.swift */; };
 		89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714D29B481290048DAA9 /* AppDelegate.swift */; };
 		89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714F29B481290048DAA9 /* SceneDelegate.swift */; };
 		89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* HomeViewController.swift */; };
@@ -134,6 +136,8 @@
 		89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingDoneViewController.swift; sourceTree = "<group>"; };
 		89A179BD29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingDoneView.swift; sourceTree = "<group>"; };
 		89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCollectionViewCell.swift; sourceTree = "<group>"; };
+		89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalityCheckCollectionViewCell.swift; sourceTree = "<group>"; };
+		89B867D129CB65D800A97402 /* FormalitySentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalitySentenceView.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E3714F29B481290048DAA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 		897F6A2F29C5FFB8000B8E33 /* SpeakingResult */ = {
 			isa = PBXGroup;
 			children = (
+				89B867D129CB65D800A97402 /* FormalitySentenceView.swift */,
 				898AA49A29C6D57200411364 /* Cell */,
 				898AA49629C6BC6400411364 /* SpeakingResultView.swift */,
 			);
@@ -310,6 +315,7 @@
 				898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */,
 				898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */,
 				898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */,
+				89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */,
 				89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -571,6 +577,7 @@
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
+				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
 				898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
@@ -597,6 +604,7 @@
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */,
+				89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */,
 				890C47F429BC68A500AD4375 /* UITextField.swift in Sources */,
 				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */,

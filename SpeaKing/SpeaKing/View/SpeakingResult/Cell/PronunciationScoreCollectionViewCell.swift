@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Charts
 
 class PronunciationScoreCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "PronunciationScoreCell"

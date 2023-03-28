@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */; };
 		89038A6E29C98E8400238B75 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 89038A6D29C98E8400238B75 /* Charts */; };
+		89054F7C29CD86140080E8B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F7B29CD86140080E8B6 /* LoginViewController.swift */; };
+		89054F8029CD864B0080E8B6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F7F29CD864B0080E8B6 /* LoginView.swift */; };
+		89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F8129CD87FC0080E8B6 /* OnboardingTextField.swift */; };
 		89058E3E29B7046500A39615 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89058E3D29B7046500A39615 /* SnapKit */; };
 		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
 		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
@@ -94,6 +97,9 @@
 
 /* Begin PBXFileReference section */
 		89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultCollectionReusableView.swift; sourceTree = "<group>"; };
+		89054F7B29CD86140080E8B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		89054F7F29CD864B0080E8B6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		89054F8129CD87FC0080E8B6 /* OnboardingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextField.swift; sourceTree = "<group>"; };
 		89058E4529B7060D00A39615 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89058E4929B7065400A39615 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89058E4B29B70AAD00A39615 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -190,6 +196,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89054F7A29CD86020080E8B6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				89054F7B29CD86140080E8B6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		89054F7D29CD86390080E8B6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				890C47EF29BC43C400AD4375 /* SPTitleView.swift */,
+				890C47F129BC61BD00AD4375 /* SPTextField.swift */,
+				890C47F729BC765900AD4375 /* SPFilterButton.swift */,
+				8948222629C03AAB00DB2F12 /* SPBottomButton.swift */,
+				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
+				89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */,
+				89A179B429C4A22E002BCF6C /* SPPlayerView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		89054F7E29CD86410080E8B6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				89054F8129CD87FC0080E8B6 /* OnboardingTextField.swift */,
+				89054F7F29CD864B0080E8B6 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		89058E3F29B705B000A39615 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,13 +240,8 @@
 		89058E4029B705B500A39615 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				890C47EF29BC43C400AD4375 /* SPTitleView.swift */,
-				890C47F129BC61BD00AD4375 /* SPTextField.swift */,
-				890C47F729BC765900AD4375 /* SPFilterButton.swift */,
-				8948222629C03AAB00DB2F12 /* SPBottomButton.swift */,
-				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
-				89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */,
-				89A179B429C4A22E002BCF6C /* SPPlayerView.swift */,
+				89054F7D29CD86390080E8B6 /* Common */,
+				89054F7E29CD86410080E8B6 /* Login */,
 				89058E4229B705E400A39615 /* Home */,
 				8948222129C02DAC00DB2F12 /* NewSpeaking */,
 				897F6A2F29C5FFB8000B8E33 /* SpeakingResult */,
@@ -220,6 +252,7 @@
 		89058E4129B705B800A39615 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				89054F7A29CD86020080E8B6 /* Login */,
 				89E3715129B481290048DAA9 /* HomeViewController.swift */,
 				898AA49529C6BC2300411364 /* NewSpeaking */,
 				898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */,
@@ -599,17 +632,20 @@
 				89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */,
 				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
+				89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,
 				898CE58329C0933700724370 /* CategoryViewController.swift in Sources */,
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */,
+				89054F8029CD864B0080E8B6 /* LoginView.swift in Sources */,
 				89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */,
 				890C47F429BC68A500AD4375 /* UITextField.swift in Sources */,
 				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */,
 				89479F3029BCE12500C5D1ED /* HomeSpeakingCellView.swift in Sources */,
 				89A179B529C4A22E002BCF6C /* SPPlayerView.swift in Sources */,
+				89054F7C29CD86140080E8B6 /* LoginViewController.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
 				89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,

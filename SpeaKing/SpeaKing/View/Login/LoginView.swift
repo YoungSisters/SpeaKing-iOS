@@ -9,10 +9,22 @@ import UIKit
 
 class LoginView: UIView {
     
-    var idTextField = OnboardingTextField(title: "아이디", placeholder: "이메일 주소를 입력해주세요.")
-    var textField = SPTextField(placeholder: "이메일 주소")
-
+    var idTextField: OnboardingTextField = {
+        let textField = OnboardingTextField(title: "아이디", placeholder: "이메일 주소를 입력해주세요.")
+        
+        textField.keyboardType = .emailAddress
+        
+        return textField
+    }()
     
+    var pwTextField: OnboardingTextField = {
+        let textField = OnboardingTextField(title: "비밀번호", placeholder: "비밀번호를 입력해주세요.")
+        
+        textField.isSecureTextEntry = true
+        
+        return textField
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,6 +45,7 @@ class LoginView: UIView {
 extension LoginView {
     func style() {
         self.backgroundColor = Color.Background
+        self.dismissKeyboardWhenTappedAround()
     }
     
     func layout() {
@@ -42,12 +55,5 @@ extension LoginView {
             make.top.equalTo(safeAreaLayoutGuide).offset(32)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
-//        
-//        addSubview(textField)
-//        
-//        textField.snp.makeConstraints { make in
-//            make.top.equalTo(safeAreaLayoutGuide).offset(32)
-//            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
-//        }
     }
 }

@@ -20,6 +20,24 @@ class OnboardingTextField: UIView {
     
     var textField: SPTextField!
     
+    var keyboardType: UIKeyboardType {
+        get {
+            textField.keyboardType
+        }
+        set {
+            textField.keyboardType = newValue
+        }
+    }
+    
+    var isSecureTextEntry: Bool {
+        get {
+            textField.isSecureTextEntry
+        }
+        set {
+            textField.isSecureTextEntry = newValue
+        }
+    }
+    
     required init(title: String, placeholder: String) {
         super.init(frame: .zero)
         
@@ -33,10 +51,6 @@ class OnboardingTextField: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override var intrinsicContentSize: CGSize {
-//        return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
-//    }
 }
 
 extension OnboardingTextField {
@@ -56,5 +70,11 @@ extension OnboardingTextField {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+}
+
+extension OnboardingTextField {
+    func setTextFieldType(type: UIKeyboardType) {
+        textField.keyboardType = type
     }
 }

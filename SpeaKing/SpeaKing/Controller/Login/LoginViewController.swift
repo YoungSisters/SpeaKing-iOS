@@ -26,8 +26,21 @@ class LoginViewController: UIViewController {
     
     func setupLoginView() {
         let loginView = LoginView()
-//        loginView.delegate = self
+        loginView.delegate = self
         
         view = loginView
+    }
+}
+
+extension LoginViewController: LoginViewDelegate, NavigationDelegate {
+    func pushSignUpViewController() {
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
+    }
+    
+    func pushNextViewController() {
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
+    }
+    
+    func navigateBack() {
     }
 }

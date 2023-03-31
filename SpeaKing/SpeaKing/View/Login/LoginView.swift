@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol LoginViewDelegate {
+    func pushSignUpViewController()
+}
+
 class LoginView: UIView {
     
     var idTextField: OnboardingTextField = {
@@ -24,12 +28,36 @@ class LoginView: UIView {
         
         return textField
     }()
+    
+    var signUpButton: UIButton = {
+        let button = UIButton(type: .custom)
+        
+        let title = NSMutableAttributedString()
+            .regular(string: "계정이 없으신가요? ", fontSize: FontSize.subhead)
+            .bold(string: "회원가입", fontSize: FontSize.subhead)
+        
+        button.setAttributedTitle(title, for: .normal)
+        button.setTitleColor(Color.Main, for: .normal)
+        
+        return button
+    }()
+    
+    var loginButton: SPBottomButton = {
+        let button = SPBottomButton(type: .custom)
+        
+        button.setTitle("로그인", for: .normal)
+        
+        return button
+    }()
+    
+    weak var delegate: (LoginViewDelegate & NavigationDelegate)?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        configureButtons()
     }
     
     required init?(coder: NSCoder) {
@@ -49,11 +77,30 @@ extension LoginView {
     }
     
     func layout() {
-        addSubview(idTextField)
+        let stackView = UIStackView(arrangedSubviews: [idTextField, pwTextField, signUpButton])
+        stackView.axis = .vertical
+        stackView.spacing = 32
+        
+        addSubview(stackView)
 
-        idTextField.snp.makeConstraints { make in
+        stackView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide).offset(32)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
+        
+        addSubview(loginButton)
+        
+        loginButton.snp.makeConstraints { make in
+            make.bottom.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+            make.height.equalTo(50)
+        }
+    }
+    
+    func configureButtons() {
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func signUpButtonTapped() {
+        delegate?.pushSignUpViewController()
     }
 }

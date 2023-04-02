@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ProfileEditViewDelegate {
+    func openImagePicker()
+}
+
 class SPProfileEditView: UIView {
     
     var profileImageView: UIImageView = {
@@ -14,8 +18,9 @@ class SPProfileEditView: UIView {
         
         imageView.image = UIImage(systemName: "person.circle.fill")
         imageView.layer.cornerRadius = 100 / 2
-        imageView.addShadow()
+        imageView.clipsToBounds = true
         imageView.tintColor = Color.LightPurple
+        imageView.contentMode = .scaleAspectFill
         
         return imageView
     }()
@@ -25,7 +30,6 @@ class SPProfileEditView: UIView {
         view.backgroundColor = Color.White
         view.layer.cornerRadius = 24 / 2
         view.clipsToBounds = true
-        view.isUserInteractionEnabled = true
         
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "camera")
@@ -40,6 +44,15 @@ class SPProfileEditView: UIView {
         
         return view
     }()
+    
+    var profileImage: UIImage? {
+        get {
+            profileImageView.image
+        }
+        set {
+            profileImageView.image = newValue
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,6 +80,7 @@ class SPProfileEditView: UIView {
 extension SPProfileEditView {
     func style() {
         addShadow()
+        self.isUserInteractionEnabled = true
     }
     
     func layout() {

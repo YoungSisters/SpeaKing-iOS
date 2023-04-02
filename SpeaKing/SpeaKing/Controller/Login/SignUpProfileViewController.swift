@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import PhotosUI
 
 class SignUpProfileViewController: UIViewController {
-
+    
+    private var signUpProfileView = SignUpProfileView()
+    
+    var configuration: PHPickerConfiguration = {
+        let configuration = PHPickerConfiguration()
+        
+//        configuration.filter = .images
+        
+        return configuration
+    }()
+    
+    lazy var picker = PHPickerViewController(configuration: self.configuration)
+    
     var contentView: SignUpProfileView {
         return view as! SignUpProfileView
     }
@@ -25,20 +38,42 @@ class SignUpProfileViewController: UIViewController {
     }
     
     func setupSignUpProfileView() {
-        let signUpProfileView = SignUpProfileView()
         signUpProfileView.delegate = self
         
         view = signUpProfileView
     }
-
 }
 
-extension SignUpProfileViewController: NavigationDelegate {
+extension SignUpProfileViewController: ProfileEditViewDelegate, NavigationDelegate {
+    func openImagePicker() {
+        
+        picker.delegate = self
+        
+        present(picker, animated: true)
+    }
+    
     func pushNextViewController() {
         self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
     }
     
     func navigateBack() {
         
+    }
+}
+
+extension SignUpProfileViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        
+        if let itemProvider = itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                DispatchQueue.main.async {
+                    self.signUpProfileView.setProfileImage(image: image as? UIImage)
+                }
+            }
+        }
     }
 }

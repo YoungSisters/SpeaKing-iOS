@@ -33,13 +33,14 @@ class SignUpProfileView: UIView {
     
     var profileEditView = SPProfileEditView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
-    var delegate: NavigationDelegate?
+    var delegate: (ProfileEditViewDelegate & NavigationDelegate)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        configureProfileEditView()
         configureButton()
     }
     
@@ -70,6 +71,7 @@ extension SignUpProfileView {
 
         profileEditView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(32)
+            make.size.equalTo(100)
             make.centerX.equalToSuperview()
         }
 
@@ -92,11 +94,26 @@ extension SignUpProfileView {
         }
     }
     
+    func configureProfileEditView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileEditViewTapped))
+        profileEditView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func profileEditViewTapped() {
+        delegate?.openImagePicker()
+    }
+    
     func configureButton() {
         doneButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     @objc func nextButtonTapped() {
         delegate?.pushNextViewController()
+    }
+}
+
+extension SignUpProfileView {
+    func setProfileImage(image: UIImage?) {
+        profileEditView.profileImage = image
     }
 }

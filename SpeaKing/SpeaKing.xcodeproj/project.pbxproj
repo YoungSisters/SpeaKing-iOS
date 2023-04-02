@@ -12,6 +12,7 @@
 		89054F7C29CD86140080E8B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F7B29CD86140080E8B6 /* LoginViewController.swift */; };
 		89054F8029CD864B0080E8B6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F7F29CD864B0080E8B6 /* LoginView.swift */; };
 		89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89054F8129CD87FC0080E8B6 /* OnboardingTextField.swift */; };
+		89058B5C29D7FF2D00A26B33 /* SPProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058B5B29D7FF2D00A26B33 /* SPProfileEditView.swift */; };
 		89058E3E29B7046500A39615 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 89058E3D29B7046500A39615 /* SnapKit */; };
 		89058E4629B7060D00A39615 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4529B7060D00A39615 /* Constants.swift */; };
 		89058E4A29B7065400A39615 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89058E4929B7065400A39615 /* HomeView.swift */; };
@@ -105,6 +106,7 @@
 		89054F7B29CD86140080E8B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		89054F7F29CD864B0080E8B6 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		89054F8129CD87FC0080E8B6 /* OnboardingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTextField.swift; sourceTree = "<group>"; };
+		89058B5B29D7FF2D00A26B33 /* SPProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPProfileEditView.swift; sourceTree = "<group>"; };
 		89058E4529B7060D00A39615 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89058E4929B7065400A39615 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89058E4B29B70AAD00A39615 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				89F9BFD429C440630017BAD8 /* SPLoadingView.swift */,
 				89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */,
 				89A179B429C4A22E002BCF6C /* SPPlayerView.swift */,
+				89058B5B29D7FF2D00A26B33 /* SPProfileEditView.swift */,
 				8959C57E29D697E200E20DE3 /* NavigationDelegate.swift */,
 			);
 			path = Common;
@@ -641,6 +644,7 @@
 				89B867CE29CB54C500A97402 /* VocabularyCollectionViewCell.swift in Sources */,
 				8959C58129D6A50300E20DE3 /* SignUpProfileView.swift in Sources */,
 				8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */,
+				89058B5C29D7FF2D00A26B33 /* SPProfileEditView.swift in Sources */,
 				8959C57D29D6962900E20DE3 /* SignUpView.swift in Sources */,
 				890C47F229BC61BD00AD4375 /* SPTextField.swift in Sources */,
 				8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */,

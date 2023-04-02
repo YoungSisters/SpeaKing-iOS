@@ -26,9 +26,19 @@ class SignUpProfileViewController: UIViewController {
     
     func setupSignUpProfileView() {
         let signUpProfileView = SignUpProfileView()
-//        signUpView.delegate = self
+        signUpProfileView.delegate = self
         
         view = signUpProfileView
     }
 
+}
+
+extension SignUpProfileViewController: NavigationDelegate {
+    func pushNextViewController() {
+        self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
+    }
+    
+    func navigateBack() {
+        
+    }
 }

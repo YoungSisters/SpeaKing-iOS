@@ -1,15 +1,14 @@
 //
-//  SpeakingResultLoadingView.swift
+//  SignUpDoneView.swift
 //  SpeaKing
 //
-//  Created by 이서영 on 2023/03/17.
+//  Created by 이서영 on 2023/04/03.
 //
 
 import UIKit
 
-class SpeakingResultLoadingView: UIView {
-    
-    var loadingView = SPLoadingView()
+class SignUpDoneView: UIView {
+    var doneView = SPLoadingView(title: "ㅇㅇㅇ님의\n회원가입이\n완료되었어요.", buttonTitle: "완료")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,16 +26,15 @@ class SpeakingResultLoadingView: UIView {
     }
 }
 
-extension SpeakingResultLoadingView {
+extension SignUpDoneView {
     func style() {
-        loadingView.titleLabel.text = "SpeaKING이\n사용자 님의 말하기를\n분석하고 있어요."
-        loadingView.isDoneButtonHidden = true
+        
     }
     
     func layout() {
-        addSubview(loadingView)
+        addSubview(doneView)
         
-        loadingView.snp.makeConstraints { make in
+        doneView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

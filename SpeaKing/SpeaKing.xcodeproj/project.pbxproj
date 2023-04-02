@@ -44,6 +44,8 @@
 		8959C58329D6A50A00E20DE3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C58229D6A50A00E20DE3 /* SignUpViewController.swift */; };
 		89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5329C0C804003A669E /* CategoryTableViewCell.swift */; };
 		89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */; };
+		897BFF3629D9E2D200D12C06 /* SignUpDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BFF3529D9E2D200D12C06 /* SignUpDoneView.swift */; };
+		897BFF3829D9E37D00D12C06 /* SignUpDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BFF3729D9E37D00D12C06 /* SignUpDoneViewController.swift */; };
 		898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49629C6BC6400411364 /* SpeakingResultView.swift */; };
 		898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */; };
 		898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */; };
@@ -137,6 +139,8 @@
 		8959C58229D6A50A00E20DE3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../../View/Home/SignUpViewController.swift; sourceTree = "<group>"; };
 		89601C5329C0C804003A669E /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryNewTableViewCell.swift; sourceTree = "<group>"; };
+		897BFF3529D9E2D200D12C06 /* SignUpDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDoneView.swift; sourceTree = "<group>"; };
+		897BFF3729D9E37D00D12C06 /* SignUpDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDoneViewController.swift; sourceTree = "<group>"; };
 		898AA49629C6BC6400411364 /* SpeakingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultView.swift; sourceTree = "<group>"; };
 		898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultViewController.swift; sourceTree = "<group>"; };
 		898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				89054F7B29CD86140080E8B6 /* LoginViewController.swift */,
 				8959C58229D6A50A00E20DE3 /* SignUpViewController.swift */,
 				8959C57A29D695FD00E20DE3 /* SignUpProfileViewController.swift */,
+				897BFF3729D9E37D00D12C06 /* SignUpDoneViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				89054F7F29CD864B0080E8B6 /* LoginView.swift */,
 				8959C57C29D6962900E20DE3 /* SignUpView.swift */,
 				8959C58029D6A50300E20DE3 /* SignUpProfileView.swift */,
+				897BFF3529D9E2D200D12C06 /* SignUpDoneView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -616,12 +622,14 @@
 				89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */,
 				890C47F029BC43C400AD4375 /* SPTitleView.swift in Sources */,
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
+				897BFF3629D9E2D200D12C06 /* SignUpDoneView.swift in Sources */,
 				89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */,
 				89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */,
 				89F9BFCE29C437020017BAD8 /* RecordingMicView.swift in Sources */,
 				89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
 				89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */,
+				897BFF3829D9E37D00D12C06 /* SignUpDoneViewController.swift in Sources */,
 				8959C58329D6A50A00E20DE3 /* SignUpViewController.swift in Sources */,
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
 				89F9BFCC29C4362F0017BAD8 /* RecordingView.swift in Sources */,

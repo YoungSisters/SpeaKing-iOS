@@ -28,11 +28,27 @@ class SPLoadingView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    var isDoneButtonHidden: Bool {
+        get {
+            return doneButton.isHidden
+        }
+        set {
+            doneButton.isHidden = newValue
+        }
+    }
+    
+    required init(title: String, buttonTitle: String) {
+        super.init(frame: .zero)
+        
+        titleLabel.text = title
+        doneButton.setTitle(buttonTitle, for: .normal)
         
         style()
         layout()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +63,6 @@ class SPLoadingView: UIView {
 extension SPLoadingView {
     func style() {
         self.backgroundColor = Color.Background
-        doneButton.isHidden = true
     }
     
     func layout() {
@@ -61,8 +76,7 @@ extension SPLoadingView {
         addSubview(doneButton)
         
         doneButton.snp.makeConstraints { make in
-            make.bottom.equalTo(safeAreaLayoutGuide).inset(16)
-            make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+            make.bottom.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(50)
         }
     }

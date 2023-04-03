@@ -1,0 +1,30 @@
+//
+//  SignUpModel.swift
+//  SpeaKing
+//
+//  Created by 이서영 on 2023/04/03.
+//
+
+import Foundation
+
+// MARK: - Request
+struct SignUpModel: Codable {
+    let email: String
+    let password: String
+    let nickname: String
+    let intro: String?
+    let url: String?
+}
+
+// MARK: - Response
+struct SignUpResponseModel: Codable {
+    let result: SignUpResult
+    let isSuccess: Bool
+    let code: Int
+    let message: String
+}
+
+struct SignUpResult: Codable {
+    let token: String
+    let userId: Int
+}

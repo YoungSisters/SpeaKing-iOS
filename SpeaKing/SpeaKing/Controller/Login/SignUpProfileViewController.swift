@@ -10,6 +10,7 @@ import PhotosUI
 
 class SignUpProfileViewController: UIViewController {
     
+    var userInfo: SignUpModel!
     private var signUpProfileView = SignUpProfileView()
     
     var configuration: PHPickerConfiguration = {
@@ -26,6 +27,18 @@ class SignUpProfileViewController: UIViewController {
         return view as! SignUpProfileView
     }
     
+    private var signUpService: AuthServiceProtocol!
+
+    init(signUpService: AuthServiceProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.signUpService = signUpService
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
         setupSignUpProfileView()
@@ -34,7 +47,6 @@ class SignUpProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
     }
     
     func setupSignUpProfileView() {
@@ -44,7 +56,7 @@ class SignUpProfileViewController: UIViewController {
     }
 }
 
-extension SignUpProfileViewController: ProfileEditViewDelegate, NavigationDelegate {
+extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileViewDelegate {
     func openImagePicker() {
         
         picker.delegate = self
@@ -52,12 +64,12 @@ extension SignUpProfileViewController: ProfileEditViewDelegate, NavigationDelega
         present(picker, animated: true)
     }
     
-    func pushNextViewController() {
-        self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
-    }
-    
-    func navigateBack() {
-        
+    func postSignUp() {
+        signUpService.signUp(self.userInfo) { response in
+            print(response)
+            self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
+
+        }
     }
 }
 

@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController {
 
 extension SignUpViewController: NavigationDelegate {
     func pushNextViewController() {
-        navigationController?.pushViewController(SignUpProfileViewController(), animated: true)
+        navigationController?.pushViewController(SignUpProfileViewController(signUpService: AuthService()), animated: true)
     }
     
     func navigateBack() {

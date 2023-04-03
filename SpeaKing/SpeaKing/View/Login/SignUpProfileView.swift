@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SignUpProfileViewDelegate {
+    func postSignUp()
+}
+
 class SignUpProfileView: UIView {
     
     var titleView = SPTitleView(title: "프로필을 입력해주세요.", subtitle: nil)
@@ -33,7 +37,7 @@ class SignUpProfileView: UIView {
     
     var profileEditView = SPProfileEditView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
     
-    var delegate: (ProfileEditViewDelegate & NavigationDelegate)?
+    var delegate: (ProfileEditViewDelegate & SignUpProfileViewDelegate)?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,6 +60,7 @@ class SignUpProfileView: UIView {
 extension SignUpProfileView {
     func style() {
         self.backgroundColor = Color.Background
+        self.dismissKeyboardWhenTappedAround()
     }
     
     func layout() {
@@ -65,7 +70,6 @@ extension SignUpProfileView {
             make.top.equalTo(safeAreaLayoutGuide).offset(16)
             make.leading.trailing.equalTo(safeAreaLayoutGuide)
         }
-        
 
         addSubview(profileEditView)
 
@@ -94,6 +98,17 @@ extension SignUpProfileView {
         }
     }
     
+    func configureButton() {
+        doneButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func nextButtonTapped() {
+        delegate?.postSignUp()
+    }
+}
+
+// MARK: - 프로필 이미지
+extension SignUpProfileView {
     func configureProfileEditView() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileEditViewTapped))
         profileEditView.addGestureRecognizer(tapGestureRecognizer)
@@ -103,16 +118,6 @@ extension SignUpProfileView {
         delegate?.openImagePicker()
     }
     
-    func configureButton() {
-        doneButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc func nextButtonTapped() {
-        delegate?.pushNextViewController()
-    }
-}
-
-extension SignUpProfileView {
     func setProfileImage(image: UIImage?) {
         profileEditView.profileImage = image
     }

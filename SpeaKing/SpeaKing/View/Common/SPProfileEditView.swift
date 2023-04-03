@@ -13,7 +13,7 @@ protocol ProfileEditViewDelegate {
 
 class SPProfileEditView: UIView {
     
-    var profileImageView: UIImageView = {
+    private var profileImageView: UIImageView = {
         let imageView = UIImageView()
         
         imageView.image = UIImage(systemName: "person.circle.fill")

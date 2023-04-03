@@ -23,6 +23,9 @@
 		890C47F429BC68A500AD4375 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C47F329BC68A500AD4375 /* UITextField.swift */; };
 		890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C47F529BC70A300AD4375 /* UIViewController.swift */; };
 		890C47F829BC765900AD4375 /* SPFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890C47F729BC765900AD4375 /* SPFilterButton.swift */; };
+		891A4B4E29DA7E0A000676BB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 891A4B4D29DA7E0A000676BB /* Alamofire */; };
+		891A4B5129DA8050000676BB /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5029DA8050000676BB /* SignUpModel.swift */; };
+		891A4B5429DA8212000676BB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5329DA8212000676BB /* AuthService.swift */; };
 		8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */; };
 		8939A64829BA1B300092C967 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64729BA1B300092C967 /* FontSize.swift */; };
 		8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */; };
@@ -118,6 +121,8 @@
 		890C47F329BC68A500AD4375 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		890C47F529BC70A300AD4375 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		890C47F729BC765900AD4375 /* SPFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPFilterButton.swift; sourceTree = "<group>"; };
+		891A4B5029DA8050000676BB /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		891A4B5329DA8212000676BB /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		8939A64729BA1B300092C967 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingButtonView.swift; sourceTree = "<group>"; };
@@ -190,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891A4B4E29DA7E0A000676BB /* Alamofire in Frameworks */,
 				89058E3E29B7046500A39615 /* SnapKit in Frameworks */,
 				89038A6E29C98E8400238B75 /* Charts in Frameworks */,
 			);
@@ -255,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				8948222829C043F400DB2F12 /* Models */,
+				891A4B5229DA81EC000676BB /* Services */,
 				89058E4429B7060300A39615 /* Extensions */,
 				89058E4329B705FB00A39615 /* Helpers */,
 			);
@@ -320,6 +327,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		891A4B4F29DA8049000676BB /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				891A4B5029DA8050000676BB /* SignUpModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		891A4B5229DA81EC000676BB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				891A4B5329DA8212000676BB /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		8948222129C02DAC00DB2F12 /* NewSpeaking */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +358,7 @@
 		8948222829C043F400DB2F12 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				891A4B4F29DA8049000676BB /* Auth */,
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
 			);
 			path = Models;
@@ -500,6 +524,7 @@
 			packageProductDependencies = (
 				89058E3D29B7046500A39615 /* SnapKit */,
 				89038A6D29C98E8400238B75 /* Charts */,
+				891A4B4D29DA7E0A000676BB /* Alamofire */,
 			);
 			productName = SpeaKing;
 			productReference = 89E3714A29B481290048DAA9 /* SpeaKing.app */;
@@ -576,6 +601,7 @@
 			packageReferences = (
 				89058E3C29B7046500A39615 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				89038A6C29C98E8400238B75 /* XCRemoteSwiftPackageReference "Charts" */,
+				891A4B4C29DA7E0A000676BB /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 89E3714B29B481290048DAA9 /* Products */;
 			projectDirPath = "";
@@ -628,6 +654,7 @@
 				89F9BFCE29C437020017BAD8 /* RecordingMicView.swift in Sources */,
 				89F9BFD129C43FFB0017BAD8 /* STTLoadingView.swift in Sources */,
 				8939A65029BA367C0092C967 /* HomeHeaderView.swift in Sources */,
+				891A4B5129DA8050000676BB /* SignUpModel.swift in Sources */,
 				89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */,
 				897BFF3829D9E37D00D12C06 /* SignUpDoneViewController.swift in Sources */,
 				8959C58329D6A50A00E20DE3 /* SignUpViewController.swift in Sources */,
@@ -657,6 +684,7 @@
 				890C47F229BC61BD00AD4375 /* SPTextField.swift in Sources */,
 				8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */,
 				898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */,
+				891A4B5429DA8212000676BB /* AuthService.swift in Sources */,
 				89601C5429C0C804003A669E /* CategoryTableViewCell.swift in Sources */,
 				89058E4629B7060D00A39615 /* Constants.swift in Sources */,
 				898CE57D29C08A4100724370 /* NewSpeakingFormalityTableViewCell.swift in Sources */,
@@ -1038,6 +1066,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		891A4B4C29DA7E0A000676BB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1050,6 +1086,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89058E3C29B7046500A39615 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		891A4B4D29DA7E0A000676BB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 891A4B4C29DA7E0A000676BB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

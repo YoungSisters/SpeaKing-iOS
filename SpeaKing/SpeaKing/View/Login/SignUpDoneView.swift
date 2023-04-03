@@ -7,14 +7,22 @@
 
 import UIKit
 
+protocol SignUpDoneViewDelegate: AnyObject {
+    func moveToHomeViewController()
+}
+
 class SignUpDoneView: UIView {
-    var doneView = SPLoadingView(title: "ㅇㅇㅇ님의\n회원가입이\n완료되었어요.", buttonTitle: "완료")
+    
+    private var doneView = SPLoadingView(title: "ㅇㅇㅇ님의\n회원가입이\n완료되었어요.", buttonTitle: "완료")
+    
+    weak var delegate: SignUpDoneViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         style()
         layout()
+        configureButton()
     }
     
     required init?(coder: NSCoder) {
@@ -37,5 +45,17 @@ extension SignUpDoneView {
         doneView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    func setUserNickname(nickname: String) {
+        doneView.title = "\(nickname)님의\n회원가입이 완료되었어요."
+    }
+    
+    func configureButton() {
+        doneView.doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func doneButtonTapped() {
+        delegate?.moveToHomeViewController()
     }
 }

@@ -28,6 +28,15 @@ class SPLoadingView: UIView {
         return button
     }()
     
+    var title: String? {
+        get {
+            return titleLabel.text
+        }
+        set {
+            titleLabel.text = newValue
+        }
+    }
+    
     var isDoneButtonHidden: Bool {
         get {
             return doneButton.isHidden

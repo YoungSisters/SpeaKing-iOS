@@ -32,12 +32,9 @@ class SignUpViewController: UIViewController {
     }
 }
 
-extension SignUpViewController: NavigationDelegate {
-    func pushNextViewController() {
-        navigationController?.pushViewController(SignUpProfileViewController(signUpService: AuthService()), animated: true)
-    }
-    
-    func navigateBack() {
-        
+extension SignUpViewController: SignUpViewDelegate {
+    func pushSignUpProfileViewController(email: String, password: String) {
+        let userInfo = SignUpModel(email: email, password: password, nickname: "", intro: "", url: "")
+        navigationController?.pushViewController(SignUpProfileViewController(signUpService: AuthService(), userInfo: userInfo), animated: true)
     }
 }

@@ -8,9 +8,11 @@
 import Foundation
 
 struct Constants {
-    static let baseUrl = "http://3.38.57.90:3000"
+    static let BASE_URL = "http://3.38.57.90:3000"
     
-    static let auth = "/auth"
+    static let AUTH = "/auth"
     
-    static let signUp = "/signup"
+    static let SIGN_UP = "/signup"
+    
+    static let LOGIN = "/login"
 }

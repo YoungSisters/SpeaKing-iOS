@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SignUpViewDelegate {
+    func pushSignUpProfileViewController(email: String, password: String)
+}
+
 class SignUpView: UIView {
     
     var titleView = SPTitleView(title: "회원 정보를 입력해주세요.", subtitle: nil)
@@ -43,7 +47,7 @@ class SignUpView: UIView {
         return button
     }()
     
-    var delegate: NavigationDelegate?
+    var delegate: SignUpViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -99,6 +103,8 @@ extension SignUpView {
     }
     
     @objc func nextButtonTapped() {
-        delegate?.pushNextViewController()
+        if let email = idTextField.text, let password = pwTextField.text {
+            delegate?.pushSignUpProfileViewController(email: email, password: password)
+        }
     }
 }

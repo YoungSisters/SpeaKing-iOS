@@ -20,6 +20,10 @@ class OnboardingTextField: UIView {
     
     var textField: SPTextField!
     
+    var text: String? {
+        textField.text
+    }
+    
     var keyboardType: UIKeyboardType {
         get {
             textField.keyboardType

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SignUpProfileViewDelegate {
-    func postSignUp()
+    func postSignUp(nickname: String, intro: String?, url: String?)
 }
 
 class SignUpProfileView: UIView {
@@ -103,7 +103,9 @@ extension SignUpProfileView {
     }
     
     @objc func nextButtonTapped() {
-        delegate?.postSignUp()
+        if let nickname = nicknameTextField.text, let intro = introTextField.text {
+            delegate?.postSignUp(nickname: nickname, intro: intro, url: "")
+        }
     }
 }
 

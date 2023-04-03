@@ -10,11 +10,20 @@ import Alamofire
 
 protocol AuthServiceProtocol {
     func signUp(_ userInfo: SignUpModel, _ completion: @escaping (SignUpResponseModel) -> Void)
+    func login(_ userInfo: LoginModel, _ completion: @escaping (LoginResponseModel) -> Void)
 }
 
 class AuthService: AuthServiceProtocol {
+    func login(_ userInfo: LoginModel, _ completion: @escaping (LoginResponseModel) -> Void) {
+        let url = Constants.BASE_URL + Constants.AUTH + Constants.LOGIN
+        
+    }
+    
     func signUp(_ userInfo: SignUpModel, _ completion: @escaping (SignUpResponseModel) -> Void) {
-        let url = Constants.baseUrl + Constants.auth + Constants.signUp
+        let url = Constants.BASE_URL + Constants.AUTH + Constants.SIGN_UP
+        
+        print(url)
+        print(userInfo)
         
         AF.request(url, method: .post, parameters: userInfo, encoder: JSONParameterEncoder.default)
             .validate()
@@ -24,6 +33,7 @@ class AuthService: AuthServiceProtocol {
                     completion(response)
                 case .failure(let error):
                     print(debugPrint(error))
+                    print(error.localizedDescription)
                 }
             }
     }

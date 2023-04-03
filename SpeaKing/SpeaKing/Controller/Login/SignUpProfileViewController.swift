@@ -29,10 +29,11 @@ class SignUpProfileViewController: UIViewController {
     
     private var signUpService: AuthServiceProtocol!
 
-    init(signUpService: AuthServiceProtocol) {
+    init(signUpService: AuthServiceProtocol, userInfo: SignUpModel) {
         super.init(nibName: nil, bundle: nil)
         
         self.signUpService = signUpService
+        self.userInfo = userInfo
     }
     
     required init?(coder: NSCoder) {
@@ -57,19 +58,25 @@ class SignUpProfileViewController: UIViewController {
 }
 
 extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileViewDelegate {
+    func postSignUp(nickname: String, intro: String?, url: String?) {
+        userInfo.nickname = nickname
+        userInfo.intro = intro
+        userInfo.url = url
+        
+        if let userInfo = userInfo {
+            signUpService.signUp(userInfo) { response in
+                print(response)
+                self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
+
+            }
+        }
+    }
+    
     func openImagePicker() {
         
         picker.delegate = self
         
         present(picker, animated: true)
-    }
-    
-    func postSignUp() {
-        signUpService.signUp(self.userInfo) { response in
-            print(response)
-            self.navigationController?.pushViewController(SignUpDoneViewController(), animated: true)
-
-        }
     }
 }
 

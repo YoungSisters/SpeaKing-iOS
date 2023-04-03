@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - Request
 struct SignUpModel: Codable {
-    let email: String
-    let password: String
-    let nickname: String
-    let intro: String?
-    let url: String?
+    var email: String
+    var password: String
+    var nickname: String
+    var intro: String?
+    var url: String?
 }
 
 // MARK: - Response

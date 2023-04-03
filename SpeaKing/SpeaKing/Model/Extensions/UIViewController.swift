@@ -22,12 +22,12 @@ extension UIViewController {
     
     // MARK: UIWindow의 rootViewController를 변경하여 화면전환
     func changeRootViewController(_ viewControllerToPresent: UIViewController) {
-        if let window = UIApplication.shared.windows.first {
+        guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+            fatalError("could not get scene delegate ")
+        }
+        if let window = sceneDelegate.window {
             window.rootViewController = viewControllerToPresent
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
-        } else {
-            viewControllerToPresent.modalPresentationStyle = .overFullScreen
-            self.present(viewControllerToPresent, animated: true, completion: nil)
         }
     }
     

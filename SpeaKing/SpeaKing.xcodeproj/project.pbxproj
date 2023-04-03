@@ -27,6 +27,7 @@
 		891A4B5129DA8050000676BB /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5029DA8050000676BB /* SignUpModel.swift */; };
 		891A4B5429DA8212000676BB /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5329DA8212000676BB /* AuthService.swift */; };
 		891A4B5629DAAD5A000676BB /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5529DAAD5A000676BB /* LoginModel.swift */; };
+		891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891A4B5729DAB380000676BB /* SPUserDefaults.swift */; };
 		8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */; };
 		8939A64829BA1B300092C967 /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64729BA1B300092C967 /* FontSize.swift */; };
 		8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */; };
@@ -125,6 +126,7 @@
 		891A4B5029DA8050000676BB /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		891A4B5329DA8212000676BB /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		891A4B5529DAAD5A000676BB /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		891A4B5729DAB380000676BB /* SPUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPUserDefaults.swift; sourceTree = "<group>"; };
 		8939A64529BA1A7C0092C967 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		8939A64729BA1B300092C967 /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		8939A64929BA28A20092C967 /* NewSpeakingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingButtonView.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				89058E4529B7060D00A39615 /* Constants.swift */,
 				89058E4B29B70AAD00A39615 /* Color.swift */,
 				8939A64729BA1B300092C967 /* FontSize.swift */,
+				891A4B5729DAB380000676BB /* SPUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				891A4B5629DAAD5A000676BB /* LoginModel.swift in Sources */,
 				8939A64829BA1B300092C967 /* FontSize.swift in Sources */,
 				8959C57B29D695FD00E20DE3 /* SignUpProfileViewController.swift in Sources */,
+				891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */,
 				8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */,
 				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,

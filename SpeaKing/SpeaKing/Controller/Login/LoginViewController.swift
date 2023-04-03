@@ -9,8 +9,19 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private var loginService: AuthServiceProtocol!
+    
     var contentView: LoginView {
         return view as! LoginView
+    }
+    
+    init(loginService: AuthServiceProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        self.loginService = loginService
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -32,15 +43,16 @@ class LoginViewController: UIViewController {
     }
 }
 
-extension LoginViewController: LoginViewDelegate, NavigationDelegate {
+extension LoginViewController: LoginViewDelegate {
+    func callLoginApi(userInfo: LoginModel) {
+        loginService.login(userInfo) { response in
+            if response.isSuccess {
+                self.changeRootViewController(HomeViewController())
+            }
+        }
+    }
+    
     func pushSignUpViewController() {
         self.navigationController?.pushViewController(SignUpViewController(), animated: true)
-    }
-    
-    func pushNextViewController() {
-        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
-    }
-    
-    func navigateBack() {
     }
 }

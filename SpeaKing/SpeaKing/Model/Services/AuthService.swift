@@ -17,13 +17,20 @@ class AuthService: AuthServiceProtocol {
     func login(_ userInfo: LoginModel, _ completion: @escaping (LoginResponseModel) -> Void) {
         let url = Constants.BASE_URL + Constants.AUTH + Constants.LOGIN
         
+        AF.request(url, method: .post, parameters: userInfo, encoder: JSONParameterEncoder.default)
+            .validate()
+            .responseDecodable(of: LoginResponseModel.self) { response in
+                switch response.result {
+                case .success(let response):
+                    completion(response)
+                case .failure(let error):
+                    print(debugPrint(error))
+                }
+            }
     }
     
     func signUp(_ userInfo: SignUpModel, _ completion: @escaping (SignUpResponseModel) -> Void) {
         let url = Constants.BASE_URL + Constants.AUTH + Constants.SIGN_UP
-        
-        print(url)
-        print(userInfo)
         
         AF.request(url, method: .post, parameters: userInfo, encoder: JSONParameterEncoder.default)
             .validate()
@@ -33,7 +40,6 @@ class AuthService: AuthServiceProtocol {
                     completion(response)
                 case .failure(let error):
                     print(debugPrint(error))
-                    print(error.localizedDescription)
                 }
             }
     }

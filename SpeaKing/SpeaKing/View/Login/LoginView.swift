@@ -8,6 +8,7 @@
 import UIKit
 
 protocol LoginViewDelegate {
+    func callLoginApi(userInfo: LoginModel)
     func pushSignUpViewController()
 }
 
@@ -50,7 +51,7 @@ class LoginView: UIView {
         return button
     }()
     
-    weak var delegate: (LoginViewDelegate & NavigationDelegate)?
+    var delegate: LoginViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -98,9 +99,16 @@ extension LoginView {
     
     func configureButtons() {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
     @objc func signUpButtonTapped() {
         delegate?.pushSignUpViewController()
+    }
+    
+    @objc func loginButtonTapped() {
+        if let email = idTextField.text, let password = pwTextField.text {
+            delegate?.callLoginApi(userInfo: LoginModel(email: email, password: password))
+        }
     }
 }

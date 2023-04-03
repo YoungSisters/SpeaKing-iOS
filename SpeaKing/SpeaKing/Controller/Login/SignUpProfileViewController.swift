@@ -65,7 +65,7 @@ extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileVie
         
         if let userInfo = userInfo {
             signUpService.signUp(userInfo) { response in
-                let nextViewController = SignUpDoneViewController(nickname: userInfo.nickname)
+                let nextViewController = UINavigationController(rootViewController: SignUpDoneViewController(nickname: userInfo.nickname))
                 nextViewController.modalPresentationStyle = .fullScreen
                 self.present(nextViewController, animated: true)
 

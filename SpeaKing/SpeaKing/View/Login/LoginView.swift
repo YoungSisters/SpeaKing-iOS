@@ -14,6 +14,15 @@ protocol LoginViewDelegate {
 
 class LoginView: UIView {
     
+    var logoImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: Image.logo))
+        
+        imageView.setImageColor(color: Color.Main!)
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
     var idTextField: OnboardingTextField = {
         let textField = OnboardingTextField(title: "아이디", placeholder: "이메일 주소를 입력해주세요.")
         
@@ -78,6 +87,14 @@ extension LoginView {
     }
     
     func layout() {
+        addSubview(logoImageView)
+        
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(32)
+            make.size.equalTo(100)
+            make.centerX.equalToSuperview()
+        }
+        
         let stackView = UIStackView(arrangedSubviews: [idTextField, pwTextField, signUpButton])
         stackView.axis = .vertical
         stackView.spacing = 32
@@ -85,7 +102,7 @@ extension LoginView {
         addSubview(stackView)
 
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(32)
+            make.top.equalTo(logoImageView.snp.bottom).offset(32)
             make.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
         

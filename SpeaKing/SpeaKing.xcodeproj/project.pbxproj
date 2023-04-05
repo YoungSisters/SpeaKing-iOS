@@ -62,6 +62,7 @@
 		898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */; };
 		898CE58329C0933700724370 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58229C0933700724370 /* CategoryViewController.swift */; };
 		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
+		898F8F9729DDB4B900597DBF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8F9629DDB4B900597DBF /* Image.swift */; };
 		89A179B529C4A22E002BCF6C /* SPPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B429C4A22E002BCF6C /* SPPlayerView.swift */; };
 		89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B729C4B346002BCF6C /* SpeakingResultLoadingView.swift */; };
 		89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */; };
@@ -161,6 +162,7 @@
 		898CE57E29C08AA500724370 /* NewSpeakingFormalityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingFormalityView.swift; sourceTree = "<group>"; };
 		898CE58229C0933700724370 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		898F8F9629DDB4B900597DBF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		89A179B429C4A22E002BCF6C /* SPPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPPlayerView.swift; sourceTree = "<group>"; };
 		89A179B729C4B346002BCF6C /* SpeakingResultLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingView.swift; sourceTree = "<group>"; };
 		89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				89058E4B29B70AAD00A39615 /* Color.swift */,
 				8939A64729BA1B300092C967 /* FontSize.swift */,
 				891A4B5729DAB380000676BB /* SPUserDefaults.swift */,
+				898F8F9629DDB4B900597DBF /* Image.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */,
 				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
+				898F8F9729DDB4B900597DBF /* Image.swift in Sources */,
 				89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,
 				898CE58329C0933700724370 /* CategoryViewController.swift in Sources */,

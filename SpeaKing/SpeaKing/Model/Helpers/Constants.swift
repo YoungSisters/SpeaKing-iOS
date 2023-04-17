@@ -12,6 +12,8 @@ struct Constants {
     
     static let AUTH = "/auth"
     
+    static let ME = "/me"
+    
     static let SIGN_UP = "/signup"
     
     static let LOGIN = "/login"

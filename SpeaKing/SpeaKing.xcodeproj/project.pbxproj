@@ -71,6 +71,8 @@
 		89B867CE29CB54C500A97402 /* VocabularyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */; };
 		89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */; };
 		89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867D129CB65D800A97402 /* FormalitySentenceView.swift */; };
+		89BF77AF29ED1C5A008A0FD7 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */; };
+		89BF77B129ED2841008A0FD7 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77B029ED2841008A0FD7 /* KeychainManager.swift */; };
 		89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714D29B481290048DAA9 /* AppDelegate.swift */; };
 		89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3714F29B481290048DAA9 /* SceneDelegate.swift */; };
 		89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E3715129B481290048DAA9 /* HomeViewController.swift */; };
@@ -171,6 +173,8 @@
 		89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCollectionViewCell.swift; sourceTree = "<group>"; };
 		89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalityCheckCollectionViewCell.swift; sourceTree = "<group>"; };
 		89B867D129CB65D800A97402 /* FormalitySentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalitySentenceView.swift; sourceTree = "<group>"; };
+		89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
+		89BF77B029ED2841008A0FD7 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E3714F29B481290048DAA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				89058E4529B7060D00A39615 /* Constants.swift */,
+				89BF77B029ED2841008A0FD7 /* KeychainManager.swift */,
 				89058E4B29B70AAD00A39615 /* Color.swift */,
 				8939A64729BA1B300092C967 /* FontSize.swift */,
 				891A4B5729DAB380000676BB /* SPUserDefaults.swift */,
@@ -340,6 +345,7 @@
 			children = (
 				891A4B5029DA8050000676BB /* SignUpModel.swift */,
 				891A4B5529DAAD5A000676BB /* LoginModel.swift */,
+				89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				8959C58329D6A50A00E20DE3 /* SignUpViewController.swift in Sources */,
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
 				89F9BFCC29C4362F0017BAD8 /* RecordingView.swift in Sources */,
+				89BF77AF29ED1C5A008A0FD7 /* MeModel.swift in Sources */,
 				898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */,
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
@@ -725,6 +732,7 @@
 				898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */,
 				89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */,
 				89F9BFCA29C436230017BAD8 /* RecordingViewController.swift in Sources */,
+				89BF77B129ED2841008A0FD7 /* KeychainManager.swift in Sources */,
 				89F52DCF29C2FF42000A5EB4 /* NewCategoryView.swift in Sources */,
 				89A179BE29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift in Sources */,
 				89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */,

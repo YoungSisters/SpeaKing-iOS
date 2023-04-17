@@ -68,6 +68,7 @@
 		89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */; };
 		89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */; };
 		89A179BE29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A179BD29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift */; };
+		89AFB29B29EDAC5F001828B7 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AFB29A29EDAC5F001828B7 /* FileService.swift */; };
 		89B867CE29CB54C500A97402 /* VocabularyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */; };
 		89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */; };
 		89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867D129CB65D800A97402 /* FormalitySentenceView.swift */; };
@@ -170,6 +171,7 @@
 		89A179B929C4B354002BCF6C /* SpeakingResultLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingViewController.swift; sourceTree = "<group>"; };
 		89A179BB29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingDoneViewController.swift; sourceTree = "<group>"; };
 		89A179BD29C4B690002BCF6C /* SpeakingResultLoadingDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultLoadingDoneView.swift; sourceTree = "<group>"; };
+		89AFB29A29EDAC5F001828B7 /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		89B867CD29CB54C500A97402 /* VocabularyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyCollectionViewCell.swift; sourceTree = "<group>"; };
 		89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalityCheckCollectionViewCell.swift; sourceTree = "<group>"; };
 		89B867D129CB65D800A97402 /* FormalitySentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalitySentenceView.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				891A4B5329DA8212000676BB /* AuthService.swift */,
+				89AFB29A29EDAC5F001828B7 /* FileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
 				898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
+				89AFB29B29EDAC5F001828B7 /* FileService.swift in Sources */,
 				898AA4A029C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift in Sources */,
 				89E3715029B481290048DAA9 /* SceneDelegate.swift in Sources */,
 				890C47F829BC765900AD4375 /* SPFilterButton.swift in Sources */,

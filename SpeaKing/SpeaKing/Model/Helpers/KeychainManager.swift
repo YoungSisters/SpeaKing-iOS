@@ -34,7 +34,7 @@ class KeychainManager {
         }
     }
     
-    static func get() -> CFTypeRef? {
+    static func get() -> (userId: String, token: String)? {
         let query: [String: AnyObject] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecReturnAttributes as String: kCFBooleanTrue,
@@ -45,6 +45,14 @@ class KeychainManager {
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
         
-        return result
+        guard let data = result as? [String: AnyObject],
+              let tokenData = data[kSecValueData as String] as? Data,
+              let token = String(data: tokenData, encoding: String.Encoding.utf8),
+              let userId = data[kSecAttrAccount as String] as? String
+        else {
+            return nil
+        }
+        
+        return (userId, token)
     }
 }

@@ -11,6 +11,8 @@ import PhotosUI
 class SignUpProfileViewController: UIViewController {
     
     var userInfo: SignUpModel!
+    private var profileImageFileName: String!
+    
     private var signUpProfileView = SignUpProfileView()
     
     var configuration: PHPickerConfiguration = {
@@ -63,14 +65,14 @@ extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileVie
         userInfo.intro = intro
         userInfo.url = url
         
-        if let userInfo = userInfo {
-            signUpService.signUp(userInfo) { response in
-                let nextViewController = UINavigationController(rootViewController: SignUpDoneViewController(nickname: userInfo.nickname))
-                nextViewController.modalPresentationStyle = .fullScreen
-                self.present(nextViewController, animated: true)
-
-            }
-        }
+//        if let userInfo = userInfo {
+//            signUpService.signUp(userInfo) { response in
+//                let nextViewController = UINavigationController(rootViewController: SignUpDoneViewController(nickname: userInfo.nickname))
+//                nextViewController.modalPresentationStyle = .fullScreen
+//                self.present(nextViewController, animated: true)
+//
+//            }
+//        }
     }
     
     func openImagePicker() {
@@ -81,6 +83,7 @@ extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileVie
     }
 }
 
+// MARK: - Photos Picker
 extension SignUpProfileViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
@@ -94,6 +97,13 @@ extension SignUpProfileViewController: PHPickerViewControllerDelegate {
                     self.signUpProfileView.setProfileImage(image: image as? UIImage)
                 }
             }
+            itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
+                guard let data = data else {
+                    return
+                }
+                self.profileImageFileName = data.lastPathComponent
+            }
         }
+        
     }
 }

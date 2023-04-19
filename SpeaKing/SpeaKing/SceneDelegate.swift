@@ -21,13 +21,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             var navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
             
-            if let data = KeychainManager.get() as? [String: AnyObject],
-               let tokenData = data[kSecValueData as String] as? Data,
-               let token = String(data: tokenData, encoding: String.Encoding.utf8) {
-                AuthService().authenticateToken(token) { response in
-                    if response.isSuccess {
+            if let token = KeychainManager.get()?.token {
+                AuthService().authenticateToken(token) { isSuccess in
+                    if isSuccess {
+                        print(token)
                         navigationController = UINavigationController(rootViewController: HomeViewController())
                     } else {
+                        // 키체인 데이터 삭제
+                        do {
+                            try KeychainManager.delete()
+                        } catch {
+                            debugPrint(error)
+                        }
                         navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
                     }
                     window.rootViewController = navigationController
@@ -40,6 +45,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.makeKeyAndVisible()
                 self.window = window
             }
+            // 테스트용
+//            navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
+//            window.rootViewController = navigationController
+//            window.makeKeyAndVisible()
+//            self.window = window
         }
     }
 

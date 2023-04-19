@@ -10,6 +10,7 @@ import Foundation
 class KeychainManager {
     enum KeychainError: Error {
         case duplicateEntry
+        case noToken
         case unknown(OSStatus)
     }
     
@@ -54,5 +55,17 @@ class KeychainManager {
         }
         
         return (userId, token)
+    }
+    
+    static func delete() throws {
+        let query: [String: AnyObject] = [
+            kSecClass as String: kSecClassGenericPassword,
+        ]
+        
+        let status = SecItemDelete(query as CFDictionary)
+        
+        guard status != errSecItemNotFound else { throw KeychainError.noToken }
+        guard status == errSecSuccess else { throw KeychainError.unknown(status) }
+
     }
 }

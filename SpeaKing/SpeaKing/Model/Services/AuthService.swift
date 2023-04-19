@@ -9,13 +9,13 @@ import Foundation
 import Alamofire
 
 protocol AuthServiceProtocol {
-    func authenticateToken(_ token: String, _ completion: @escaping (MeModel) -> Void)
+    func authenticateToken(_ token: String, _ completion: @escaping (Bool) -> Void)
     func signUp(_ userInfo: SignUpModel, _ completion: @escaping (SignUpResponseModel) -> Void)
     func login(_ userInfo: LoginModel, _ completion: @escaping (LoginResponseModel) -> Void)
 }
 
 class AuthService: AuthServiceProtocol {
-    func authenticateToken(_ token: String, _ completion: @escaping (MeModel) -> Void) {
+    func authenticateToken(_ token: String, _ completion: @escaping (Bool) -> Void) {
         let url = Constants.BASE_URL + Constants.AUTH + Constants.ME
         
         let header: HTTPHeaders = [
@@ -27,9 +27,10 @@ class AuthService: AuthServiceProtocol {
             .responseDecodable(of: MeModel.self) { response in
                 switch response.result {
                 case .success(let response):
-                    completion(response)
+                    completion(response.isSuccess)
                 case .failure(let error):
                     print(debugPrint(error))
+                    completion(false)
                 }
             }
     }

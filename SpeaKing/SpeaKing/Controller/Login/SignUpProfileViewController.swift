@@ -11,7 +11,9 @@ import PhotosUI
 class SignUpProfileViewController: UIViewController {
     
     var userInfo: SignUpModel!
+    private var profileImage: UIImage!
     private var profileImageFileName: String!
+    private var profileImageFileFormat: String!
     
     private var signUpProfileView = SignUpProfileView()
     
@@ -61,6 +63,10 @@ class SignUpProfileViewController: UIViewController {
 
 extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileViewDelegate {
     func postSignUp(nickname: String, intro: String?, url: String?) {
+        guard let imageData = profileImage.jpegData(compressionQuality: 1.0) else {
+            assert(false, "can't load image data")
+        }
+        FileService().uploadFileToS3(profileImageFileName, imageData: imageData)
         userInfo.nickname = nickname
         userInfo.intro = intro
         userInfo.url = url
@@ -96,13 +102,9 @@ extension SignUpProfileViewController: PHPickerViewControllerDelegate {
                 DispatchQueue.main.async {
                     self.signUpProfileView.setProfileImage(image: image as? UIImage)
                 }
+                self.profileImage = image as? UIImage
             }
-            itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
-                guard let data = data else {
-                    return
-                }
-                self.profileImageFileName = data.lastPathComponent
-            }
+            self.profileImageFileName = itemProvider.suggestedName
         }
         
     }

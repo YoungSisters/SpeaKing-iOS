@@ -49,6 +49,7 @@ class SignUpDoneViewController: UIViewController {
 
 extension SignUpDoneViewController: SignUpDoneViewDelegate {
     func moveToHomeViewController() {
-        self.changeRootViewController(HomeViewController())
+        let navigationController = UINavigationController(rootViewController: HomeViewController())
+        self.changeRootViewController(navigationController)
     }
 }

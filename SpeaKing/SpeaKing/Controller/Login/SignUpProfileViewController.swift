@@ -12,8 +12,6 @@ class SignUpProfileViewController: UIViewController {
     
     var userInfo: SignUpModel!
     private var profileImage: UIImage!
-    private var profileImageFileName: String!
-    private var profileImageFileFormat: String!
     
     private var signUpProfileView = SignUpProfileView()
     
@@ -63,22 +61,27 @@ class SignUpProfileViewController: UIViewController {
 
 extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileViewDelegate {
     func postSignUp(nickname: String, intro: String?, url: String?) {
-        guard let imageData = profileImage.jpegData(compressionQuality: 1.0) else {
-            assert(false, "can't load image data")
-        }
-        FileService().uploadFileToS3(profileImageFileName, imageData: imageData)
         userInfo.nickname = nickname
         userInfo.intro = intro
         userInfo.url = url
         
-//        if let userInfo = userInfo {
-//            signUpService.signUp(userInfo) { response in
-//                let nextViewController = UINavigationController(rootViewController: SignUpDoneViewController(nickname: userInfo.nickname))
-//                nextViewController.modalPresentationStyle = .fullScreen
-//                self.present(nextViewController, animated: true)
-//
-//            }
-//        }
+        if let userInfo = userInfo {
+            signUpService.signUp(userInfo) { response in
+                self.uploadProfileImage()
+                
+                let nextViewController = UINavigationController(rootViewController: SignUpDoneViewController(nickname: userInfo.nickname))
+                nextViewController.modalPresentationStyle = .fullScreen
+                self.present(nextViewController, animated: true)
+
+            }
+        }
+    }
+    
+    func uploadProfileImage() {
+        guard let imageData = self.profileImage.jpegData(compressionQuality: 1.0) else {
+            assert(false, "can't load image data")
+        }
+        FileService().uploadFileToS3("profile", imageData: imageData)
     }
     
     func openImagePicker() {
@@ -104,7 +107,6 @@ extension SignUpProfileViewController: PHPickerViewControllerDelegate {
                 }
                 self.profileImage = image as? UIImage
             }
-            self.profileImageFileName = itemProvider.suggestedName
         }
         
     }

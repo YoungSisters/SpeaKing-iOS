@@ -18,16 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            
+
             var navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-            
+
             if let token = KeychainManager.get()?.token {
                 AuthService().authenticateToken(token) { isSuccess in
                     if isSuccess {
                         print(token)
                         navigationController = UINavigationController(rootViewController: HomeViewController())
                     } else {
-                        // 키체인 데이터 삭제
                         do {
                             try KeychainManager.delete()
                         } catch {

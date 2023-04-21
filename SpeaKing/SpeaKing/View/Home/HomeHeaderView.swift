@@ -30,7 +30,9 @@ class HomeHeaderView: UIView {
 
 extension HomeHeaderView {
     func layout() {
-        let titleLabelView = SPTitleView(title: "반가워요, 닉네임 님!", subtitle: "오늘도 SpeaKing과 함께 달려볼까요?")
+        let nickname = UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자"
+        
+        let titleLabelView = SPTitleView(title: "반가워요, \(nickname) 님!", subtitle: "오늘도 SpeaKing과 함께 달려볼까요?")
         
         addSubview(titleLabelView)
         

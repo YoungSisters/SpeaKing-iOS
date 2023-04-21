@@ -49,7 +49,7 @@ class SignUpDoneViewController: UIViewController {
 
 extension SignUpDoneViewController: SignUpDoneViewDelegate {
     func moveToHomeViewController() {
-        let navigationController = UINavigationController(rootViewController: HomeViewController())
+        let navigationController = UINavigationController(rootViewController: HomeViewController(profileService: ProfileService()))
         self.changeRootViewController(navigationController)
     }
 }

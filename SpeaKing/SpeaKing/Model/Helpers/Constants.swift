@@ -21,4 +21,6 @@ struct Constants {
     static let LOGIN = "/login"
     
     static let PRESIGNED = "/presigned"
+    
+    static let PROFILE = "/profile"
 }

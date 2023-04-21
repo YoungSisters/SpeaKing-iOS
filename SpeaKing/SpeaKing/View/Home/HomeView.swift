@@ -57,6 +57,10 @@ class HomeView: UIView {
         return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
     }
     
+    func setUserNickname() {
+        self.tableView.reloadSections(IndexSet(0..<1), with: .automatic)
+    }
+    
 }
 
 extension HomeView: NewSpeakingButtonDelegate {

@@ -47,7 +47,7 @@ extension LoginViewController: LoginViewDelegate {
     func callLoginApi(userInfo: LoginModel) {
         loginService.login(userInfo) { response in
             if response.isSuccess {
-                let navigationController = UINavigationController(rootViewController: HomeViewController())
+                let navigationController = UINavigationController(rootViewController: HomeViewController(profileService: ProfileService()))
                 self.changeRootViewController(navigationController)
             }
         }

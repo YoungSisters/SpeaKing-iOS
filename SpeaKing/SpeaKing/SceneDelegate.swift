@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 AuthService().authenticateToken(token) { isSuccess in
                     if isSuccess {
                         print(token)
-                        navigationController = UINavigationController(rootViewController: HomeViewController())
+                        navigationController = UINavigationController(rootViewController: HomeViewController(profileService: ProfileService()))
                     } else {
                         do {
                             try KeychainManager.delete()

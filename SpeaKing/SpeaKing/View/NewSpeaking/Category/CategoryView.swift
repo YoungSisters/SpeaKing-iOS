@@ -20,7 +20,7 @@ class CategoryView: UIView {
     
     var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
     
-    private var categoryList = [CategoryListResult]()
+    private var categoryList = [CategoryResult]()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -103,7 +103,7 @@ extension CategoryView {
 
 // MARK: - Communicate with view controller
 extension CategoryView {
-    func setCategoryList(_ list: [CategoryListResult]) {
+    func setCategoryList(_ list: [CategoryResult]) {
         self.categoryList = list
         self.tableView.reloadData()
     }

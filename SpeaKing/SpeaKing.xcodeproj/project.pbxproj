@@ -65,6 +65,7 @@
 		898F8F9729DDB4B900597DBF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8F9629DDB4B900597DBF /* Image.swift */; };
 		899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EA2A00C02600FD551D /* CategoryListModel.swift */; };
 		899704ED2A00C06900FD551D /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EC2A00C06900FD551D /* CategoryService.swift */; };
+		899704F02A00CB6A00FD551D /* NewCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */; };
 		899AEE3029F2A80E002BE6A5 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE2F29F2A80E002BE6A5 /* ProfileModel.swift */; };
 		899AEE3229F2A87A002BE6A5 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE3129F2A87A002BE6A5 /* ProfileService.swift */; };
 		899AEE3429F2AAB0002BE6A5 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */; };
@@ -175,6 +176,7 @@
 		898F8F9629DDB4B900597DBF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		899704EA2A00C02600FD551D /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		899704EC2A00C06900FD551D /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
+		899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryModel.swift; sourceTree = "<group>"; };
 		899AEE2F29F2A80E002BE6A5 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		899AEE3129F2A87A002BE6A5 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -468,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				899704EA2A00C02600FD551D /* CategoryListModel.swift */,
+				899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				899AEE3229F2A87A002BE6A5 /* ProfileService.swift in Sources */,
 				898CE58329C0933700724370 /* CategoryViewController.swift in Sources */,
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
+				899704F02A00CB6A00FD551D /* NewCategoryModel.swift in Sources */,
 				8939A64A29BA28A20092C967 /* NewSpeakingButtonView.swift in Sources */,
 				89A179BC29C4B66A002BCF6C /* SpeakingResultLoadingDoneViewController.swift in Sources */,
 				89054F8029CD864B0080E8B6 /* LoginView.swift in Sources */,

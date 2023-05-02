@@ -7,10 +7,27 @@
 
 import UIKit
 
+protocol NewCategoryViewControllerDelegate {
+    func newCategoryViewControllerDidDismiss()
+}
+
 class NewCategoryViewController: UIViewController {
+    
+    var categoryService: CategoryServiceProtocol!
+    
+    var delegate: NewCategoryViewControllerDelegate!
     
     var contentView: NewCategoryView {
         return view as! NewCategoryView
+    }
+    
+    init(categoryService: CategoryServiceProtocol!) {
+        super.init(nibName: nil, bundle: nil)
+        self.categoryService = categoryService
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -37,7 +54,11 @@ class NewCategoryViewController: UIViewController {
 }
 
 extension NewCategoryViewController: NewCategoryViewDelegate {
-    func dismissNewCategoryView() {
-        self.dismiss(animated: true)
+    func createNewCategory(categoryName name: String) {
+        categoryService.postNewCategory(name) {
+            self.dismiss(animated: true) {
+                self.delegate.newCategoryViewControllerDidDismiss()
+            }
+        }
     }
 }

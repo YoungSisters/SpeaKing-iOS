@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NewCategoryViewDelegate {
-    func dismissNewCategoryView()
+    func createNewCategory(categoryName name: String)
 }
 
 class NewCategoryView: UIView {
@@ -74,6 +74,12 @@ extension NewCategoryView {
     }
     
     @objc func doneButtonTapped() {
-        delegate?.dismissNewCategoryView()
+        guard let name = textField.text else {
+            return
+        }
+        
+        if !name.isEmpty {
+            delegate?.createNewCategory(categoryName: name)
+        }
     }
 }

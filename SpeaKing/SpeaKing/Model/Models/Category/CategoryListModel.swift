@@ -11,10 +11,10 @@ struct CategoryListModel: Codable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: [CategoryListResult]
+    let result: [CategoryResult]
 }
 
-struct CategoryListResult: Codable {
+struct CategoryResult: Codable {
     let categoryId: Int
     let name: String
     let userId: Int

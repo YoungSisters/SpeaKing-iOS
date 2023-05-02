@@ -34,8 +34,12 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.getCategoryList()
     }
     
     func setupCategoryView() {
@@ -46,7 +50,8 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: CategoryViewDelegate {
     func newCategoryTapped() {
-        let newCategoryViewController = NewCategoryViewController()
+        let newCategoryViewController = NewCategoryViewController(categoryService: CategoryService())
+        newCategoryViewController.delegate = self
         let navigationController = UINavigationController(rootViewController: newCategoryViewController)
         if #available(iOS 15.0, *) {
             if let sheet = navigationController.sheetPresentationController {
@@ -67,5 +72,12 @@ extension CategoryViewController {
         categoryService.getCategoryList { response in
             self.categoryView.setCategoryList(response.result)
         }
+    }
+}
+
+
+extension CategoryViewController: NewCategoryViewControllerDelegate {
+    func newCategoryViewControllerDidDismiss() {
+        self.getCategoryList()
     }
 }

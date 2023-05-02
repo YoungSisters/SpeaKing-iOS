@@ -63,6 +63,8 @@
 		898CE58329C0933700724370 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58229C0933700724370 /* CategoryViewController.swift */; };
 		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
 		898F8F9729DDB4B900597DBF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8F9629DDB4B900597DBF /* Image.swift */; };
+		899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EA2A00C02600FD551D /* CategoryListModel.swift */; };
+		899704ED2A00C06900FD551D /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EC2A00C06900FD551D /* CategoryService.swift */; };
 		899AEE3029F2A80E002BE6A5 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE2F29F2A80E002BE6A5 /* ProfileModel.swift */; };
 		899AEE3229F2A87A002BE6A5 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE3129F2A87A002BE6A5 /* ProfileService.swift */; };
 		899AEE3429F2AAB0002BE6A5 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */; };
@@ -171,6 +173,8 @@
 		898CE58229C0933700724370 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		898F8F9629DDB4B900597DBF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		899704EA2A00C02600FD551D /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
+		899704EC2A00C06900FD551D /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		899AEE2F29F2A80E002BE6A5 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		899AEE3129F2A87A002BE6A5 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -369,6 +373,7 @@
 				891A4B5329DA8212000676BB /* AuthService.swift */,
 				89AFB29A29EDAC5F001828B7 /* FileService.swift */,
 				899AEE3129F2A87A002BE6A5 /* ProfileService.swift */,
+				899704EC2A00C06900FD551D /* CategoryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 		8948222829C043F400DB2F12 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				899704E92A00C01500FD551D /* Category */,
 				89AFB29C29EDAD3D001828B7 /* File */,
 				891A4B4F29DA8049000676BB /* Auth */,
 				899AEE2E29F2A7FC002BE6A5 /* Profile */,
@@ -454,6 +460,14 @@
 				89601C5529C0D94B003A669E /* CategoryNewTableViewCell.swift */,
 				89601C5329C0C804003A669E /* CategoryTableViewCell.swift */,
 				89F52DCE29C2FF42000A5EB4 /* NewCategoryView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		899704E92A00C01500FD551D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				899704EA2A00C02600FD551D /* CategoryListModel.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -697,6 +711,7 @@
 				89038A6B29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift in Sources */,
 				890C47F029BC43C400AD4375 /* SPTitleView.swift in Sources */,
 				8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */,
+				899704ED2A00C06900FD551D /* CategoryService.swift in Sources */,
 				897BFF3629D9E2D200D12C06 /* SignUpDoneView.swift in Sources */,
 				89A179BA29C4B354002BCF6C /* SpeakingResultLoadingViewController.swift in Sources */,
 				89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */,
@@ -749,6 +764,7 @@
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
 				898F8F9729DDB4B900597DBF /* Image.swift in Sources */,
 				89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */,
+				899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,
 				899AEE3429F2AAB0002BE6A5 /* UserDefaultsManager.swift in Sources */,
 				899AEE3229F2A87A002BE6A5 /* ProfileService.swift in Sources */,

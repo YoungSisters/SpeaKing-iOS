@@ -20,6 +20,8 @@ class CategoryView: UIView {
     
     var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
     
+    private var categoryList = [CategoryListResult]()
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         
@@ -99,10 +101,18 @@ extension CategoryView {
     }
 }
 
+// MARK: - Communicate with view controller
+extension CategoryView {
+    func setCategoryList(_ list: [CategoryListResult]) {
+        self.categoryList = list
+        self.tableView.reloadData()
+    }
+}
+
 // MARK: - UITableView
 extension CategoryView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return categoryList.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,7 +123,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.cellIdentifier, for: indexPath) as! CategoryTableViewCell
             
-            cell.titleLabel.text = categories[indexPath.row - 1]
+            cell.titleLabel.text = categoryList[indexPath.row - 1].name
             
             return cell
         }

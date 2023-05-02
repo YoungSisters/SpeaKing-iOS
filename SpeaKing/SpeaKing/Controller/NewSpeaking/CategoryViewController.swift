@@ -8,9 +8,22 @@
 import UIKit
 
 class CategoryViewController: UIViewController {
+    
+    var categoryView = CategoryView()
+    
+    var categoryService: CategoryServiceProtocol!
 
     var contentView: CategoryView {
         return view as! CategoryView
+    }
+    
+    init(categoryService: CategoryServiceProtocol!) {
+        super.init(nibName: nil, bundle: nil)
+        self.categoryService = categoryService
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
@@ -26,7 +39,6 @@ class CategoryViewController: UIViewController {
     }
     
     func setupCategoryView() {
-        let categoryView = CategoryView()
         categoryView.delegate = self
         view = categoryView
     }
@@ -46,5 +58,14 @@ extension CategoryViewController: CategoryViewDelegate {
             }
         }
         self.present(navigationController, animated: true)
+    }
+}
+
+// MARK: - Networking
+extension CategoryViewController {
+    func getCategoryList() {
+        categoryService.getCategoryList { response in
+            self.categoryView.setCategoryList(response.result)
+        }
     }
 }

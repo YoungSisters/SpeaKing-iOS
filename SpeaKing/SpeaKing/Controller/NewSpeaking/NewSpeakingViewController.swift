@@ -33,7 +33,7 @@ class NewSpeakingViewController: UIViewController {
 
 extension NewSpeakingViewController: NewSpeakingViewDelegate {
     func categorySelectionTapped() {
-        let categoryViewController = CategoryViewController()
+        let categoryViewController = CategoryViewController(categoryService: CategoryService())
         
         self.navigationController?.pushViewController(categoryViewController, animated: true)
     }

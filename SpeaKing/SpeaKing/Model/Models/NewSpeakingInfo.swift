@@ -12,7 +12,7 @@ class NewSpeakingInfo {
     
     var title: String?
     var category: String?
-    var situation: String?
+    var formality: String?
     
     private init() { }
 }

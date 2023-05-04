@@ -15,6 +15,8 @@ class NewSpeakingTitleTableViewCell: UITableViewCell {
     lazy var titleTextField: SPTextField = {
         let textField = SPTextField(placeholder: "최대 20자까지 입력 가능해요.")
         
+        textField.text = NewSpeakingInfo.shared.title
+        
         return textField
     }()
     
@@ -52,5 +54,9 @@ extension NewSpeakingTitleTableViewCell {
             make.top.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(32)
         }
+    }
+    
+    func addTitleTextFieldTarget(_ target: Any?, action: Selector) {
+        titleTextField.addTarget(target, action: action, for: .editingChanged)
     }
 }

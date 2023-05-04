@@ -10,6 +10,7 @@ import SnapKit
 
 protocol NewSpeakingViewDelegate {
     func categorySelectionTapped()
+    func saveInfoAndStartRecording(_ title: String?, _ formality: String?)
 }
 
 class NewSpeakingView: UIView {
@@ -34,6 +35,9 @@ class NewSpeakingView: UIView {
     
     var delegate: NewSpeakingViewDelegate?
     
+    private var speakingTitle: String?
+    private var formality: String?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,6 +45,8 @@ class NewSpeakingView: UIView {
         layout()
         
         configureTableView()
+        
+        bottomButton.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -49,6 +55,10 @@ class NewSpeakingView: UIView {
     
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
+    }
+    
+    @objc func bottomButtonTapped() {
+        delegate?.saveInfoAndStartRecording(speakingTitle, formality)
     }
 }
 
@@ -88,12 +98,31 @@ extension NewSpeakingView {
         tableView.register(NewSpeakingCategoryTableViewCell.self, forCellReuseIdentifier: NewSpeakingCategoryTableViewCell.cellIdentifier)
         tableView.register(NewSpeakingFormalityTableViewCell.self, forCellReuseIdentifier: NewSpeakingFormalityTableViewCell.cellIdentifier)
     }
+    
+    @objc func titleTextChanged(_ sender: SPTextField) {
+        speakingTitle = sender.text
+        NewSpeakingInfo.shared.title = sender.text
+    }
 }
 
 // MARK: - UITableView
 extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
+    enum NewSpeakingSection: Int {
+        case title = 0
+        case category
+        case formality
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section != 2 ? 1 : 2
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let formality = NewSpeakingInfo.shared.formality, let formalityIndex = Int(formality) {
+            if indexPath.section == 2 &&  indexPath.row == formalityIndex {
+                tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,6 +130,7 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingTitleTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingTitleTableViewCell
             
             cell.contentView.isUserInteractionEnabled = false
+            cell.addTitleTextFieldTarget(self, action: #selector(titleTextChanged))
             
             return cell
         } else if indexPath.section == 1 {
@@ -115,6 +145,13 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
             cell.formalityView.iconLabel.text = cellText[indexPath.row][0]
             cell.formalityView.titleLabel.text = cellText[indexPath.row][1]
             cell.formalityView.descriptionLabel.text = cellText[indexPath.row][2]
+            
+            if let formality = NewSpeakingInfo.shared.formality, let formalityIndex = Int(formality) {
+                if indexPath.row == formalityIndex {
+                    cell.isSelected = true
+                    cell.setSelected(true, animated: false)
+                }
+            }
 
             return cell
         }
@@ -126,6 +163,8 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
             delegate?.categorySelectionTapped()
         } else if indexPath.section == 2 {
             let cell = tableView.cellForRow(at: indexPath) as! NewSpeakingFormalityTableViewCell
+            formality = String(indexPath.row)
+            NewSpeakingInfo.shared.formality = String(indexPath.row)
             cell.isSelected.toggle()
             cell.setSelected(cell.isSelected, animated: false)
         }

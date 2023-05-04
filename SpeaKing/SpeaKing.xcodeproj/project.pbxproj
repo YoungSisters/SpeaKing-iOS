@@ -101,6 +101,7 @@
 		89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */; };
 		89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD829C447CB0017BAD8 /* STTResultView.swift */; };
 		89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */; };
+		89FB9DE92A042B09001DF76E /* NewSpeakingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +217,7 @@
 		89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultViewController.swift; sourceTree = "<group>"; };
 		89F9BFD829C447CB0017BAD8 /* STTResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultView.swift; sourceTree = "<group>"; };
 		89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPResultTextView.swift; sourceTree = "<group>"; };
+		89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,11 +340,11 @@
 			children = (
 				89058E4529B7060D00A39615 /* Constants.swift */,
 				89BF77B029ED2841008A0FD7 /* KeychainManager.swift */,
+				891A4B5729DAB380000676BB /* SPUserDefaults.swift */,
+				899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */,
 				89058E4B29B70AAD00A39615 /* Color.swift */,
 				8939A64729BA1B300092C967 /* FontSize.swift */,
-				891A4B5729DAB380000676BB /* SPUserDefaults.swift */,
 				898F8F9629DDB4B900597DBF /* Image.swift */,
-				899AEE3329F2AAB0002BE6A5 /* UserDefaultsManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -400,6 +402,7 @@
 				891A4B4F29DA8049000676BB /* Auth */,
 				899AEE2E29F2A7FC002BE6A5 /* Profile */,
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
+				89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				89F9BFD529C440630017BAD8 /* SPLoadingView.swift in Sources */,
 				897BFF3829D9E37D00D12C06 /* SignUpDoneViewController.swift in Sources */,
 				8959C58329D6A50A00E20DE3 /* SignUpViewController.swift in Sources */,
+				89FB9DE92A042B09001DF76E /* NewSpeakingInfo.swift in Sources */,
 				890C47F629BC70A300AD4375 /* UIViewController.swift in Sources */,
 				89F9BFCC29C4362F0017BAD8 /* RecordingView.swift in Sources */,
 				899AEE3029F2A80E002BE6A5 /* ProfileModel.swift in Sources */,

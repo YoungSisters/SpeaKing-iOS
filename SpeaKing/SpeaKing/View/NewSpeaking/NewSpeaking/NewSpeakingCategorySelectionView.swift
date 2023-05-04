@@ -13,9 +13,14 @@ class NewSpeakingCategorySelectionView: UIView {
     lazy var categoryNameLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "카테고리 선택"
+        if let nowCategory = NewSpeakingInfo.shared.category {
+            label.text = nowCategory
+            label.textColor = Color.Main
+        } else {
+            label.text = "카테고리 선택"
+            label.textColor = Color.Gray
+        }
         label.font = .systemFont(ofSize: 16)
-        label.textColor = Color.Gray
         
         return label
     }()

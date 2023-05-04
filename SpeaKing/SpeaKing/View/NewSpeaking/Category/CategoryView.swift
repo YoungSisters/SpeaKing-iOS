@@ -10,6 +10,8 @@ import SnapKit
 
 protocol CategoryViewDelegate {
     func newCategoryTapped()
+    
+    func doneButtonTapped(_ category: String?)
 }
 
 class CategoryView: UIView {
@@ -21,6 +23,7 @@ class CategoryView: UIView {
     var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
     
     private var categoryList = [CategoryResult]()
+    private var selectedCategory: String?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -45,6 +48,8 @@ class CategoryView: UIView {
         style()
         layout()
         configureTableView()
+        
+        bottomButton.addTarget(self, action: #selector(bottomButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -54,7 +59,10 @@ class CategoryView: UIView {
     override var intrinsicContentSize: CGSize {
         return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
     }
-
+    
+    @objc func bottomButtonTapped() {
+        delegate?.doneButtonTapped(selectedCategory)
+    }
 }
 
 // MARK: - Setup
@@ -140,6 +148,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
             cell.isSelected.toggle()
             cell.setSelected(cell.isSelected, animated: true)
+            self.selectedCategory = cell.titleLabel.text
         }
     }
     

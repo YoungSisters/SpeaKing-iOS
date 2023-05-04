@@ -64,6 +64,11 @@ extension CategoryViewController: CategoryViewDelegate {
         }
         self.present(navigationController, animated: true)
     }
+    
+    func doneButtonTapped(_ category: String?) {
+        NewSpeakingInfo.shared.category = category
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Networking

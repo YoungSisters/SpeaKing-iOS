@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordingViewController: UIViewController {
+    
+    private var recordingSession: AVAudioSession!
+    private var audioRecorder: AVAudioRecorder!
+    private var audioPlayer: AVAudioPlayer?
     
     var contentView: RecordingView {
         return view as! RecordingView
@@ -21,7 +26,7 @@ class RecordingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configureRecordingSession()
     }
     
     func setupRecordingView() {
@@ -29,6 +34,27 @@ class RecordingViewController: UIViewController {
         recordingView.delegate = self
         
         view = recordingView
+    }
+}
+
+// MARK: - Audio Recording
+extension RecordingViewController {
+    func configureRecordingSession() {
+        recordingSession = AVAudioSession.sharedInstance()
+
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { allowed in
+                if allowed {
+                    print("음성 녹음 허용")
+                } else {
+                    print("음성 녹음 비허용")
+                }
+            }
+        } catch {
+            print("음성 녹음 실패")
+        }
     }
 }
 

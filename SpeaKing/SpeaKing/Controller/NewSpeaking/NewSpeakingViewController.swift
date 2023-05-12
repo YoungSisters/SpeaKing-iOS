@@ -39,13 +39,12 @@ class NewSpeakingViewController: UIViewController {
 }
 
 extension NewSpeakingViewController: NewSpeakingViewDelegate {
-    func saveInfoAndStartRecording(_ title: String?, _ formality: String?) {
-        NewSpeakingInfo.shared.title = title
-        NewSpeakingInfo.shared.formality = formality
-        
+    func saveInfoAndStartRecording() {
         guard let title = NewSpeakingInfo.shared.title, let category = NewSpeakingInfo.shared.category, let formality = NewSpeakingInfo.shared.formality else {
             assert(false)
+            return
         }
+        self.navigationController?.pushViewController(RecordingViewController(), animated: true)
     }
     
     func categorySelectionTapped() {

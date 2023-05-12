@@ -10,7 +10,7 @@ import SnapKit
 
 protocol NewSpeakingViewDelegate {
     func categorySelectionTapped()
-    func saveInfoAndStartRecording(_ title: String?, _ formality: String?)
+    func saveInfoAndStartRecording()
 }
 
 class NewSpeakingView: UIView {
@@ -58,7 +58,7 @@ class NewSpeakingView: UIView {
     }
     
     @objc func bottomButtonTapped() {
-        delegate?.saveInfoAndStartRecording(speakingTitle, formality)
+        delegate?.saveInfoAndStartRecording()
     }
 }
 

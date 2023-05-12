@@ -21,7 +21,7 @@ class RecordingView: UIView {
     lazy var speakingTitleLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "SpeaKING"
+        label.text = NewSpeakingInfo.shared.title ?? ""
         label.textColor = Color.Main
         label.font = .systemFont(ofSize: FontSize.body)
         

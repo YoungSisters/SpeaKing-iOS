@@ -11,7 +11,7 @@ protocol RecordingViewDelegate {
     func stopRecording()
     func pauseRecording()
     func playRecording()
-    func finishRecording()
+    func finishRecordingAndMoveToNext()
 }
 
 class RecordingView: UIView {
@@ -181,6 +181,6 @@ extension RecordingView {
     }
     
     @objc func doneButtonTapped() {
-        delegate?.finishRecording()
+        delegate?.finishRecordingAndMoveToNext()
     }
 }

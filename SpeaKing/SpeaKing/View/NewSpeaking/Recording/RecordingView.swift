@@ -161,6 +161,10 @@ extension RecordingView {
     func setPauseButtonImage() {
         pauseButton.setImage(UIImage(systemName: isPaused ? "play.fill" : "pause.fill"), for: .normal)
     }
+    
+    func setSpeakingTimeLabel(time: String) {
+        speakingTimeLabel.text = time
+    }
 }
 
 // MARK: - Button Event

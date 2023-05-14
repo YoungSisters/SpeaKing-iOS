@@ -15,8 +15,16 @@ class RecordingViewController: UIViewController {
     private var audioRecorder: AVAudioRecorder!
     private var audioPlayer: AVAudioPlayer?
     
+    private var isFirstTimeRecording = true
+
     private var audioId: String?
     let realm = try! Realm()
+    
+    // Timer
+    private var seconds = 0
+    private var timer = Timer()
+    
+    let recordingView = RecordingView()
     
     var contentView: RecordingView {
         return view as! RecordingView
@@ -31,13 +39,25 @@ class RecordingViewController: UIViewController {
         super.viewDidLoad()
         configureRecordingSession()
         startRecording()
+        runTimer()
     }
     
     func setupRecordingView() {
-        let recordingView = RecordingView()
         recordingView.delegate = self
         
         view = recordingView
+    }
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateSpeakingTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateSpeakingTime() {
+        seconds += 1
+        let nowMinute = String(format: "%02d", seconds / 60)
+        let nowSecond = String(format: "%02d", seconds % 60)
+        
+        recordingView.setSpeakingTimeLabel(time: "\(nowMinute):\(nowSecond)")
     }
 }
 
@@ -121,21 +141,38 @@ extension RecordingViewController: AVAudioRecorderDelegate {
     }
 }
 
+// MARK: - Recording View
 extension RecordingViewController: RecordingViewDelegate {
     func stopRecording() {
         finishRecording(isDone: false)
+        
+        timer.invalidate()
+        seconds = 0
+        recordingView.setSpeakingTimeLabel(time: "00:00")
+        
+        isFirstTimeRecording = true
     }
     
     func pauseRecording() {
         audioRecorder.pause()
+        timer.invalidate()
     }
     
     func playRecording() {
-        audioRecorder.record()
+        if isFirstTimeRecording {
+            startRecording()
+        } else {
+            audioRecorder.record()
+        }
+        isFirstTimeRecording = false
+        print(isFirstTimeRecording)
+        runTimer()
     }
     
     func finishRecordingAndMoveToNext() {
         finishRecording(isDone: true)
+        
+        timer.invalidate()
         
         let loadingViewController = STTLoadingViewController()
         loadingViewController.modalPresentationStyle = .fullScreen

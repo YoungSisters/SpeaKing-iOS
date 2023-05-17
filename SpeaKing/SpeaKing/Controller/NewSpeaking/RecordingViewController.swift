@@ -177,8 +177,15 @@ extension RecordingViewController: RecordingViewDelegate {
         timer.invalidate()
         
         let loadingViewController = STTLoadingViewController()
+        loadingViewController.delegate = self
         loadingViewController.modalPresentationStyle = .fullScreen
         
         self.present(loadingViewController, animated: true)
+    }
+}
+
+extension RecordingViewController: STTLoadingViewControllerDelegate {
+    func moveToNextViewController() {
+        self.navigationController?.pushViewController(STTResultViewController(), animated: true)
     }
 }

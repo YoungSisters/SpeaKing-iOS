@@ -14,6 +14,8 @@ class NewSpeakingInfo {
     var category: String?
     var formality: String?
     var audioId: String?
+    var text: String?
+    var wpm: Double?
     
     private init() { }
 }

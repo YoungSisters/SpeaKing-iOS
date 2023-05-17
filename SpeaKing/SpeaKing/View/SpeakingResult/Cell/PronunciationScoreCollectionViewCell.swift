@@ -16,8 +16,34 @@ class PronunciationScoreCollectionViewCell: UICollectionViewCell {
     
     var resultLabel: UILabel = {
         let label = UILabel()
-        label.text = "3.8 / 5.0"
-        label.font = .boldSystemFont(ofSize: FontSize.title3)
+        
+        let userScoreAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: FontSize.title3),
+            .foregroundColor: Color.Main!
+        ]
+        
+        let userScoreString = NSAttributedString(string: "3.8", attributes: userScoreAttributes)
+        
+        let totalScoreAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: FontSize.body),
+            .foregroundColor: Color.Darkgray!
+        ]
+        
+        let totalScoreString = NSAttributedString(string: " / 5.0", attributes: totalScoreAttributes)
+        
+        let scoreText = NSMutableAttributedString(attributedString: userScoreString)
+        scoreText.append(totalScoreString)
+        
+        label.attributedText = scoreText
+        
+        return label
+    }()
+    
+    var resultCommentLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "😃 훌륭해요!"
+        label.font = .systemFont(ofSize: FontSize.caption)
         label.textColor = Color.Main
         
         return label
@@ -48,28 +74,24 @@ extension PronunciationScoreCollectionViewCell {
     }
     
     func layout() {
-        let stackView = UIStackView(arrangedSubviews: [chartView, resultLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 0
+        let labelStackView = UIStackView(arrangedSubviews: [resultLabel, resultCommentLabel])
+        labelStackView.axis = .vertical
+        labelStackView.alignment = .center
+        labelStackView.spacing = 0
         
-        addSubview(stackView)
-        
-        stackView.snp.makeConstraints { make in
-            make.leading.top.bottom.equalToSuperview().inset(16)
+        addSubview(labelStackView)
+
+        labelStackView.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(32)
+            make.centerY.equalToSuperview()
         }
-//        addSubview(resultLabel)
-//
-//        resultLabel.snp.makeConstraints { make in
-//            <#code#>
-//        }
-//        addSubview(chartView)
-//
-//        chartView.snp.makeConstraints { make in
-////            make.edges.equalToSuperview().inset(16)
-//            make.leading.top.bottom.equalToSuperview().inset(16)
-//
-//        }
+        
+        addSubview(chartView)
+        
+        chartView.snp.makeConstraints { make in
+            make.top.bottom.leading.equalToSuperview().inset(16)
+            make.trailing.equalTo(labelStackView.snp.leading)
+        }
     }
     
     func configureChartView() {

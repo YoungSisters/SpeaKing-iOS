@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            }
             // 테스트용
 //            navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-            window.rootViewController = SpeakingResultViewController()
+            window.rootViewController = STTLoadingViewController()
             window.makeKeyAndVisible()
             self.window = window
         }

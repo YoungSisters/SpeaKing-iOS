@@ -9,7 +9,14 @@ import UIKit
 
 class STTLoadingView: UIView {
     
-    var loadingView = SPLoadingView()
+    private lazy var loadingView: SPLoadingView = {
+        let nickname = UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자"
+        let view = SPLoadingView(title: "SpeaKing이\n\(nickname) 님의 말하기를\n텍스트로 변환하고 있어요.", buttonTitle: "")
+        view.isDoneButtonHidden = true
+        view.setAnimation(type: .loading)
+        
+        return view
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +36,7 @@ class STTLoadingView: UIView {
 
 extension STTLoadingView {
     func style() {
-        loadingView.titleLabel.text = "SpeaKING이\n사용자 님의 말하기를\n텍스트로 변환하고 있어요."
+//        loadingView.isDoneButtonHidden = true
     }
     
     func layout() {

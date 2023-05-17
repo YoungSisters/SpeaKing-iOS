@@ -7,6 +7,12 @@
 
 import UIKit
 
+import Lottie
+
+enum AnimationType: String {
+    case loading = "LoadingBar"
+}
+
 class SPLoadingView: UIView {
     
     lazy var titleLabel: UILabel = {
@@ -88,5 +94,23 @@ extension SPLoadingView {
             make.bottom.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
             make.height.equalTo(50)
         }
+    }
+    
+    func setAnimation(type: AnimationType) {
+        let animationView = LottieAnimationView(name: type.rawValue)
+        
+        animationView.contentMode = .scaleAspectFill
+        
+        addSubview(animationView)
+        
+        animationView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(64)
+            make.top.equalTo(titleLabel.snp.bottom).offset(64)
+            make.height.equalTo(200)
+        }
+        
+        animationView.loopMode = .loop
+        
+        animationView.play()
     }
 }

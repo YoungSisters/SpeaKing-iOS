@@ -11,8 +11,8 @@ class FormalityCheckCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "FormalityCheckCell"
     
-    var beforeSentenceView = FormalitySentenceView()
-    var afterSentenceView = FormalitySentenceView()
+    var beforeSentenceView = FormalitySentenceView(isBefore: true, isFormal: true)
+    var afterSentenceView = FormalitySentenceView(isBefore: false)
     
     lazy var separatorView: UIView = {
         let view = UIView()

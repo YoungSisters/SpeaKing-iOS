@@ -9,6 +9,9 @@ import UIKit
 
 class FormalitySentenceView: UIView {
     
+    var isBefore: Bool
+    var isFormal: Bool?
+    
     lazy var typeLabel: UILabel = {
         let label = UILabel()
         
@@ -29,8 +32,33 @@ class FormalitySentenceView: UIView {
             make.leading.trailing.equalToSuperview().inset(12)
         }
         
-        
         view.backgroundColor = Color.Purple
+        view.addShadow()
+        
+        return view
+    }()
+    
+    private lazy var formalLabel: UILabel = {
+        let label = UILabel()
+        
+        label.text = "Type"
+        label.textColor = Color.White
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.sizeToFit()
+        
+        return label
+    }()
+    
+    private lazy var formalView: UIView = {
+        let view = UIView()
+        
+        view.addSubview(formalLabel)
+        formalLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(4)
+            make.leading.trailing.equalToSuperview().inset(12)
+        }
+        
+        view.backgroundColor = Color.Darkgray
         view.addShadow()
         
         return view
@@ -47,9 +75,20 @@ class FormalitySentenceView: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(isBefore: Bool) {
+        self.isBefore = isBefore
+
+        super.init(frame: .zero)
+                
+        style()
+        layout()
+    }
+    
+    convenience init(isBefore: Bool, isFormal: Bool) {
+        self.init(isBefore: isBefore)
         
+        self.isFormal = isFormal
+
         style()
         layout()
     }
@@ -62,17 +101,35 @@ class FormalitySentenceView: UIView {
         super.draw(rect)
         
         typeView.layer.cornerRadius = typeView.frame.height / 2
+        formalView.layer.cornerRadius = formalView.frame.height / 2
     }
 }
 
 extension FormalitySentenceView {
-    
     func style() {
-        
+        if isBefore {
+            typeView.backgroundColor = Color.LightPurple
+            typeLabel.text = "Before"
+            formalView.isHidden = false
+            if let isFormal = isFormal {
+                formalLabel.text = isFormal ? "Formal" : "Informal"
+            }
+            
+        } else {
+            typeView.backgroundColor = Color.Purple
+            typeLabel.text = "After"
+            formalView.isHidden = true
+        }
     }
     
     func layout() {
-        let stackView = UIStackView(arrangedSubviews: [typeView, sentenceLabel])
+        let topStackView = UIStackView(arrangedSubviews: [typeView, formalView])
+        
+        topStackView.axis = .horizontal
+        topStackView.alignment = .leading
+        topStackView.spacing = 8
+        
+        let stackView = UIStackView(arrangedSubviews: [topStackView, sentenceLabel])
         
         stackView.axis = .vertical
         stackView.alignment = .leading

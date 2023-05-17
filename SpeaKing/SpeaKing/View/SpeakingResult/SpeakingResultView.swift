@@ -17,7 +17,7 @@ enum SpeakingResultCollectionViewSection: Int {
 
 class SpeakingResultView: UIView {
     
-    private let headerTitle = ["문법 검사", "발음 점수", "말하기 속도", "자주 사용한 단어", "Formality 검사"]
+    private let headerTitle = ["문법 검사", "발음 점수", "말하기 속도", "자주 사용한 단어", "나의 문장 Check"]
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.collectionViewLayout)

@@ -12,7 +12,7 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "SpeakingSpeedCell"
     
     private let values = [180.0, 150.0]
-    private let nameData = ["기준", "User"]
+    private var nameData = ["기준", "User"]
     
     var barChartView = HorizontalBarChartView()
     
@@ -133,5 +133,9 @@ extension SpeakingSpeedCollectionViewCell {
         barChartView.noDataText = "데이터가 없습니다."
         barChartView.noDataFont = .systemFont(ofSize: FontSize.body)
         barChartView.noDataTextColor = Color.Main!
+        
+        if let nickname = UserDefaultsManager.getData(type: String.self, forKey: .nickname) {
+            nameData[1] = nickname
+        }
     }
 }

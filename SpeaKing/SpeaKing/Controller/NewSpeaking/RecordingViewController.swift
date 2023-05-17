@@ -133,6 +133,8 @@ extension RecordingViewController: AVAudioRecorderDelegate {
             return
         }
         
+        NewSpeakingInfo.shared.audioId = audioId
+
         let audioData = Audio(id: audioId, url: audioRecorder.url.absoluteString)
         
         try! realm.write {

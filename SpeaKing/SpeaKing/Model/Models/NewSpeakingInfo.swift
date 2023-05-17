@@ -13,6 +13,7 @@ class NewSpeakingInfo {
     var title: String?
     var category: String?
     var formality: String?
+    var audioId: String?
     
     private init() { }
 }

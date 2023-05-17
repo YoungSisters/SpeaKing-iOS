@@ -6,12 +6,22 @@
 //
 
 import UIKit
+
 import Charts
 
 class PronunciationScoreCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "PronunciationScoreCell"
     
     var chartView = PieChartView()
+    
+    var resultLabel: UILabel = {
+        let label = UILabel()
+        label.text = "3.8 / 5.0"
+        label.font = .boldSystemFont(ofSize: FontSize.title3)
+        label.textColor = Color.Main
+        
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,11 +48,28 @@ extension PronunciationScoreCollectionViewCell {
     }
     
     func layout() {
-        addSubview(chartView)
+        let stackView = UIStackView(arrangedSubviews: [chartView, resultLabel])
+        stackView.axis = .horizontal
+        stackView.spacing = 0
         
-        chartView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
+        addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
+            make.leading.top.bottom.equalToSuperview().inset(16)
+            make.trailing.equalToSuperview().inset(32)
         }
+//        addSubview(resultLabel)
+//
+//        resultLabel.snp.makeConstraints { make in
+//            <#code#>
+//        }
+//        addSubview(chartView)
+//
+//        chartView.snp.makeConstraints { make in
+////            make.edges.equalToSuperview().inset(16)
+//            make.leading.top.bottom.equalToSuperview().inset(16)
+//
+//        }
     }
     
     func configureChartView() {
@@ -59,32 +86,20 @@ extension PronunciationScoreCollectionViewCell {
     }
     
     func updateChartData() {
-        self.setDataCount(4, range: 100)
+        setDataCount(3.8)
     }
 
-    func setDataCount(_ count: Int, range: UInt32) {
-        let entries = (0..<count).map { (i) -> PieChartDataEntry in
-            // IMPORTANT: In a PieChart, no values (Entry) should have the same xIndex (even if from different DataSets), since no values can be drawn above each other.
-            return PieChartDataEntry(value: Double(arc4random_uniform(range) + range / 5), label: String(i))
-        }
+    func setDataCount(_ score: Double) {
+        let userScoreEntry = PieChartDataEntry(value: score)
+        let backgroundEntry = PieChartDataEntry(value: 5.0 - score)
         
-        let set = PieChartDataSet(entries: entries, label: "Election Results")
-        set.sliceSpace = 3
+        let set = PieChartDataSet(entries: [userScoreEntry, backgroundEntry])
+        set.sliceSpace = 0
         set.selectionShift = 5
-        set.colors = ChartColorTemplates.material()
+        set.colors = [Color.Purple!, Color.Background!]
+        set.drawValuesEnabled = false
         
         let data = PieChartData(dataSet: set)
-        
-        let pFormatter = NumberFormatter()
-        pFormatter.numberStyle = .percent
-        pFormatter.maximumFractionDigits = 1
-        pFormatter.multiplier = 1
-        pFormatter.percentSymbol = " %"
-        data.setValueFormatter(DefaultValueFormatter(formatter: pFormatter))
-    
-        data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 11)!)
-        data.setValueTextColor(.white)
-        
         chartView.data = data
         
         chartView.setNeedsDisplay()

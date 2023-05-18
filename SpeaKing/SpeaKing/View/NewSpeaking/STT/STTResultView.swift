@@ -5,7 +5,11 @@
 //  Created by 이서영 on 2023/03/17.
 //
 
-import UIKit 
+import UIKit
+
+protocol STTResultViewDelegate {
+    func moveToSpeakingAnalysis(text: String)
+}
 
 class STTResultView: UIView {
     
@@ -15,7 +19,7 @@ class STTResultView: UIView {
     
     private var playerView = SPPlayerView()
     
-    var delegate: PlayerDelegate?
+    var delegate: (PlayerDelegate & STTResultViewDelegate)?
     
     lazy var playerBackgroundView: UIView = {
         let view = UIView()
@@ -54,6 +58,7 @@ class STTResultView: UIView {
         style()
         layout()
         addPlayerComponentTargets()
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -150,6 +155,20 @@ extension STTResultView {
         delegate?.movePlaytime(time: value)
     }
 }
+
+// MARK: - Next Button Target
+
+extension STTResultView {
+    @objc func nextButtonTapped() {
+        guard let text = textView.textView.text else {
+            return
+        }
+        
+        delegate?.moveToSpeakingAnalysis(text: text)
+    }
+}
+
+
 
 // MARK: - Communicate with view controller
 

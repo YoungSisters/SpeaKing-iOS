@@ -75,6 +75,13 @@ class STTResultViewController: UIViewController {
     }
 }
 
+extension STTResultViewController: STTResultViewDelegate {
+    func moveToSpeakingAnalysis(text: String) {
+        NewSpeakingInfo.shared.text = text
+        self.present(SpeakingResultLoadingViewController(), animated: true)
+    }
+}
+
 // MARK: - Playing Audio
 
 extension STTResultViewController: PlayerDelegate {

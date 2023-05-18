@@ -7,6 +7,14 @@
 
 import UIKit
 
+protocol PlayerDelegate {
+    func seekForward()
+    func seekBackward()
+    func playAudio()
+    func pauseAudio()
+    func movePlaytime()
+}
+
 class SPPlayerView: UIView {
     
     lazy var titleLabel: UILabel = {
@@ -23,6 +31,7 @@ class SPPlayerView: UIView {
         let slider = UISlider()
         let thumb = UIImage(systemName: "circle.fill")?.withTintColor(Color.Purple!, renderingMode: .alwaysOriginal)
         
+        slider.minimumValue = 0
         slider.minimumTrackTintColor = Color.LightPurple
         slider.maximumTrackTintColor = Color.Gray
         slider.setThumbImage(thumb, for: .normal)
@@ -57,7 +66,7 @@ class SPPlayerView: UIView {
     
     lazy var pauseButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
         button.tintColor = Color.White
         button.backgroundColor = Color.Purple
         button.layer.cornerRadius = 50 / 2

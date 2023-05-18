@@ -5,7 +5,7 @@
 //  Created by 이서영 on 2023/03/17.
 //
 
-import UIKit
+import UIKit 
 
 class STTResultView: UIView {
     
@@ -14,6 +14,8 @@ class STTResultView: UIView {
     private var textView = SPResultTextView()
     
     private var playerView = SPPlayerView()
+    
+    var delegate: PlayerDelegate?
     
     lazy var playerBackgroundView: UIView = {
         let view = UIView()
@@ -42,13 +44,6 @@ class STTResultView: UIView {
     var recordTitle: String
     var resultText: String
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//        style()
-//        layout()
-//    }
-    
     required init(recordTitle: String, resultText: String) {
         self.recordTitle = recordTitle
         self.resultText = resultText
@@ -57,6 +52,7 @@ class STTResultView: UIView {
         
         style()
         layout()
+        addPlayerComponentTargets()
     }
     
     required init?(coder: NSCoder) {
@@ -112,4 +108,41 @@ extension STTResultView {
 //    func setResultText(result text: String) {
 //        textView.setTextViewText(text: text)
 //    }
+}
+
+// MARK: - PlayerView Targets
+
+extension STTResultView {
+    func addPlayerComponentTargets() {
+        playerView.forwardButton.addTarget(self, action: #selector(forwardButtonTapped), for: .touchUpInside)
+        playerView.backwardButton.addTarget(self, action: #selector(backwardButtonTapped), for: .touchUpInside)
+        playerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func forwardButtonTapped() {
+        delegate?.seekForward()
+    }
+    
+    @objc func backwardButtonTapped() {
+        delegate?.seekBackward()
+    }
+    
+    @objc func pauseButtonTapped() {
+        
+    }
+}
+
+// MARK: - Set new values
+
+extension STTResultView {
+    func setOverallDuration(duration: TimeInterval) {
+        playerView.totalTimeLabel.text = duration.stringFromTimeInterval()
+        playerView.slider.maximumValue = Float(duration)
+        playerView.slider.isContinuous = true
+    }
+    
+    func setCurrentTime(time: TimeInterval) {
+        playerView.slider.value = Float(time)
+        playerView.currentTimeLabel.text = time.stringFromTimeInterval()
+    }
 }

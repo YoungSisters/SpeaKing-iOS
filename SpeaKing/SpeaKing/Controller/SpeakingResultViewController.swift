@@ -21,7 +21,7 @@ class SpeakingResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        configureNavigationBar()
     }
     
     func setupSpeakingResultView() {
@@ -29,6 +29,12 @@ class SpeakingResultViewController: UIViewController {
 //        speakingResultView.delegate = self
         
         view = speakingResultView
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.title = "분석 결과"
     }
 
 }

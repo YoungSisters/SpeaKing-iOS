@@ -21,20 +21,24 @@ class NewSpeakingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        configureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNewSpeakingView()
-        print(NewSpeakingInfo.shared.title)
-        print(NewSpeakingInfo.shared.formality)
     }
     
     func setupNewSpeakingView() {
         let newSpeakingView = NewSpeakingView()
         newSpeakingView.delegate = self
         view = newSpeakingView
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = Color.Main
+        navigationItem.backButtonTitle = ""
+        navigationItem.title = "새 SpeaKing"
     }
 }
 

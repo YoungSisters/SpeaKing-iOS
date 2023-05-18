@@ -34,6 +34,7 @@ class CategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +46,11 @@ class CategoryViewController: UIViewController {
     func setupCategoryView() {
         categoryView.delegate = self
         view = categoryView
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.backButtonTitle = ""
+        navigationItem.title = "카테고리 선택"
     }
 }
 

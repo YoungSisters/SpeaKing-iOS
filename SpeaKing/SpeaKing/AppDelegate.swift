@@ -14,9 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if #available(iOS 15.0, *) {
-            UITableView.appearance().sectionHeaderTopPadding = .zero
-        }
+        UITableView.appearance().sectionHeaderTopPadding = .zero
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.setBackIndicatorImage(UIImage(), transitionMaskImage: UIImage())
+        appearance.titleTextAttributes = [.foregroundColor: Color.Main!]
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
         return true
     }
 

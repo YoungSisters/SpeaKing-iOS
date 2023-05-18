@@ -65,6 +65,7 @@
 		898CE58329C0933700724370 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58229C0933700724370 /* CategoryViewController.swift */; };
 		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
 		898F8F9729DDB4B900597DBF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8F9629DDB4B900597DBF /* Image.swift */; };
+		898FCC102A160448004C2DA0 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FCC0F2A160448004C2DA0 /* TimeInterval.swift */; };
 		899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EA2A00C02600FD551D /* CategoryListModel.swift */; };
 		899704ED2A00C06900FD551D /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EC2A00C06900FD551D /* CategoryService.swift */; };
 		899704F02A00CB6A00FD551D /* NewCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */; };
@@ -181,6 +182,7 @@
 		898CE58229C0933700724370 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		898F8F9629DDB4B900597DBF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		898FCC0F2A160448004C2DA0 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		899704EA2A00C02600FD551D /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		899704EC2A00C06900FD551D /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryModel.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				8939A64D29BA358F0092C967 /* UIView.swift */,
 				890C47F329BC68A500AD4375 /* UITextField.swift */,
 				890C47F529BC70A300AD4375 /* UIViewController.swift */,
+				898FCC0F2A160448004C2DA0 /* TimeInterval.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,
 				89F52DCD29C2FF38000A5EB4 /* NewCategoryViewController.swift in Sources */,
 				89479F3229BCE47800C5D1ED /* MySpeakingStackView.swift in Sources */,
+				898FCC102A160448004C2DA0 /* TimeInterval.swift in Sources */,
 				898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */,
 				898CE57F29C08AA500724370 /* NewSpeakingFormalityView.swift in Sources */,
 				89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */,

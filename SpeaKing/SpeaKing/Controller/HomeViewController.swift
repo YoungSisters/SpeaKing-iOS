@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationBar()
         profileService.getUserProfile {
             self.homeView.setUserNickname()
         }
@@ -42,6 +43,23 @@ class HomeViewController: UIViewController {
     func setupHomeView() {
         homeView.delegate = self
         view = homeView
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.backButtonTitle = ""
+        
+        let logoImageView = UIImageView(image: UIImage(named: Image.logo))
+        logoImageView.setImageColor(color: Color.Main!)
+        logoImageView.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        logoImageView.contentMode = .scaleAspectFit
+        
+        logoImageView.snp.makeConstraints { make in
+            make.width.equalTo(44)
+            make.height.equalTo(44)
+        }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: logoImageView)
+        
     }
 }
 

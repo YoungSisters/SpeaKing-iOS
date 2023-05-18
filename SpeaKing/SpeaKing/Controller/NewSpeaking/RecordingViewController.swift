@@ -40,12 +40,19 @@ class RecordingViewController: UIViewController {
         configureRecordingSession()
         startRecording()
         runTimer()
+        configureNavigationBar()
     }
     
     func setupRecordingView() {
         recordingView.delegate = self
         
         view = recordingView
+    }
+    
+    func configureNavigationBar() {
+        navigationItem.hidesBackButton = true
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        navigationItem.title = "SpeaKing 녹음"
     }
     
     func runTimer() {

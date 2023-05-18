@@ -15,7 +15,8 @@ class STTResultViewController: UIViewController {
     private let realm = try! Realm()
     
     private var player: AVAudioPlayer?
-    private let seekDuration = 10.0
+    private var timer: Timer!
+    private let seekDuration = 2.0
     
     private var sttResultView = STTResultView(recordTitle: "", resultText: "")
     
@@ -32,27 +33,20 @@ class STTResultViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
-        // 플레이어 설정
-//        guard let audioId = NewSpeakingInfo.shared.audioId, let urlString = realm.object(ofType: Audio.self, forPrimaryKey: audioId)?.url else {
-//                print("Can't find audio url")
-//                return
-//            }
-//
-//        guard let audioUrl = URL(string: urlString) else {
-//            assert(false, "Can't find audio url")
-//            return
-//        }
         
-//        guard let urlString = realm.object(ofType: Audio.self, forPrimaryKey: "21BD4570-E1E0-4EF7-A290-FA649CE7F9D9")?.url else {
-//            return
-//        }
-//        
-        guard let audioUrl = URL(string: "file:///Users/seoyeong/Library/Developer/CoreSimulator/Devices/7F82EA3C-DDEE-4D46-8FAD-116C1878459E/data/Containers/Data/Application/C8DD50B3-8860-4E15-83A2-F994EFFFE534/Library/Caches/A66998CD-DA40-4A31-9912-15770855506C.wav") else {
-            assert(false, "No audio file")
+        // 플레이어 설정
+        guard let audioId = NewSpeakingInfo.shared.audioId, let urlString = realm.object(ofType: Audio.self, forPrimaryKey: audioId)?.url else {
+                print("Can't find audio url")
+                return
+            }
+
+        guard let audioUrl = URL(string: urlString) else {
+            assert(false, "Can't find audio url")
             return
         }
                 
         player = try? AVAudioPlayer(contentsOf: audioUrl)
+        player?.delegate = self
         
         // 오디오 전체 길이 설정
         guard let duration = player?.duration else {
@@ -60,37 +54,13 @@ class STTResultViewController: UIViewController {
         }
         
         sttResultView.setOverallDuration(duration: duration)
-//
-//        // 현재 시간
-//        let currentDuration = playerItem.currentTime()
-//        let currentSeconds = CMTimeGetSeconds(currentDuration)
-//
-//        sttResultView.setCurrentTime(time: currentSeconds)
-//
-//        // 재생 관련 설정 (준비)
-//        player!.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(1, preferredTimescale: 1), queue: DispatchQueue.main) { _ in
-//            if self.player!.currentItem?.status == .readyToPlay {
-//                let time = CMTimeGetSeconds(self.player!.currentTime())
-//                self.sttResultView.setCurrentTime(time: time)
-//            }
-//
-//            let playbackLikelyToKeepUp = self.player?.currentItem?.isPlaybackLikelyToKeepUp
-//            if playbackLikelyToKeepUp == false {
-//                print("IsBuffering")
-//            } else {
-//                print("Buffering completed")
-//            }
-//        }
     }
     
     func setupSTTResultView() {
-//        guard let title = NewSpeakingInfo.shared.title, let text = NewSpeakingInfo.shared.text else {
-//            assert(false)
-//            return
-//        }
-        
-        let title = "test"
-        let text = "hellloo"
+        guard let title = NewSpeakingInfo.shared.title, let text = NewSpeakingInfo.shared.text else {
+            assert(false)
+            return
+        }
         
         sttResultView = STTResultView(recordTitle: title, resultText: text)
         sttResultView.delegate = self
@@ -105,46 +75,68 @@ class STTResultViewController: UIViewController {
     }
 }
 
+// MARK: - Playing Audio
+
 extension STTResultViewController: PlayerDelegate {
     func seekForward() {
         guard let player = player else {
             return
         }
+        var newTime = player.currentTime + seekDuration
+        if newTime > player.duration { newTime = player.duration }
         
-        player.currentTime = player.currentTime + seekDuration
+        player.currentTime = newTime
         sttResultView.setCurrentTime(time: player.currentTime)
-        
-//        if let duration = player.currentItem?.duration {
-//            let playerCurrentTime = CMTimeGetSeconds(player.currentTime())
-//            let newTime = playerCurrentTime + seekDuration
-//
-//            if newTime < CMTimeGetSeconds(duration) {
-//                let selectedTime = CMTimeMake(value: Int64(newTime * 1000 as Float64), timescale: 1000)
-//                player.seek(to: selectedTime)
-//            }
-//            player.pause()
-//            player.play()
-//        }
     }
     
     func seekBackward() {
         guard let player = player else {
             return
         }
-        player.currentTime = player.currentTime - seekDuration
-        sttResultView.setCurrentTime(time: player.currentTime)    }
+        var newTime = player.currentTime - seekDuration
+        if newTime < 0 { newTime = 0 }
+        
+        player.currentTime = newTime
+        sttResultView.setCurrentTime(time: player.currentTime)
+    }
     
     func playAudio() {
         player?.play()
+        runTimer()
     }
     
     func pauseAudio() {
         player?.pause()
+        invalidateTimer()
     }
     
-    func movePlaytime() {
-        //
+    func movePlaytime(time: TimeInterval) {
+        player?.currentTime = time
     }
     
+    func runTimer() {
+        self.timer = Timer(timeInterval: 0.01, target: self, selector: #selector(self.changeCurrentTimeWhilePlaying), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer, forMode: .common)
+    }
     
+    @objc func changeCurrentTimeWhilePlaying() {
+        guard let currentTime = self.player?.currentTime else {
+            assert(false)
+            return
+        }
+        
+        self.sttResultView.setCurrentTime(time: currentTime)
+    }
+    
+    func invalidateTimer() {
+        self.timer.invalidate()
+        self.timer = nil
+    }
+}
+
+extension STTResultViewController: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        sttResultView.resetPlayer()
+        self.invalidateTimer()
+    }
 }

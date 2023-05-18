@@ -12,7 +12,7 @@ protocol PlayerDelegate {
     func seekBackward()
     func playAudio()
     func pauseAudio()
-    func movePlaytime()
+    func movePlaytime(time: TimeInterval)
 }
 
 class SPPlayerView: UIView {
@@ -67,6 +67,7 @@ class SPPlayerView: UIView {
     lazy var pauseButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        button.setImage(UIImage(systemName: "pause.fill"), for: .selected)
         button.tintColor = Color.White
         button.backgroundColor = Color.Purple
         button.layer.cornerRadius = 50 / 2

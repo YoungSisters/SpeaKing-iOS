@@ -39,8 +39,9 @@ class STTResultView: UIView {
         return button
     }()
     
-    // Properties
+    // MARK: - Properties
     
+    private var isPlaying = false
     var recordTitle: String
     var resultText: String
     
@@ -117,6 +118,7 @@ extension STTResultView {
         playerView.forwardButton.addTarget(self, action: #selector(forwardButtonTapped), for: .touchUpInside)
         playerView.backwardButton.addTarget(self, action: #selector(backwardButtonTapped), for: .touchUpInside)
         playerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
+        playerView.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
     }
     
     @objc func forwardButtonTapped() {
@@ -127,12 +129,29 @@ extension STTResultView {
         delegate?.seekBackward()
     }
     
-    @objc func pauseButtonTapped() {
+    @objc func pauseButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
         
+        if sender.isSelected {
+            delegate?.playAudio()
+        } else {
+            delegate?.pauseAudio()
+        }
+    }
+    
+    @objc func sliderValueChanged(_ sender: UISlider) {
+        let value = TimeInterval(sender.value)
+        setCurrentTime(time: value)
+        
+        if sender.isTracking {
+            return
+        }
+        
+        delegate?.movePlaytime(time: value)
     }
 }
 
-// MARK: - Set new values
+// MARK: - Communicate with view controller
 
 extension STTResultView {
     func setOverallDuration(duration: TimeInterval) {
@@ -142,7 +161,17 @@ extension STTResultView {
     }
     
     func setCurrentTime(time: TimeInterval) {
+        guard !playerView.slider.isTracking else {
+            return
+        }
+        
         playerView.slider.value = Float(time)
         playerView.currentTimeLabel.text = time.stringFromTimeInterval()
+    }
+    
+    func resetPlayer() {
+        playerView.pauseButton.isSelected = false
+        playerView.slider.value = 0
+        playerView.currentTimeLabel.text = 0.stringFromTimeInterval()
     }
 }

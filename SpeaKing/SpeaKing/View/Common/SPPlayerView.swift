@@ -149,3 +149,9 @@ extension SPPlayerView {
         
     }
 }
+
+extension SPPlayerView {
+    func setTitle(title: String) {
+        titleLabel.text = title
+    }
+}

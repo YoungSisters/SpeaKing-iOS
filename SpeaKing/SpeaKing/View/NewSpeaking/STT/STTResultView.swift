@@ -9,11 +9,11 @@ import UIKit
 
 class STTResultView: UIView {
     
-    var titleView = SPTitleView(title: "텍스트로 변환한 결과예요.", subtitle: "잘못 변환된 단어가 있으면 수정해주세요.")
+    private var titleView = SPTitleView(title: "텍스트로 변환한 결과예요.", subtitle: "잘못 변환된 단어가 있으면 수정해주세요.")
     
-    var textView = SPResultTextView()
+    private var textView = SPResultTextView()
     
-    var playerView = SPPlayerView()
+    private var playerView = SPPlayerView()
     
     lazy var playerBackgroundView: UIView = {
         let view = UIView()
@@ -37,8 +37,23 @@ class STTResultView: UIView {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    // Properties
+    
+    var recordTitle: String
+    var resultText: String
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//
+//        style()
+//        layout()
+//    }
+    
+    required init(recordTitle: String, resultText: String) {
+        self.recordTitle = recordTitle
+        self.resultText = resultText
+        
+        super.init(frame: .zero)
         
         style()
         layout()
@@ -58,7 +73,9 @@ extension STTResultView {
     func style() {
         self.backgroundColor = Color.Background
         self.dismissKeyboardWhenTappedAround()
-        textView.setTextViewText(text: "Well I can remember as a small child probably between the age of three and seven going to Asheville and visit my grandmother uh umm and uh my grandfather but he died when I was fairly young so I mostly remember visiting my grandmother. She lived in a small house at Asheville. The uh the small  neighborhood I remember she lived in was very uh quiet mostly older people and uh we used to go around the small neighborhood and visit lot of her old friends. ")
+        
+        self.playerView.setTitle(title: recordTitle)
+        self.textView.setTextViewText(text: resultText)
     }
     
     func layout() {
@@ -91,4 +108,8 @@ extension STTResultView {
             make.bottom.equalTo(nextButton.snp.top).offset(-32)
         }
     }
+    
+//    func setResultText(result text: String) {
+//        textView.setTextViewText(text: text)
+//    }
 }

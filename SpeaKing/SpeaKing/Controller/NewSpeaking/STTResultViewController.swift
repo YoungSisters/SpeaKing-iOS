@@ -25,9 +25,14 @@ class STTResultViewController: UIViewController {
     }
     
     func setupSTTResultView() {
-        let sttResultView = STTResultView()
-//        sttResultView.delegate = self
+        guard let title = NewSpeakingInfo.shared.title, let text = NewSpeakingInfo.shared.text else {
+            assert(false)
+            return
+        }
         
+        let sttResultView = STTResultView(recordTitle: title, resultText: text)
+        //        sttResultView.delegate = self
+
         view = sttResultView
     }
 

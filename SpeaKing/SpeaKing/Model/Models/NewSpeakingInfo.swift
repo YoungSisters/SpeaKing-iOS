@@ -18,4 +18,13 @@ class NewSpeakingInfo {
     var wpm: Double?
     
     private init() { }
+    
+    func resetNewSpeakingInfo() {
+        title = nil
+        category = nil
+        formality = nil
+        audioId = nil
+        text = nil
+        wpm = nil
+    }
 }

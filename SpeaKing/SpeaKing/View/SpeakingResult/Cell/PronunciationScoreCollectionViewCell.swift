@@ -104,6 +104,8 @@ extension PronunciationScoreCollectionViewCell {
         
         chartView.legend.enabled = false
         
+        chartView.isUserInteractionEnabled = false
+        
         updateChartData()
     }
     

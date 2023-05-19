@@ -72,6 +72,12 @@ class SpeakingResultViewController: UIViewController {
         navigationItem.hidesBackButton = true
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         navigationItem.title = "분석 결과"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(rightBarButtonItemTapped))
+    }
+    
+    @objc func rightBarButtonItemTapped() {
+        navigationController?.popToRootViewController(animated: true)
+        NewSpeakingInfo.shared.resetNewSpeakingInfo()
     }
 }
 

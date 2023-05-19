@@ -106,6 +106,7 @@ class SpeakingResultView: UIView {
 extension SpeakingResultView {
     func style() {
         self.backgroundColor = Color.Background
+        self.playerView.setTitle(title: recordTitle)
     }
     
     func layout() {

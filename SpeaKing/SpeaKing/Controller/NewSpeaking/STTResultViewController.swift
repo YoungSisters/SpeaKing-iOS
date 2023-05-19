@@ -78,7 +78,16 @@ class STTResultViewController: UIViewController {
 extension STTResultViewController: STTResultViewDelegate {
     func moveToSpeakingAnalysis(text: String) {
         NewSpeakingInfo.shared.text = text
-        self.present(SpeakingResultLoadingViewController(), animated: true)
+        let nextViewController = SpeakingResultLoadingViewController()
+        nextViewController.delegate = self
+        nextViewController.modalPresentationStyle = .fullScreen
+        self.present(nextViewController, animated: true)
+    }
+}
+
+extension STTResultViewController: SpeakingResultLoadingViewControllerDelegate {
+    func moveToResultViewController() {
+        navigationController?.pushViewController(SpeakingResultViewController(), animated: true)
     }
 }
 

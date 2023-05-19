@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol SpeakingResultLoadingViewControllerDelegate {
+    func moveToResultViewController()
+}
+
 class SpeakingResultLoadingViewController: UIViewController {
+    
+    var delegate: SpeakingResultLoadingViewControllerDelegate?
+    
     var contentView: SpeakingResultLoadingView {
         return view as! SpeakingResultLoadingView
     }
@@ -25,8 +32,16 @@ class SpeakingResultLoadingViewController: UIViewController {
     
     func setupSpeakingResultLoadingView() {
         let speakingResultLoadingView = SpeakingResultLoadingView()
-//        speakingResultLoadingView.delegate = self
+        speakingResultLoadingView.delegate = self
         
         view = speakingResultLoadingView
+    }
+}
+
+extension SpeakingResultLoadingViewController: SpeakingResultLoadingViewDelegate {
+    func pushNextViewController() {
+        self.dismiss(animated: true) {
+            self.delegate?.moveToResultViewController()
+        }
     }
 }

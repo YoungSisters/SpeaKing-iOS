@@ -11,6 +11,7 @@ import Lottie
 
 enum AnimationType: String {
     case loading = "LoadingBar"
+    case done = "Done"
 }
 
 class SPLoadingView: UIView {
@@ -109,7 +110,7 @@ extension SPLoadingView {
             make.height.equalTo(200)
         }
         
-        animationView.loopMode = .loop
+        animationView.loopMode = type == .loading ? .loop : .playOnce
         
         animationView.play()
     }

@@ -66,7 +66,7 @@
 		898CE58529C0935000724370 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE58429C0935000724370 /* CategoryView.swift */; };
 		898F8F9729DDB4B900597DBF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898F8F9629DDB4B900597DBF /* Image.swift */; };
 		898FCC102A160448004C2DA0 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FCC0F2A160448004C2DA0 /* TimeInterval.swift */; };
-		898FCC132A16D1DA004C2DA0 /* recording.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 898FCC122A16D1DA004C2DA0 /* recording.m4a */; };
+		898FCC152A16F562004C2DA0 /* SpeakingResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898FCC142A16F562004C2DA0 /* SpeakingResultModel.swift */; };
 		899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EA2A00C02600FD551D /* CategoryListModel.swift */; };
 		899704ED2A00C06900FD551D /* CategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EC2A00C06900FD551D /* CategoryService.swift */; };
 		899704F02A00CB6A00FD551D /* NewCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */; };
@@ -184,7 +184,7 @@
 		898CE58429C0935000724370 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		898F8F9629DDB4B900597DBF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		898FCC0F2A160448004C2DA0 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		898FCC122A16D1DA004C2DA0 /* recording.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = recording.m4a; sourceTree = "<group>"; };
+		898FCC142A16F562004C2DA0 /* SpeakingResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultModel.swift; sourceTree = "<group>"; };
 		899704EA2A00C02600FD551D /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		899704EC2A00C06900FD551D /* CategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryService.swift; sourceTree = "<group>"; };
 		899704EF2A00CB6A00FD551D /* NewCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCategoryModel.swift; sourceTree = "<group>"; };
@@ -419,6 +419,7 @@
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
 				89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */,
 				89E268C52A11629F00AEA846 /* Audio.swift */,
+				898FCC142A16F562004C2DA0 /* SpeakingResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -547,7 +548,6 @@
 				89058E4129B705B800A39615 /* Controller */,
 				89E3714D29B481290048DAA9 /* AppDelegate.swift */,
 				89E3714F29B481290048DAA9 /* SceneDelegate.swift */,
-				898FCC122A16D1DA004C2DA0 /* recording.m4a */,
 				895A81722A15735C0083C3CC /* LoadingBar.json */,
 				89E3715629B4812A0048DAA9 /* Assets.xcassets */,
 				89E3715829B4812A0048DAA9 /* LaunchScreen.storyboard */,
@@ -713,7 +713,6 @@
 			files = (
 				895A81732A15735C0083C3CC /* LoadingBar.json in Resources */,
 				89E3715A29B4812A0048DAA9 /* LaunchScreen.storyboard in Resources */,
-				898FCC132A16D1DA004C2DA0 /* recording.m4a in Resources */,
 				89E3715729B4812A0048DAA9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,6 +767,7 @@
 				891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */,
 				8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */,
 				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,
+				898FCC152A16F562004C2DA0 /* SpeakingResultModel.swift in Sources */,
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
 				898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,

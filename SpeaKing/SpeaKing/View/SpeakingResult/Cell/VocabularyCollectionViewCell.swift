@@ -11,8 +11,8 @@ import Charts
 class VocabularyCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "VocabularyCell"
     
-    private let values: [Double] = [8, 6, 3, 8, 6, 3]
-    private let nameData = ["기준", "User", "으앙", "기준", "User", "으앙"]
+    private let values: [Double] = [3, 2, 2, 1, 1]
+    private let nameData = ["conference", "man", "white", "picture", "giving"]
     
     var chartView = BarChartView()
     

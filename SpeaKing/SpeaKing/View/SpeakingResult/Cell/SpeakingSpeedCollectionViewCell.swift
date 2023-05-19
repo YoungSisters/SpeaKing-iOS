@@ -11,7 +11,7 @@ import Charts
 class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "SpeakingSpeedCell"
     
-    private let values = [180.0, 150.0]
+    private let values = [125.0, 127.0]
     private var nameData = ["기준", "User"]
     
     var barChartView = HorizontalBarChartView()
@@ -19,7 +19,7 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     lazy var commentLabel: UILabel = {
         let label = UILabel()
         
-        label.text = "코멘트"
+        label.text = "딱 좋아요!"
         label.font = .systemFont(ofSize: FontSize.subhead)
         label.textAlignment = .center
         label.textColor = Color.Main
@@ -95,7 +95,7 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         barChartView.leftAxis.enabled = false
         
         // 맥시멈
-        barChartView.leftAxis.axisMaximum = 200
+//        barChartView.leftAxis.axisMaximum = 200
         // 미니멈
         barChartView.leftAxis.axisMinimum = 0
     }

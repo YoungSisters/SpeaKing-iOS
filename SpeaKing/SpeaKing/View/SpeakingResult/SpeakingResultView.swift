@@ -17,6 +17,19 @@ enum SpeakingResultCollectionViewSection: Int {
 
 class SpeakingResultView: UIView {
     
+    private let correctedText = "In this picture, a man is giving a presentation to a group **in a conference room**. Perhaps they **were** at a conference. The man is speaking and making gestures as he explains things to the audience. He is wearing a white shirt and a black suit. There is a whiteboard next to him with the information on it. A woman with blond hair is smiling. I think the presenter is well-prepared for this conference."
+    
+    private let nlp = [
+        Formality(sentence: "In this picture, a man is giving a presentation to a group.", formality: "Formal", paraphrasing: "A man is giving a presentation." ),
+        Formality(sentence: "They are in conference room.", formality: "Formal", paraphrasing: "They are in a room." ),
+        Formality(sentence: "Perhaps they was at conference.", formality: "Formal", paraphrasing: "Maybe they were at the conference." ),
+        Formality(sentence: "The man is speaking and make gestures as he explain things to the audience.", formality: "Formal", paraphrasing: "The man is speaking to an audience." ),
+        Formality(sentence: "He is wearing white shirt and the black suit.", formality: "Formal", paraphrasing: "He is wearing a shirt and a suit." ),
+        Formality(sentence: "There are white board next to he with the information on that.", formality: "Formal", paraphrasing: "There is a white board next to him." ),
+        Formality(sentence: "A woman of blond hair is smiling.", formality: "Formal", paraphrasing: "A woman is happy." ),
+        Formality(sentence: "I think the presenter is well-prepared for this conference.", formality: "Formal", paraphrasing: "The speaker is well-prepared for the conference." ),
+    ]
+    
     private let headerTitle = ["문법 검사", "발음 점수", "말하기 속도", "자주 사용한 단어", "나의 문장 Check"]
     
     lazy var collectionView: UICollectionView = {
@@ -113,7 +126,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let section = SpeakingResultCollectionViewSection(rawValue: section) else { return 0 }
         
-        return section == .formality ? 3 : 1
+        return section == .formality ? nlp.count : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -125,7 +138,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .textView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingResultTextViewCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingResultTextViewCollectionViewCell
             
-            cell.resultTextView.setTextViewText(text: "Well I can remember as a small child probably between the age of three and seven going to Asheville and visit my grandmother uh umm and uh my grandfather but he died when I was fairly young so I mostly remember visiting my grandmother. She lived in a small house at Asheville. The uh the small  neighborhood I remember she lived in was very uh quiet mostly older people and uh we used to go around the small neighborhood and visit lot of her old friends. ")
+            cell.resultTextView.setTextViewText(text: correctedText)
             
             return cell
         case .pronunciationScore:
@@ -143,6 +156,10 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .formality:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FormalityCheckCollectionViewCell.cellIdentifier, for: indexPath) as! FormalityCheckCollectionViewCell
             
+            let data = nlp[indexPath.row]
+            
+            cell.setResult(before: data.sentence, after: data.paraphrasing, isFormal: true)
+            
             return cell
         }
     }
@@ -154,7 +171,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
 
         switch section {
         case .textView:
-            return CGSize(width: width, height: 330)
+            return CGSize(width: width, height: 250)
         case .pronunciationScore:
             return CGSize(width: width, height: 125)
         case .speed:
@@ -162,7 +179,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .vocabulary:
             return CGSize(width: width, height: 200)
         case .formality:
-            return CGSize(width: width, height: 200)
+            return CGSize(width: width, height: 225)
         }
     }
     

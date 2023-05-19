@@ -63,4 +63,9 @@ extension FormalityCheckCollectionViewCell {
             make.leading.trailing.equalToSuperview().inset(16)
         }
     }
+    
+    func setResult(before: String, after: String, isFormal: Bool) {
+        beforeSentenceView.sentenceLabel.text = before
+        afterSentenceView.sentenceLabel.text = after
+    }
 }

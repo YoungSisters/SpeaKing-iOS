@@ -56,6 +56,14 @@ extension SPResultTextView {
 
 extension SPResultTextView {
     func setTextViewText(text: String) {
-        self.textView.text = text
+        guard let str = try? NSAttributedString(markdown: text) else {
+            return
+        }
+        
+        let attributedText = NSMutableAttributedString(attributedString: str)
+        attributedText.addAttributes([.font: UIFont.systemFont(ofSize: FontSize.body), .foregroundColor: Color.Main!], range: NSMakeRange(0, attributedText.length))
+        
+        self.textView.attributedText = attributedText
+//        self.textView.text = text
     }
 }

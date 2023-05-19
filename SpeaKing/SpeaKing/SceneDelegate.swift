@@ -19,36 +19,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
 
-            var navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-
-            if let token = KeychainManager.get()?.token {
-                AuthService().authenticateToken(token) { isSuccess in
-                    if isSuccess {
-                        print(token)
-                        navigationController = UINavigationController(rootViewController: HomeViewController(profileService: ProfileService()))
-                    } else {
-                        do {
-                            try KeychainManager.delete()
-                        } catch {
-                            debugPrint(error)
-                        }
-                        navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-                    }
-                    window.rootViewController = navigationController
-                    window.makeKeyAndVisible()
-                    self.window = window
-                }
-            } else {
-                navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-                window.rootViewController = navigationController
-                window.makeKeyAndVisible()
-                self.window = window
-            }
+//            var navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
+//
+//            if let token = KeychainManager.get()?.token {
+//                AuthService().authenticateToken(token) { isSuccess in
+//                    if isSuccess {
+//                        print(token)
+//                        navigationController = UINavigationController(rootViewController: HomeViewController(profileService: ProfileService()))
+//                    } else {
+//                        do {
+//                            try KeychainManager.delete()
+//                        } catch {
+//                            debugPrint(error)
+//                        }
+//                        navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
+//                    }
+//                    window.rootViewController = navigationController
+//                    window.makeKeyAndVisible()
+//                    self.window = window
+//                }
+//            } else {
+//                navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
+//                window.rootViewController = navigationController
+//                window.makeKeyAndVisible()
+//                self.window = window
+//            }
             // 테스트용
 //            navigationController = UINavigationController(rootViewController: LoginViewController(loginService: AuthService()))
-//            window.rootViewController = STTResultViewController()
-//            window.makeKeyAndVisible()
-//            self.window = window
+            window.rootViewController = SpeakingResultViewController()
+            window.makeKeyAndVisible()
+            self.window = window
         }
     }
 

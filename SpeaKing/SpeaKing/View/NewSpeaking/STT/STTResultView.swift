@@ -45,9 +45,8 @@ class STTResultView: UIView {
     
     // MARK: - Properties
     
-    private var isPlaying = false
-    var recordTitle: String
-    var resultText: String
+    private var recordTitle: String
+    private var resultText: String
     
     required init(recordTitle: String, resultText: String) {
         self.recordTitle = recordTitle
@@ -167,8 +166,6 @@ extension STTResultView {
         delegate?.moveToSpeakingAnalysis(text: text)
     }
 }
-
-
 
 // MARK: - Communicate with view controller
 

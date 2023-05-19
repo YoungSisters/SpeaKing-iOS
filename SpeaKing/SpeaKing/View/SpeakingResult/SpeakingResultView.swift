@@ -71,11 +71,22 @@ class SpeakingResultView: UIView {
         
         return view
     }()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    // MARK: - Properties
+    
+    var delegate: PlayerDelegate?
+    
+    private var recordTitle: String
+    private var resultText: String
+    
+    required init(recordTitle: String, resultText: String) {
+        self.recordTitle = recordTitle
+        self.resultText = resultText
+        
+        super.init(frame: .zero)
         
         configureCollectionView()
+        addPlayerComponentTargets()
         style()
         layout()
     }
@@ -91,6 +102,7 @@ class SpeakingResultView: UIView {
 }
 
 // MARK: - Setup
+
 extension SpeakingResultView {
     func style() {
         self.backgroundColor = Color.Background
@@ -114,6 +126,7 @@ extension SpeakingResultView {
 }
 
 // MARK: - Setup Collection View
+
 extension SpeakingResultView {
     func configureCollectionView() {
         collectionView.delegate = self
@@ -122,6 +135,7 @@ extension SpeakingResultView {
 }
 
 // MARK: - UICollectionView Delegate and DataSource
+
 extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let section = SpeakingResultCollectionViewSection(rawValue: section) else { return 0 }
@@ -201,5 +215,70 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width - 48, height: 50)
+    }
+}
+
+// MARK: - PlayerView Targets
+
+extension SpeakingResultView {
+    func addPlayerComponentTargets() {
+        playerView.forwardButton.addTarget(self, action: #selector(forwardButtonTapped), for: .touchUpInside)
+        playerView.backwardButton.addTarget(self, action: #selector(backwardButtonTapped), for: .touchUpInside)
+        playerView.pauseButton.addTarget(self, action: #selector(pauseButtonTapped), for: .touchUpInside)
+        playerView.slider.addTarget(self, action: #selector(sliderValueChanged), for: .valueChanged)
+    }
+    
+    @objc func forwardButtonTapped() {
+        delegate?.seekForward()
+    }
+    
+    @objc func backwardButtonTapped() {
+        delegate?.seekBackward()
+    }
+    
+    @objc func pauseButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        
+        if sender.isSelected {
+            delegate?.playAudio()
+        } else {
+            delegate?.pauseAudio()
+        }
+    }
+    
+    @objc func sliderValueChanged(_ sender: UISlider) {
+        let value = TimeInterval(sender.value)
+        setCurrentTime(time: value)
+        
+        if sender.isTracking {
+            return
+        }
+        
+        delegate?.movePlaytime(time: value)
+    }
+}
+
+// MARK: - Communicate with view controller
+
+extension SpeakingResultView {
+    func setOverallDuration(duration: TimeInterval) {
+        playerView.totalTimeLabel.text = duration.stringFromTimeInterval()
+        playerView.slider.maximumValue = Float(duration)
+        playerView.slider.isContinuous = true
+    }
+    
+    func setCurrentTime(time: TimeInterval) {
+        guard !playerView.slider.isTracking else {
+            return
+        }
+        
+        playerView.slider.value = Float(time)
+        playerView.currentTimeLabel.text = time.stringFromTimeInterval()
+    }
+    
+    func resetPlayer() {
+        playerView.pauseButton.isSelected = false
+        playerView.slider.value = 0
+        playerView.currentTimeLabel.text = 0.stringFromTimeInterval()
     }
 }

@@ -36,15 +36,15 @@ class STTResultViewController: UIViewController {
         
         // 플레이어 설정
         guard let audioId = NewSpeakingInfo.shared.audioId, let urlString = realm.object(ofType: Audio.self, forPrimaryKey: audioId)?.url else {
-                print("Can't find audio url")
-                return
-            }
-
+            print("Can't find audio url")
+            return
+        }
+        
         guard let audioUrl = URL(string: urlString) else {
             assert(false, "Can't find audio url")
             return
         }
-                
+        
         player = try? AVAudioPlayer(contentsOf: audioUrl)
         player?.delegate = self
         
@@ -64,7 +64,7 @@ class STTResultViewController: UIViewController {
         
         sttResultView = STTResultView(recordTitle: title, resultText: text)
         sttResultView.delegate = self
-
+        
         view = sttResultView
     }
     
@@ -84,6 +84,8 @@ extension STTResultViewController: STTResultViewDelegate {
         self.present(nextViewController, animated: true)
     }
 }
+
+// MARK: - SpeakingResultLoadingViewControllerDelegate
 
 extension STTResultViewController: SpeakingResultLoadingViewControllerDelegate {
     func moveToResultViewController() {

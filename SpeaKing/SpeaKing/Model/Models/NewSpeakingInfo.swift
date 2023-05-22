@@ -16,6 +16,7 @@ class NewSpeakingInfo {
     var formality: String?
     var audioId: String?
     var text: String?
+    var pronunciation: String?
     var wpm: Double?
     
     private init() { }
@@ -27,6 +28,7 @@ class NewSpeakingInfo {
         formality = nil
         audioId = nil
         text = nil
+        pronunciation = nil
         wpm = nil
     }
 }

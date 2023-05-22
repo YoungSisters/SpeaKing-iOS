@@ -35,6 +35,8 @@ class SPLoadingView: UIView {
         return button
     }()
     
+    var animationView = LottieAnimationView(name: AnimationType.loading.rawValue)
+    
     var title: String? {
         get {
             return titleLabel.text
@@ -97,9 +99,7 @@ extension SPLoadingView {
         }
     }
     
-    func setAnimation(type: AnimationType) {
-        let animationView = LottieAnimationView(name: type.rawValue)
-        
+    func setAnimation() {
         animationView.contentMode = .scaleAspectFill
         
         addSubview(animationView)
@@ -110,8 +110,17 @@ extension SPLoadingView {
             make.height.equalTo(200)
         }
         
-        animationView.loopMode = type == .loading ? .loop : .playOnce
+        animationView.loopMode = .loop
         
+        animationView.play()
+    }
+    
+    func changeAnimation() {
+        animationView.pause()
+        
+        animationView.animation = LottieAnimation.named(AnimationType.done.rawValue)
+        
+        animationView.loopMode = .playOnce
         animationView.play()
     }
 }

@@ -140,7 +140,7 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: NewSpeakingFormalityTableViewCell.cellIdentifier, for: indexPath) as! NewSpeakingFormalityTableViewCell
             
-            let cellText = [["💼", "Formality", "학업, 비즈니스, 시험 등을 위한 말하기예요."], ["🎮", "Informal", "일상적인 말하기예요."]]
+            let cellText = [["💼", "Formal", "학업, 비즈니스, 시험 등을 위한 말하기예요."], ["🎮", "Informal", "일상적인 말하기예요."]]
             
             cell.formalityView.iconLabel.text = cellText[indexPath.row][0]
             cell.formalityView.titleLabel.text = cellText[indexPath.row][1]

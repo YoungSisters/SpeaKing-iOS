@@ -72,7 +72,7 @@ extension CategoryViewController: CategoryViewDelegate {
     }
     
     func doneButtonTapped(_ category: String?) {
-        NewSpeakingInfo.shared.category = category
+        NewSpeakingInfo.shared.categoryName = category
         self.navigationController?.popViewController(animated: true)
     }
 }

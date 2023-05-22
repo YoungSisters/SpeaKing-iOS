@@ -28,7 +28,7 @@ class SpeakingResultLoadingView: UIView {
         let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
             print("Timer")
             self.loadingView.title = "SpeaKing이\n\(UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자") 님의 말하기를\n분석했어요."
-            self.loadingView.setAnimation(type: .done)
+            self.loadingView.changeAnimation()
             self.loadingView.isDoneButtonHidden = false
         }
     }
@@ -44,7 +44,7 @@ class SpeakingResultLoadingView: UIView {
 
 extension SpeakingResultLoadingView {
     func style() {
-        loadingView.setAnimation(type: .loading)
+        loadingView.setAnimation()
         loadingView.isDoneButtonHidden = true
     }
     

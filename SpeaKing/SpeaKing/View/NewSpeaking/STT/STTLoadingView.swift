@@ -13,7 +13,7 @@ class STTLoadingView: UIView {
         let nickname = UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자"
         let view = SPLoadingView(title: "SpeaKing이\n\(nickname) 님의 말하기를\n텍스트로 변환하고 있어요.", buttonTitle: "")
         view.isDoneButtonHidden = true
-        view.setAnimation(type: .loading)
+        view.setAnimation()
         
         return view
     }()

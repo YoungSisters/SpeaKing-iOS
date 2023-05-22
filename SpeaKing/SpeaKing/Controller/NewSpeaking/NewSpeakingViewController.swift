@@ -44,7 +44,7 @@ class NewSpeakingViewController: UIViewController {
 
 extension NewSpeakingViewController: NewSpeakingViewDelegate {
     func saveInfoAndStartRecording() {
-        guard let title = NewSpeakingInfo.shared.title, let category = NewSpeakingInfo.shared.category, let formality = NewSpeakingInfo.shared.formality else {
+        guard let _ = NewSpeakingInfo.shared.title, let _ = NewSpeakingInfo.shared.categoryName, let _ = NewSpeakingInfo.shared.formality else {
             assert(false)
             return
         }

@@ -42,6 +42,7 @@
 		8948222729C03AAB00DB2F12 /* SPBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222629C03AAB00DB2F12 /* SPBottomButton.swift */; };
 		8948222A29C043FF00DB2F12 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222929C043FF00DB2F12 /* SectionModel.swift */; };
 		8948222C29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */; };
+		89558A6E2A1BBC79007FC8BF /* NewSpeakingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A6D2A1BBC79007FC8BF /* NewSpeakingModel.swift */; };
 		8959C57B29D695FD00E20DE3 /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57A29D695FD00E20DE3 /* SignUpProfileViewController.swift */; };
 		8959C57D29D6962900E20DE3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57C29D6962900E20DE3 /* SignUpView.swift */; };
 		8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57E29D697E200E20DE3 /* NavigationDelegate.swift */; };
@@ -162,6 +163,7 @@
 		8948222629C03AAB00DB2F12 /* SPBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBottomButton.swift; sourceTree = "<group>"; };
 		8948222929C043FF00DB2F12 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		8948222B29C045BC00DB2F12 /* NewSpeakingTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingTitleTableViewCell.swift; sourceTree = "<group>"; };
+		89558A6D2A1BBC79007FC8BF /* NewSpeakingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingModel.swift; sourceTree = "<group>"; };
 		8959C57A29D695FD00E20DE3 /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		8959C57C29D6962900E20DE3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8959C57E29D697E200E20DE3 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
@@ -418,12 +420,21 @@
 				89AFB29C29EDAD3D001828B7 /* File */,
 				891A4B4F29DA8049000676BB /* Auth */,
 				899AEE2E29F2A7FC002BE6A5 /* Profile */,
+				89558A6C2A1BBC64007FC8BF /* Speaking */,
 				8948222929C043FF00DB2F12 /* SectionModel.swift */,
 				89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */,
 				89E268C52A11629F00AEA846 /* Audio.swift */,
 				898FCC142A16F562004C2DA0 /* SpeakingResultModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		89558A6C2A1BBC64007FC8BF /* Speaking */ = {
+			isa = PBXGroup;
+			children = (
+				89558A6D2A1BBC79007FC8BF /* NewSpeakingModel.swift */,
+			);
+			path = Speaking;
 			sourceTree = "<group>";
 		};
 		897F6A2F29C5FFB8000B8E33 /* SpeakingResult */ = {
@@ -762,6 +773,7 @@
 				899AEE3029F2A80E002BE6A5 /* ProfileModel.swift in Sources */,
 				89BF77AF29ED1C5A008A0FD7 /* MeModel.swift in Sources */,
 				898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */,
+				89558A6E2A1BBC79007FC8BF /* NewSpeakingModel.swift in Sources */,
 				89E3715229B481290048DAA9 /* HomeViewController.swift in Sources */,
 				898CE58529C0935000724370 /* CategoryView.swift in Sources */,
 				891A4B5629DAAD5A000676BB /* LoginModel.swift in Sources */,

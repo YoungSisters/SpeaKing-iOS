@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class NewSpeakingCategorySelectionView: UIView {
@@ -13,7 +14,7 @@ class NewSpeakingCategorySelectionView: UIView {
     lazy var categoryNameLabel: UILabel = {
         let label = UILabel()
         
-        if let nowCategory = NewSpeakingInfo.shared.category {
+        if let nowCategory = NewSpeakingInfo.shared.categoryName {
             label.text = nowCategory
             label.textColor = Color.Main
         } else {

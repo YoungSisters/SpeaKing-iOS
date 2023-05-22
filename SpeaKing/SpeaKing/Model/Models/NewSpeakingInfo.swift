@@ -11,7 +11,8 @@ class NewSpeakingInfo {
     static let shared = NewSpeakingInfo()
     
     var title: String?
-    var category: String?
+    var categoryId: String?
+    var categoryName: String?
     var formality: String?
     var audioId: String?
     var text: String?
@@ -21,7 +22,8 @@ class NewSpeakingInfo {
     
     func resetNewSpeakingInfo() {
         title = nil
-        category = nil
+        categoryId = nil
+        categoryName = nil
         formality = nil
         audioId = nil
         text = nil

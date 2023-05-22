@@ -83,9 +83,8 @@ extension STTLoadingViewController {
                             print(result.bestTranscription.formattedString)
                             if result.isFinal {
                                 NewSpeakingInfo.shared.text = result.bestTranscription.formattedString
-                                if let metaData = result.speechRecognitionMetadata {
-                                    NewSpeakingInfo.shared.wpm = metaData.speakingRate
-                                }
+                                NewSpeakingInfo.shared.wpm = result.speechRecognitionMetadata?.speakingRate
+                                
                                 self.dismiss(animated: true) {
                                     self.delegate?.moveToNextViewController()
                                 }

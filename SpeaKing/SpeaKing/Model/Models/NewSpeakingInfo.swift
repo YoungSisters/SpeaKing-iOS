@@ -15,6 +15,7 @@ class NewSpeakingInfo {
     var categoryName: String?
     var formality: String?
     var audioId: String?
+    var audioURL: String?
     var text: String?
     var pronunciation: String?
     var wpm: Double?
@@ -27,6 +28,7 @@ class NewSpeakingInfo {
         categoryName = nil
         formality = nil
         audioId = nil
+        audioURL = nil
         text = nil
         pronunciation = nil
         wpm = nil

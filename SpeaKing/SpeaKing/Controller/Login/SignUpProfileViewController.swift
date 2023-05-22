@@ -81,7 +81,7 @@ extension SignUpProfileViewController: ProfileEditViewDelegate, SignUpProfileVie
         guard let imageData = self.profileImage.jpegData(compressionQuality: 1.0) else {
             assert(false, "can't load image data")
         }
-        FileService().uploadFileToS3("profile", imageData: imageData)
+        FileService().uploadImageToS3("profile", imageData: imageData)
     }
     
     func openImagePicker() {

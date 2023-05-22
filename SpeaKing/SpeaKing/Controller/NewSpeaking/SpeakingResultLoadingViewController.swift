@@ -31,8 +31,12 @@ class SpeakingResultLoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        getPronunciationScore()
+        guard let audioID = NewSpeakingInfo.shared.audioId, let audioURL = realm.object(ofType: Audio.self, forPrimaryKey: audioID)?.url else {
+            return
+        }
+        
+        getPronunciationScore(audioURL)
+        saveAudioFileToS3(audioID, audioURL)
     }
     
     func setupSpeakingResultLoadingView() {
@@ -46,14 +50,27 @@ class SpeakingResultLoadingViewController: UIViewController {
 // MARK: - Networking
 
 extension SpeakingResultLoadingViewController {
-    func getPronunciationScore() {
-        guard let audioID = NewSpeakingInfo.shared.audioId, let audioURL = realm.object(ofType: Audio.self, forPrimaryKey: audioID)?.url else {
+    func getPronunciationScore(_ audioURL: String) {
+        PronunciationService.getPronunciationScore(audioURL: audioURL) { result in
+            NewSpeakingInfo.shared.pronunciation = result.returnObject?.score
+        }
+    }
+    
+    func saveAudioFileToS3(_ audioID: String, _ audioURL: String) {
+        guard let url = URL(string: audioURL), let data = try? Data(contentsOf: url) else {
+            assert(false)
             return
         }
         
-        PronunciationService.getPronunciationScore(audioURL: audioURL) { result in
-            NewSpeakingInfo.shared.pronunciation = result.returnObject?.score
-            print(result.returnObject?.score)
+        FileService().uploadAudioToS3(audioID, data) {
+            guard let userID = KeychainManager.get()?.userId else {
+                assert(false)
+                return
+            }
+            
+            let url = "\(Constants.BUCKET)/\(userID)/\(audioID).wav"
+            
+            NewSpeakingInfo.shared.audioURL = url
         }
     }
 }

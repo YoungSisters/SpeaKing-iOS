@@ -164,13 +164,14 @@ extension NewSpeakingView: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 2 {
             let cell = tableView.cellForRow(at: indexPath) as! NewSpeakingFormalityTableViewCell
             formality = String(indexPath.row)
-            NewSpeakingInfo.shared.formality = String(indexPath.row)
+            NewSpeakingInfo.shared.formality = indexPath.row == 0 ? "Formal" : "Informal"
             cell.isSelected.toggle()
             cell.setSelected(cell.isSelected, animated: false)
         }
     }
     
     // MARK: - Sections
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }

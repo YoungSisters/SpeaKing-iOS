@@ -16,20 +16,6 @@ enum SpeakingResultCollectionViewSection: Int {
 }
 
 class SpeakingResultView: UIView {
-    
-    private let correctedText = "In this picture, a man is giving a presentation to a group **in a conference room**. Perhaps they **were** at a conference. The man is speaking and making gestures as he explains things to the audience. He is wearing a white shirt and a black suit. There is a whiteboard next to him with the information on it. A woman with blond hair is smiling. I think the presenter is well-prepared for this conference."
-    
-    private let nlp = [
-        Formality(sentence: "In this picture, a man is giving a presentation to a group.", formality: "Formal", paraphrasing: "A man is giving a presentation." ),
-        Formality(sentence: "They are in conference room.", formality: "Formal", paraphrasing: "They are in a room." ),
-        Formality(sentence: "Perhaps they was at conference.", formality: "Formal", paraphrasing: "Maybe they were at the conference." ),
-        Formality(sentence: "The man is speaking and make gestures as he explain things to the audience.", formality: "Formal", paraphrasing: "The man is speaking to an audience." ),
-        Formality(sentence: "He is wearing white shirt and the black suit.", formality: "Formal", paraphrasing: "He is wearing a shirt and a suit." ),
-        Formality(sentence: "There are white board next to he with the information on that.", formality: "Formal", paraphrasing: "There is a white board next to him." ),
-        Formality(sentence: "A woman of blond hair is smiling.", formality: "Formal", paraphrasing: "A woman is happy." ),
-        Formality(sentence: "I think the presenter is well-prepared for this conference.", formality: "Formal", paraphrasing: "The speaker is well-prepared for the conference." ),
-    ]
-    
     private let headerTitle = ["문법 검사", "발음 점수", "말하기 속도", "자주 사용한 단어", "나의 문장 Check"]
     
     lazy var collectionView: UICollectionView = {
@@ -76,14 +62,10 @@ class SpeakingResultView: UIView {
     
     var delegate: PlayerDelegate?
     
-    private var recordTitle: String
-    private var resultText: String
+    private var speakingResult: NewSpeakingResultModel?
     
-    required init(recordTitle: String, resultText: String) {
-        self.recordTitle = recordTitle
-        self.resultText = resultText
-        
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         configureCollectionView()
         addPlayerComponentTargets()
@@ -106,7 +88,7 @@ class SpeakingResultView: UIView {
 extension SpeakingResultView {
     func style() {
         self.backgroundColor = Color.Background
-        self.playerView.setTitle(title: recordTitle)
+        self.playerView.setTitle(title: NewSpeakingInfo.shared.title ?? "SpeaKing")
     }
     
     func layout() {
@@ -141,11 +123,12 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let section = SpeakingResultCollectionViewSection(rawValue: section) else { return 0 }
         
-        return section == .formality ? nlp.count : 1
+        return section == .formality ? speakingResult?.nlp.count ?? 0 : 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let section = SpeakingResultCollectionViewSection(rawValue: indexPath.section) else {
+        guard let section = SpeakingResultCollectionViewSection(rawValue: indexPath.section),
+              let result = speakingResult else {
             assert(false)
         }
         
@@ -153,27 +136,35 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .textView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingResultTextViewCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingResultTextViewCollectionViewCell
             
-            cell.resultTextView.setTextViewText(text: correctedText)
+            cell.resultTextView.setTextViewText(text: result.correctedText)
             
             return cell
         case .pronunciationScore:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PronunciationScoreCollectionViewCell.cellIdentifier, for: indexPath) as! PronunciationScoreCollectionViewCell
             
+            cell.setPronunciationScore(score: result.pronunciation)
+            
             return cell
         case .speed:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingSpeedCollectionViewCell
+            
+            cell.setSpeakingSpeed(speed: result.speed)
             
             return cell
         case .vocabulary:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier, for: indexPath) as! VocabularyCollectionViewCell
             
+            if let data = result.wordFrequency {
+                cell.setWordData(data: data)
+            }
+            
             return cell
         case .formality:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FormalityCheckCollectionViewCell.cellIdentifier, for: indexPath) as! FormalityCheckCollectionViewCell
             
-            let data = nlp[indexPath.row]
+            let data = result.nlp[indexPath.row]
             
-            cell.setResult(before: data.sentence, after: data.paraphrasing, isFormal: true)
+            cell.setResult(before: data.sentence, after: data.paraphrasing, isFormal: data.formality == "Formal" ? true : false)
             
             return cell
         }
@@ -262,6 +253,10 @@ extension SpeakingResultView {
 // MARK: - Communicate with view controller
 
 extension SpeakingResultView {
+    func setSpeakingResult(result: NewSpeakingResultModel) {
+        self.speakingResult = result
+    }
+    
     func setOverallDuration(duration: TimeInterval) {
         playerView.totalTimeLabel.text = duration.stringFromTimeInterval()
         playerView.slider.maximumValue = Float(duration)

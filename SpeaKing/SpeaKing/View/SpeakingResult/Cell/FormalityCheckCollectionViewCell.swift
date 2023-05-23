@@ -11,8 +11,8 @@ class FormalityCheckCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "FormalityCheckCell"
     
-    var beforeSentenceView = FormalitySentenceView(isBefore: true, isFormal: true)
-    var afterSentenceView = FormalitySentenceView(isBefore: false)
+    private var beforeSentenceView = FormalitySentenceView(isBefore: true)
+    private var afterSentenceView = FormalitySentenceView(isBefore: false)
     
     lazy var separatorView: UIView = {
         let view = UIView()
@@ -37,6 +37,8 @@ class FormalityCheckCollectionViewCell: UICollectionViewCell {
         return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
     }
 }
+
+// MARK: - Setup
 
 extension FormalityCheckCollectionViewCell {
     func style() {
@@ -65,7 +67,7 @@ extension FormalityCheckCollectionViewCell {
     }
     
     func setResult(before: String, after: String, isFormal: Bool) {
-        beforeSentenceView.sentenceLabel.text = before
-        afterSentenceView.sentenceLabel.text = after
+        beforeSentenceView.setBeforeResult(sentence: before, isFormal: isFormal)
+        afterSentenceView.setAfterResult(sentence: after)
     }
 }

@@ -10,7 +10,6 @@ import UIKit
 class FormalitySentenceView: UIView {
     
     var isBefore: Bool
-    var isFormal: Bool?
     
     lazy var typeLabel: UILabel = {
         let label = UILabel()
@@ -84,15 +83,6 @@ class FormalitySentenceView: UIView {
         layout()
     }
     
-    convenience init(isBefore: Bool, isFormal: Bool) {
-        self.init(isBefore: isBefore)
-        
-        self.isFormal = isFormal
-
-        style()
-        layout()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -107,19 +97,19 @@ class FormalitySentenceView: UIView {
 
 extension FormalitySentenceView {
     func style() {
-        if isBefore {
-            typeView.backgroundColor = Color.LightPurple
-            typeLabel.text = "Before"
-            formalView.isHidden = false
-            if let isFormal = isFormal {
-                formalLabel.text = isFormal ? "Formal" : "Informal"
-            }
-            
-        } else {
-            typeView.backgroundColor = Color.Purple
-            typeLabel.text = "After"
-            formalView.isHidden = true
-        }
+//        if isBefore {
+//            typeView.backgroundColor = Color.LightPurple
+//            typeLabel.text = "Before"
+//            formalView.isHidden = false
+//            if let isFormal = isFormal {
+//                formalLabel.text = isFormal ? "Formal" : "Informal"
+//            }
+//            
+//        } else {
+//            typeView.backgroundColor = Color.Purple
+//            typeLabel.text = "After"
+//            formalView.isHidden = true
+//        }
     }
     
     func layout() {
@@ -140,5 +130,20 @@ extension FormalitySentenceView {
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    func setBeforeResult(sentence: String, isFormal: Bool) {
+        typeView.backgroundColor = Color.LightPurple
+        typeLabel.text = "Before"
+        formalView.isHidden = false
+        formalLabel.text = isFormal ? "Formal" : "Informal"
+        sentenceLabel.text = sentence
+    }
+    
+    func setAfterResult(sentence: String) {
+        typeView.backgroundColor = Color.Purple
+        typeLabel.text = "After"
+        formalView.isHidden = true
+        sentenceLabel.text = sentence
     }
 }

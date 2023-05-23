@@ -12,34 +12,11 @@ import Charts
 class PronunciationScoreCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "PronunciationScoreCell"
     
-    var chartView = PieChartView()
+    private var chartView = PieChartView()
     
-    var resultLabel: UILabel = {
-        let label = UILabel()
-        
-        let userScoreAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.boldSystemFont(ofSize: FontSize.title3),
-            .foregroundColor: Color.Main!
-        ]
-        
-        let userScoreString = NSAttributedString(string: "3.8", attributes: userScoreAttributes)
-        
-        let totalScoreAttributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.boldSystemFont(ofSize: FontSize.body),
-            .foregroundColor: Color.Darkgray!
-        ]
-        
-        let totalScoreString = NSAttributedString(string: " / 5.0", attributes: totalScoreAttributes)
-        
-        let scoreText = NSMutableAttributedString(attributedString: userScoreString)
-        scoreText.append(totalScoreString)
-        
-        label.attributedText = scoreText
-        
-        return label
-    }()
+    private var resultLabel = UILabel()
     
-    var resultCommentLabel: UILabel = {
+    private var resultCommentLabel: UILabel = {
         let label = UILabel()
         
         label.text = "😃 훌륭해요!"
@@ -66,14 +43,16 @@ class PronunciationScoreCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Setup
+
 extension PronunciationScoreCollectionViewCell {
-    func style() {
+    private func style() {
         self.backgroundColor = Color.White
         self.layer.cornerRadius = 16
         self.addShadow()
     }
     
-    func layout() {
+    private func layout() {
         let labelStackView = UIStackView(arrangedSubviews: [resultLabel, resultCommentLabel])
         labelStackView.axis = .vertical
         labelStackView.alignment = .center
@@ -94,7 +73,42 @@ extension PronunciationScoreCollectionViewCell {
         }
     }
     
-    func configureChartView() {
+    func setPronunciationScore(score value: String) {
+        guard let score = Double(value) else {
+            assert(false)
+            return
+        }
+        
+        self.setResultLabel(score: value)
+        self.setDataCount(score)
+    }
+    
+    private func setResultLabel(score: String) {
+        let userScoreAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: FontSize.title3),
+            .foregroundColor: Color.Main!
+        ]
+        
+        let userScoreString = NSAttributedString(string: score, attributes: userScoreAttributes)
+        
+        let totalScoreAttributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: FontSize.body),
+            .foregroundColor: Color.Darkgray!
+        ]
+        
+        let totalScoreString = NSAttributedString(string: " / 5.0", attributes: totalScoreAttributes)
+        
+        let scoreText = NSMutableAttributedString(attributedString: userScoreString)
+        scoreText.append(totalScoreString)
+        
+        resultLabel.attributedText = scoreText
+    }
+}
+
+// MARK: - Chart
+
+extension PronunciationScoreCollectionViewCell {
+    private func configureChartView() {
         chartView.noDataText = "데이터가 없습니다."
         chartView.noDataFont = .systemFont(ofSize: FontSize.body)
         chartView.noDataTextColor = Color.Main!
@@ -109,11 +123,11 @@ extension PronunciationScoreCollectionViewCell {
         updateChartData()
     }
     
-    func updateChartData() {
+    private func updateChartData() {
         setDataCount(3.8)
     }
 
-    func setDataCount(_ score: Double) {
+    private func setDataCount(_ score: Double) {
         let userScoreEntry = PieChartDataEntry(value: score)
         let backgroundEntry = PieChartDataEntry(value: 5.0 - score)
         

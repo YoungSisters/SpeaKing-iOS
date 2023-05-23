@@ -18,6 +18,7 @@ struct NewSpeakingRequestModel: Codable {
     let time: String
     let pronunciation: String
     let speed: String
+    let selectedformality: String
 }
 
 struct NewSpeakingResponseModel: Codable {
@@ -43,6 +44,7 @@ struct NewSpeakingResultModel: Codable {
     let speed: String
     let wordFrequency: [WordFrequencyModel]?
     let nlp: [NewSpeakingNLPModel]
+    let selectedformality: String
 }
 
 struct WordFrequencyModel: Codable {

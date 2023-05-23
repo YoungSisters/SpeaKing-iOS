@@ -11,8 +11,8 @@ import Charts
 class VocabularyCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "VocabularyCell"
     
-    private let values: [Double] = [3, 2, 2, 1, 1]
-    private let nameData = ["conference", "man", "white", "picture", "giving"]
+//    private let values: [Double] = [3, 2, 2, 1, 1]
+//    private let nameData = ["conference", "man", "white", "picture", "giving"]
     
     var chartView = BarChartView()
     
@@ -23,19 +23,58 @@ class VocabularyCollectionViewCell: UICollectionViewCell {
         layout()
 
         configureChart()
-        setChart(dataPoints: nameData, values: values)
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
+    }
+}
+
+extension VocabularyCollectionViewCell {
+    func style() {
+        self.backgroundColor = Color.White
+        self.layer.cornerRadius = 16
+        self.addShadow()
+    }
+    
+    func layout() {
+        addSubview(chartView)
+
+        chartView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
+        }
+    }
+    
+
+}
+
+// MARK: - Setup chart
+
+extension VocabularyCollectionViewCell {
+    private func configureChart() {
+        chartView.noDataText = "문장 개수가 적어 분석이 어려워요. 🥲"
+        chartView.noDataFont = .systemFont(ofSize: FontSize.body)
+        chartView.noDataTextColor = Color.Main!
+    }
+    
+    private func setChart(data: [WordFrequencyModel]) {
         
         // 데이터 생성
+        var nameData = [String]()
         var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+        
+        for i in 0..<data.count {
+            nameData.append(data[i].word)
+            
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(data[i].count))
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "판매량")
+        let chartDataSet = BarChartDataSet(entries: dataEntries)
         
         // 차트 컬러
         chartDataSet.colors = [Color.Purple!]
@@ -89,33 +128,7 @@ class VocabularyCollectionViewCell: UICollectionViewCell {
         chartView.leftAxis.axisMinimum = 0
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: UIView.noIntrinsicMetric)
-    }
-}
-
-extension VocabularyCollectionViewCell {
-    func style() {
-        self.backgroundColor = Color.White
-        self.layer.cornerRadius = 16
-        self.addShadow()
-    }
-    
-    func layout() {
-        addSubview(chartView)
-
-        chartView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
-        }
-    }
-    
-    func configureChart() {
-        chartView.noDataText = "데이터가 없습니다."
-        chartView.noDataFont = .systemFont(ofSize: FontSize.body)
-        chartView.noDataTextColor = Color.Main!
+    func setWordData(data: [WordFrequencyModel]) {
+        setChart(data: data)
     }
 }

@@ -98,7 +98,7 @@ extension SpeakingResultLoadingViewController {
             return
         }
         
-        guard let pronunciation = NewSpeakingInfo.shared.pronunciation, let url = NewSpeakingInfo.shared.audioURL else {
+        guard let pronunciation = NewSpeakingInfo.shared.pronunciation, let url = NewSpeakingInfo.shared.audioURL, let selectedformality = NewSpeakingInfo.shared.formality else {
             assert(false)
             return
         }
@@ -106,7 +106,7 @@ extension SpeakingResultLoadingViewController {
         let speed = String(format: "%.2f", wpm)
         let saveDate = Date().formatted()
         
-        let speakingInfo = NewSpeakingRequestModel(categoryId: categoryId, categoryName: categoryName, speakingUuid: speakingUuid, title: speakingTitle, saveDate: saveDate, text: text, url: url, time: time, pronunciation: String(format: "%.2f", pronunciation), speed: speed)
+        let speakingInfo = NewSpeakingRequestModel(categoryId: categoryId, categoryName: categoryName, speakingUuid: speakingUuid, title: speakingTitle, saveDate: saveDate, text: text, url: url, time: time, pronunciation: String(format: "%.2f", pronunciation), speed: speed, selectedformality: selectedformality)
         
         NewSpeakingService.postNewSpeaking(parameters: speakingInfo) { result in
             // TODO:

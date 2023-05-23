@@ -18,7 +18,7 @@ class SpeakingResultViewController: UIViewController {
     private var timer: Timer!
     private let seekDuration = 2.0
 
-    private var speakingResultView = SpeakingResultView(recordTitle: "", resultText: "")
+    private var speakingResultView = SpeakingResultView()
     
 //    private var result: NewSpeakingResultModel
 
@@ -59,13 +59,9 @@ class SpeakingResultViewController: UIViewController {
     }
     
     func setupSpeakingResultView() {
-        guard let title = NewSpeakingInfo.shared.title, let text = NewSpeakingInfo.shared.text else {
-            assert(false)
-            return
-        }
-        
-        speakingResultView = SpeakingResultView(recordTitle: title, resultText: text)
         speakingResultView.delegate = self
+        let result = NewSpeakingResultModel(userId: 1, speakingId: 1, categoryId: 1, categoryName: "hi", speakingUuid: "str", title: "title", saveDate: "2023-05-24", url: "www", time: "02:13", text: "She lived in a small house at Asheville. The uh the small neighborhood I remember she lived in was very uh quiet mostly older people and uh we used to go around the small neighborhood and visit lot of her old friends.", correctedText: "She lived in a small house at Asheville. The [uh] small neighborhood I remember she lived in was very [uh] quiet, mostly older people, and [uh] we used to go around the small neighborhood and visit a lot of her old friends.", pronunciation: "3.7", speed: "127", wordFrequency: [WordFrequencyModel(wordId: 86, word: "small", count: 3)], nlp: [NewSpeakingNLPModel(nlpId: 8, sentence: "She lived in a small house at Asheville.", paraphrasing: "She lived in a small house. ", formality: "Formal")], selectedformality: "Informal")
+        speakingResultView.setSpeakingResult(result: result)
         
         view = speakingResultView
     }

@@ -11,7 +11,9 @@ import Charts
 class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "SpeakingSpeedCell"
     
-    private let values = [125.0, 127.0]
+    private var standardSpeed = 0.0
+    private var userSpeed = 0.0
+    private var values = [125.0, 127.0]
     private var nameData = ["기준", "User"]
     
     var barChartView = HorizontalBarChartView()
@@ -34,14 +36,15 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         layout()
 
         configureChart()
-        setChart(dataPoints: nameData, values: values)
+        setChart(values: [standardSpeed, userSpeed])
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(values: [Double]) {
         
         // 데이터 생성
         var dataEntries: [BarChartDataEntry] = []
-        for i in 0..<dataPoints.count {
+        
+        for i in 0..<2 {
             let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
             dataEntries.append(dataEntry)
         }
@@ -109,6 +112,8 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Setup
+
 extension SpeakingSpeedCollectionViewCell {
     func style() {
         self.backgroundColor = Color.White
@@ -137,5 +142,18 @@ extension SpeakingSpeedCollectionViewCell {
         if let nickname = UserDefaultsManager.getData(type: String.self, forKey: .nickname) {
             nameData[1] = nickname
         }
+    }
+    
+    func setSpeakingSpeed(speed value: String) {
+        guard let speed = Double(value) else {
+            assert(false)
+            return
+        }
+        
+        self.userSpeed = speed
+        // TODO: 상황 따른 기준 속도 설정..
+        
+        setChart(values: [standardSpeed, userSpeed])
+        
     }
 }

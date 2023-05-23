@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewSpeakingRequestModel: Codable {
-    let categoryId: String
+    let categoryId: Int
     let categoryName: String
     let speakingUuid: String
     let title: String
@@ -28,17 +28,27 @@ struct NewSpeakingResponseModel: Codable {
 }
 
 struct NewSpeakingResultModel: Codable {
-    let categoryId: String
+    let userId: Int
+    let speakingId: Int
+    let categoryId: Int
     let categoryName: String
     let speakingUuid: String
     let title: String
     let saveDate: String
-    let text: String
     let url: String
     let time: String
+    let text: String
+    let correctedText: String
     let pronunciation: String
     let speed: String
+    let wordFrequency: [WordFrequencyModel]?
     let nlp: [NewSpeakingNLPModel]
+}
+
+struct WordFrequencyModel: Codable {
+    let wordId: Int
+    let word: String
+    let count: Int
 }
 
 struct NewSpeakingNLPModel: Codable {

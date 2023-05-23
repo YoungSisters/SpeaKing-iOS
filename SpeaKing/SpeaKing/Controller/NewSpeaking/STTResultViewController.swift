@@ -78,6 +78,7 @@ class STTResultViewController: UIViewController {
 extension STTResultViewController: STTResultViewDelegate {
     func moveToSpeakingAnalysis(text: String) {
         NewSpeakingInfo.shared.text = text
+        NewSpeakingInfo.shared.time = player?.duration.stringFromTimeInterval()
         let nextViewController = SpeakingResultLoadingViewController()
         nextViewController.delegate = self
         nextViewController.modalPresentationStyle = .fullScreen

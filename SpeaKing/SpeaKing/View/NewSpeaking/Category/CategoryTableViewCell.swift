@@ -11,6 +11,8 @@ class CategoryTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "CategoryCell"
     
+    var categoryData: CategoryResult?
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         

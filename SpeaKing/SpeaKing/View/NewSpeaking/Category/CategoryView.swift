@@ -11,7 +11,7 @@ import SnapKit
 protocol CategoryViewDelegate {
     func newCategoryTapped()
     
-    func doneButtonTapped(_ category: String?)
+    func doneButtonTapped(_ category: CategoryResult?)
 }
 
 class CategoryView: UIView {
@@ -23,7 +23,7 @@ class CategoryView: UIView {
     var titleView = SPTitleView(title: "새 SpeaKing을 저장할\n카테고리를 선택해주세요.", subtitle: nil)
     
     private var categoryList = [CategoryResult]()
-    private var selectedCategory: String?
+    private var selectedCategory: CategoryResult?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -131,6 +131,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.cellIdentifier, for: indexPath) as! CategoryTableViewCell
             
+            cell.categoryData = categoryList[indexPath.row - 1]
             cell.titleLabel.text = categoryList[indexPath.row - 1].name
             
             return cell
@@ -148,7 +149,7 @@ extension CategoryView: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
             cell.isSelected.toggle()
             cell.setSelected(cell.isSelected, animated: true)
-            self.selectedCategory = cell.titleLabel.text
+            self.selectedCategory = cell.categoryData
         }
     }
     

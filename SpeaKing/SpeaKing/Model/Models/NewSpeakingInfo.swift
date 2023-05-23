@@ -11,12 +11,13 @@ class NewSpeakingInfo {
     static let shared = NewSpeakingInfo()
     
     var title: String?
-    var categoryId: String?
+    var categoryId: Int?
     var categoryName: String?
     var formality: String?
     var audioId: String?
     var audioURL: String?
     var text: String?
+    var time: String?
     var pronunciation: String?
     var wpm: Double?
     
@@ -30,6 +31,7 @@ class NewSpeakingInfo {
         audioId = nil
         audioURL = nil
         text = nil
+        time = nil
         pronunciation = nil
         wpm = nil
     }

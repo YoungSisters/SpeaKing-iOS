@@ -19,6 +19,8 @@ class SpeakingResultViewController: UIViewController {
     private let seekDuration = 2.0
 
     private var speakingResultView = SpeakingResultView(recordTitle: "", resultText: "")
+    
+//    private var result: NewSpeakingResultModel
 
     var contentView: SpeakingResultView {
         return view as! SpeakingResultView

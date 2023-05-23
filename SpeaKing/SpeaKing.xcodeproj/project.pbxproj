@@ -45,6 +45,8 @@
 		89558A6E2A1BBC79007FC8BF /* NewSpeakingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A6D2A1BBC79007FC8BF /* NewSpeakingModel.swift */; };
 		89558A702A1BC136007FC8BF /* PronunciationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A6F2A1BC136007FC8BF /* PronunciationModel.swift */; };
 		89558A722A1BC1FD007FC8BF /* PronunciationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A712A1BC1FD007FC8BF /* PronunciationService.swift */; };
+		89558A742A1C3964007FC8BF /* NewSpeakingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A732A1C3964007FC8BF /* NewSpeakingService.swift */; };
+		89558A762A1C3EBA007FC8BF /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89558A752A1C3EBA007FC8BF /* Date.swift */; };
 		8959C57B29D695FD00E20DE3 /* SignUpProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57A29D695FD00E20DE3 /* SignUpProfileViewController.swift */; };
 		8959C57D29D6962900E20DE3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57C29D6962900E20DE3 /* SignUpView.swift */; };
 		8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8959C57E29D697E200E20DE3 /* NavigationDelegate.swift */; };
@@ -167,6 +169,8 @@
 		89558A6D2A1BBC79007FC8BF /* NewSpeakingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingModel.swift; sourceTree = "<group>"; };
 		89558A6F2A1BC136007FC8BF /* PronunciationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronunciationModel.swift; sourceTree = "<group>"; };
 		89558A712A1BC1FD007FC8BF /* PronunciationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronunciationService.swift; sourceTree = "<group>"; };
+		89558A732A1C3964007FC8BF /* NewSpeakingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingService.swift; sourceTree = "<group>"; };
+		89558A752A1C3EBA007FC8BF /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8959C57A29D695FD00E20DE3 /* SignUpProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpProfileViewController.swift; sourceTree = "<group>"; };
 		8959C57C29D6962900E20DE3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8959C57E29D697E200E20DE3 /* NavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDelegate.swift; sourceTree = "<group>"; };
@@ -378,6 +382,7 @@
 				890C47F329BC68A500AD4375 /* UITextField.swift */,
 				890C47F529BC70A300AD4375 /* UIViewController.swift */,
 				898FCC0F2A160448004C2DA0 /* TimeInterval.swift */,
+				89558A752A1C3EBA007FC8BF /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +405,7 @@
 				899AEE3129F2A87A002BE6A5 /* ProfileService.swift */,
 				899704EC2A00C06900FD551D /* CategoryService.swift */,
 				89558A712A1BC1FD007FC8BF /* PronunciationService.swift */,
+				89558A732A1C3964007FC8BF /* NewSpeakingService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -814,12 +820,14 @@
 				89F9BFD329C440050017BAD8 /* STTLoadingViewController.swift in Sources */,
 				890C47EE29BC417900AD4375 /* HomeSectionHeaderView.swift in Sources */,
 				8948222329C02DC400DB2F12 /* NewSpeakingViewController.swift in Sources */,
+				89558A762A1C3EBA007FC8BF /* Date.swift in Sources */,
 				898F8F9729DDB4B900597DBF /* Image.swift in Sources */,
 				89054F8229CD87FC0080E8B6 /* OnboardingTextField.swift in Sources */,
 				899704EB2A00C02600FD551D /* CategoryListModel.swift in Sources */,
 				8948222529C02DD300DB2F12 /* NewSpeakingView.swift in Sources */,
 				899AEE3429F2AAB0002BE6A5 /* UserDefaultsManager.swift in Sources */,
 				899AEE3229F2A87A002BE6A5 /* ProfileService.swift in Sources */,
+				89558A742A1C3964007FC8BF /* NewSpeakingService.swift in Sources */,
 				898CE58329C0933700724370 /* CategoryViewController.swift in Sources */,
 				8939A64629BA1A7C0092C967 /* NSMutableAttributedString.swift in Sources */,
 				89E268C62A11629F00AEA846 /* Audio.swift in Sources */,

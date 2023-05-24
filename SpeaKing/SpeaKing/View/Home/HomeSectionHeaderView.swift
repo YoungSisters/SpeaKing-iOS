@@ -96,4 +96,8 @@ extension HomeSectionHeaderView {
             make.trailing.equalTo(safeAreaLayoutGuide).inset(24)
         }
     }
+    
+    func setMySpeakingCountLabel(count: Int) {
+        mySpeakingCountLabel.text = "\(count)개의 SpeaKing"
+    }
 }

@@ -9,7 +9,9 @@ import UIKit
 
 class HomeSpeakingCellView: UIView {
     
-    var categoryStackView = MySpeakingStackView(image: UIImage(systemName: "folder"), name: "카테고리")
+    private var speakingData: SpeakingListResultModel?
+    
+    private var categoryStackView = MySpeakingStackView(image: UIImage(systemName: "folder"), name: "카테고리")
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -82,5 +84,13 @@ extension HomeSpeakingCellView {
             make.trailing.equalToSuperview().inset(24)
             make.size.equalTo(48)
         }
+    }
+    
+    func setSpeakingData(data: SpeakingListResultModel) {
+        self.speakingData = data
+        titleLabel.text = data.title
+        categoryStackView.setLabelText(text: data.categoryName)
+        timeStackView.setLabelText(text: data.recordTime)
+        dateStackView.setLabelText(text: data.saveDate)
     }
 }

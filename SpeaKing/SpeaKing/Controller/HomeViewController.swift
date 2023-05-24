@@ -38,6 +38,7 @@ class HomeViewController: UIViewController {
         profileService.getUserProfile {
             self.homeView.setUserNickname()
         }
+        getSpeakingList()
     }
     
     func setupHomeView() {
@@ -62,6 +63,18 @@ class HomeViewController: UIViewController {
         
     }
 }
+
+// MARK: - Networking
+
+extension HomeViewController {
+    func getSpeakingList() {
+        SpeakingListService.getSpeakingList(nil, nil) { result in
+            self.homeView.setSpeakingList(list: result)
+        }
+    }
+}
+
+// MARK: - HomeViewDelegate
 
 extension HomeViewController: HomeViewDelegate {
     func pushNewSpeaking() {

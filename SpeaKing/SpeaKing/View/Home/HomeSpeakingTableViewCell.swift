@@ -49,4 +49,8 @@ extension HomeSpeakingTableViewCell {
             make.leading.trailing.equalToSuperview().inset(16)
         }
     }
+    
+    func setSpeakingData(data: SpeakingListResultModel) {
+        self.speakingCellView.setSpeakingData(data: data)
+    }
 }

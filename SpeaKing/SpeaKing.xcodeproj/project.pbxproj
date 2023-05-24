@@ -405,12 +405,12 @@
 			isa = PBXGroup;
 			children = (
 				891A4B5329DA8212000676BB /* AuthService.swift */,
+				89FA95012A1D95F500E47ACA /* SpeakingListService.swift */,
 				89AFB29A29EDAC5F001828B7 /* FileService.swift */,
 				899AEE3129F2A87A002BE6A5 /* ProfileService.swift */,
 				899704EC2A00C06900FD551D /* CategoryService.swift */,
 				89558A712A1BC1FD007FC8BF /* PronunciationService.swift */,
 				89558A732A1C3964007FC8BF /* NewSpeakingService.swift */,
-				89FA95012A1D95F500E47ACA /* SpeakingListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

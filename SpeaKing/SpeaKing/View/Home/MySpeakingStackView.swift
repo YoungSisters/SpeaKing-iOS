@@ -61,4 +61,8 @@ extension MySpeakingStackView {
         self.distribution = .equalCentering
         self.spacing = 2
     }
+    
+    func setLabelText(text: String) {
+        label.text = text
+    }
 }

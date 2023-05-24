@@ -14,6 +14,10 @@ protocol HomeViewDelegate {
 
 class HomeView: UIView {
     
+    private var speakingList = [SpeakingListResultModel]()
+
+    var delegate: HomeViewDelegate?
+    
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         
@@ -30,8 +34,6 @@ class HomeView: UIView {
         configureTableView()
         setTableViewDelegate()
     }
-    
-    var delegate: HomeViewDelegate?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -61,6 +63,11 @@ class HomeView: UIView {
         self.tableView.reloadSections(IndexSet(0..<1), with: .automatic)
     }
     
+    func setSpeakingList(list: [SpeakingListResultModel]) {
+        self.speakingList = list
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension HomeView: NewSpeakingButtonDelegate {
@@ -70,13 +77,16 @@ extension HomeView: NewSpeakingButtonDelegate {
 }
 
 // MARK: - UITableView
+
 extension HomeView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 0 : 2
+        return section == 0 ? 0 : speakingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeSpeakingTableViewCell.cellIdentifier) as! HomeSpeakingTableViewCell
+                
+        cell.setSpeakingData(data: speakingList[indexPath.row])
         
         return cell
     }
@@ -90,10 +100,13 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // 상단 헤더
         let headerView = HomeHeaderView()
         headerView.newSpeakingButton.delegate = self
         
+        // 스피킹 목록
         let sectionHeaderView = HomeSectionHeaderView()
+        sectionHeaderView.setMySpeakingCountLabel(count: speakingList.count)
         
         return section == 0 ? headerView : sectionHeaderView
     }

@@ -89,8 +89,8 @@ extension STTResultViewController: STTResultViewDelegate {
 // MARK: - SpeakingResultLoadingViewControllerDelegate
 
 extension STTResultViewController: SpeakingResultLoadingViewControllerDelegate {
-    func moveToResultViewController() {
-        navigationController?.pushViewController(SpeakingResultViewController(), animated: true)
+    func moveToResultViewController(_ result: NewSpeakingResultModel) {
+        navigationController?.pushViewController(SpeakingResultViewController(result: result), animated: true)
     }
 }
 

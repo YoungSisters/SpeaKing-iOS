@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol SpeakingResultLoadingViewControllerDelegate {
-    func moveToResultViewController()
+    func moveToResultViewController(_ result: NewSpeakingResultModel)
 }
 
 class SpeakingResultLoadingViewController: UIViewController {
@@ -20,6 +20,10 @@ class SpeakingResultLoadingViewController: UIViewController {
     private let dispatchGroup = DispatchGroup()
     
     var delegate: SpeakingResultLoadingViewControllerDelegate?
+    
+    private var result: NewSpeakingResultModel!
+    
+    private var speakingResultLoadingView = SpeakingResultLoadingView()
     
     var contentView: SpeakingResultLoadingView {
         return view as! SpeakingResultLoadingView
@@ -49,7 +53,6 @@ class SpeakingResultLoadingViewController: UIViewController {
     }
     
     func setupSpeakingResultLoadingView() {
-        let speakingResultLoadingView = SpeakingResultLoadingView()
         speakingResultLoadingView.delegate = self
         
         view = speakingResultLoadingView
@@ -109,10 +112,8 @@ extension SpeakingResultLoadingViewController {
         let speakingInfo = NewSpeakingRequestModel(categoryId: categoryId, categoryName: categoryName, speakingUuid: speakingUuid, title: speakingTitle, saveDate: saveDate, text: text, url: url, time: time, pronunciation: String(format: "%.2f", pronunciation), speed: speed, selectedformality: selectedformality)
         
         NewSpeakingService.postNewSpeaking(parameters: speakingInfo) { result in
-            // TODO:
-            // 로딩 완료 화면으로 전환
-            // 다음 뷰컨으로 결과 전달
-            print(result)
+            self.result = result
+            self.speakingResultLoadingView.switchToCompleteScreen()
         }
     }
 }
@@ -122,7 +123,7 @@ extension SpeakingResultLoadingViewController {
 extension SpeakingResultLoadingViewController: SpeakingResultLoadingViewDelegate {
     func pushNextViewController() {
         self.dismiss(animated: true) {
-            self.delegate?.moveToResultViewController()
+            self.delegate?.moveToResultViewController(self.result)
         }
     }
 }

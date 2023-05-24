@@ -113,6 +113,8 @@
 		89F9BFD729C447B70017BAD8 /* STTResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */; };
 		89F9BFD929C447CB0017BAD8 /* STTResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFD829C447CB0017BAD8 /* STTResultView.swift */; };
 		89F9BFDB29C44C360017BAD8 /* SPResultTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */; };
+		89FA95002A1D956F00E47ACA /* SpeakingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA94FF2A1D956F00E47ACA /* SpeakingListModel.swift */; };
+		89FA95022A1D95F500E47ACA /* SpeakingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FA95012A1D95F500E47ACA /* SpeakingListService.swift */; };
 		89FB9DE92A042B09001DF76E /* NewSpeakingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +240,8 @@
 		89F9BFD629C447B70017BAD8 /* STTResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultViewController.swift; sourceTree = "<group>"; };
 		89F9BFD829C447CB0017BAD8 /* STTResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTResultView.swift; sourceTree = "<group>"; };
 		89F9BFDA29C44C360017BAD8 /* SPResultTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPResultTextView.swift; sourceTree = "<group>"; };
+		89FA94FF2A1D956F00E47ACA /* SpeakingListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingListModel.swift; sourceTree = "<group>"; };
+		89FA95012A1D95F500E47ACA /* SpeakingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingListService.swift; sourceTree = "<group>"; };
 		89FB9DE82A042B09001DF76E /* NewSpeakingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -406,6 +410,7 @@
 				899704EC2A00C06900FD551D /* CategoryService.swift */,
 				89558A712A1BC1FD007FC8BF /* PronunciationService.swift */,
 				89558A732A1C3964007FC8BF /* NewSpeakingService.swift */,
+				89FA95012A1D95F500E47ACA /* SpeakingListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 		8948222829C043F400DB2F12 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				89FA94FE2A1D956400E47ACA /* Home */,
 				899704E92A00C01500FD551D /* Category */,
 				89AFB29C29EDAD3D001828B7 /* File */,
 				891A4B4F29DA8049000676BB /* Auth */,
@@ -615,6 +621,14 @@
 			path = STT;
 			sourceTree = "<group>";
 		};
+		89FA94FE2A1D956400E47ACA /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				89FA94FF2A1D956F00E47ACA /* SpeakingListModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -791,6 +805,7 @@
 				8959C57B29D695FD00E20DE3 /* SignUpProfileViewController.swift in Sources */,
 				89558A722A1BC1FD007FC8BF /* PronunciationService.swift in Sources */,
 				891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */,
+				89FA95002A1D956F00E47ACA /* SpeakingListModel.swift in Sources */,
 				8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */,
 				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,
 				898FCC152A16F562004C2DA0 /* SpeakingResultModel.swift in Sources */,
@@ -839,6 +854,7 @@
 				898CE57B29C0812A00724370 /* NewSpeakingCategorySelectionView.swift in Sources */,
 				89A179B829C4B346002BCF6C /* SpeakingResultLoadingView.swift in Sources */,
 				89479F3029BCE12500C5D1ED /* HomeSpeakingCellView.swift in Sources */,
+				89FA95022A1D95F500E47ACA /* SpeakingListService.swift in Sources */,
 				89A179B529C4A22E002BCF6C /* SPPlayerView.swift in Sources */,
 				89054F7C29CD86140080E8B6 /* LoginViewController.swift in Sources */,
 				89058E4C29B70AAD00A39615 /* Color.swift in Sources */,

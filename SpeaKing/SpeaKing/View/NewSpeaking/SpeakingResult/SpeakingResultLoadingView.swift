@@ -13,7 +13,7 @@ protocol SpeakingResultLoadingViewDelegate {
 
 class SpeakingResultLoadingView: UIView {
     
-    var loadingView = SPLoadingView(title: "SpeaKing이\n사용자 님의 말하기를\n분석하고 있어요.", buttonTitle: "결과 확인하기")
+    var loadingView = SPLoadingView(title: "SpeaKing이\n\(UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자") 님의 말하기를\n분석하고 있어요.", buttonTitle: "결과 확인하기")
     
     var delegate: SpeakingResultLoadingViewDelegate?
     
@@ -24,13 +24,6 @@ class SpeakingResultLoadingView: UIView {
         layout()
         
         loadingView.doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
-        
-//        let timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-//            print("Timer")
-//            self.loadingView.title = "SpeaKing이\n\(UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자") 님의 말하기를\n분석했어요."
-//            self.loadingView.changeAnimation()
-//            self.loadingView.isDoneButtonHidden = false
-//        }
     }
     
     required init?(coder: NSCoder) {
@@ -58,5 +51,11 @@ extension SpeakingResultLoadingView {
     
     @objc func doneButtonTapped() {
         delegate?.pushNextViewController()
+    }
+    
+    func switchToCompleteScreen() {
+        self.loadingView.title = "SpeaKing이\n\(UserDefaultsManager.getData(type: String.self, forKey: .nickname) ?? "사용자") 님의 말하기를\n분석했어요."
+        self.loadingView.changeAnimation()
+        self.loadingView.isDoneButtonHidden = false
     }
 }

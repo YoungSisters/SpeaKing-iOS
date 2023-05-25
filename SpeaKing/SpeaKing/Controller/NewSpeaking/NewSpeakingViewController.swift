@@ -36,7 +36,6 @@ class NewSpeakingViewController: UIViewController {
     }
     
     func configureNavigationBar() {
-        navigationController?.navigationBar.tintColor = Color.Main
         navigationItem.backButtonTitle = ""
         navigationItem.title = "새 SpeaKing"
     }

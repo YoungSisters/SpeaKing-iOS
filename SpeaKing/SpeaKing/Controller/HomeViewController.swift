@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
     }
     
     func configureNavigationBar() {
+        navigationController?.navigationBar.tintColor = Color.Main
         navigationItem.backButtonTitle = ""
         
         let logoImageView = UIImageView(image: UIImage(named: Image.logo))
@@ -84,7 +85,7 @@ extension HomeViewController: HomeViewDelegate {
     func pushSpeakingResult(speakingID: Int) {
         // TODO: 스피킹 상세 정보 불러오기
         SpeakingListService.getSpeakingResult(speakingID) { result in
-            self.navigationController?.pushViewController(SpeakingResultViewController(result: result), animated: true)
+            self.navigationController?.pushViewController(SpeakingResultViewController(isNew: false, result: result), animated: true)
         }
     }
 }

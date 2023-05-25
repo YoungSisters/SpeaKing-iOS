@@ -88,7 +88,7 @@ class SpeakingResultView: UIView {
 extension SpeakingResultView {
     func style() {
         self.backgroundColor = Color.Background
-        self.playerView.setTitle(title: NewSpeakingInfo.shared.title ?? "SpeaKing")
+        self.playerView.setTitle(title: speakingResult?.title ?? "SpeaKing")
     }
     
     func layout() {

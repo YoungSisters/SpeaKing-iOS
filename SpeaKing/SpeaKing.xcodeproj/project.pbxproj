@@ -91,6 +91,7 @@
 		89B867D229CB65D800A97402 /* FormalitySentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B867D129CB65D800A97402 /* FormalitySentenceView.swift */; };
 		89BF77AF29ED1C5A008A0FD7 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */; };
 		89BF77B129ED2841008A0FD7 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77B029ED2841008A0FD7 /* KeychainManager.swift */; };
+		89D523292A1F546E0046A415 /* DownloandAndSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D523282A1F546E0046A415 /* DownloandAndSaveFile.swift */; };
 		89E268C22A11625B00AEA846 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 89E268C12A11625B00AEA846 /* Realm */; };
 		89E268C42A11625B00AEA846 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 89E268C32A11625B00AEA846 /* RealmSwift */; };
 		89E268C62A11629F00AEA846 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E268C52A11629F00AEA846 /* Audio.swift */; };
@@ -216,6 +217,7 @@
 		89B867D129CB65D800A97402 /* FormalitySentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormalitySentenceView.swift; sourceTree = "<group>"; };
 		89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
 		89BF77B029ED2841008A0FD7 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		89D523282A1F546E0046A415 /* DownloandAndSaveFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloandAndSaveFile.swift; sourceTree = "<group>"; };
 		89E268C52A11629F00AEA846 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				891A4B5229DA81EC000676BB /* Services */,
 				89058E4429B7060300A39615 /* Extensions */,
 				89058E4329B705FB00A39615 /* Helpers */,
+				89D523282A1F546E0046A415 /* DownloandAndSaveFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				8959C57B29D695FD00E20DE3 /* SignUpProfileViewController.swift in Sources */,
 				89558A722A1BC1FD007FC8BF /* PronunciationService.swift in Sources */,
 				891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */,
+				89D523292A1F546E0046A415 /* DownloandAndSaveFile.swift in Sources */,
 				89FA95002A1D956F00E47ACA /* SpeakingListModel.swift in Sources */,
 				8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */,
 				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,

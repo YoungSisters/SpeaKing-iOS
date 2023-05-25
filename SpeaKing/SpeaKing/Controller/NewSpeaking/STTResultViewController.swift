@@ -90,7 +90,7 @@ extension STTResultViewController: STTResultViewDelegate {
 
 extension STTResultViewController: SpeakingResultLoadingViewControllerDelegate {
     func moveToResultViewController(_ result: NewSpeakingResultModel) {
-        navigationController?.pushViewController(SpeakingResultViewController(result: result), animated: true)
+        navigationController?.pushViewController(SpeakingResultViewController(isNew: true, result: result), animated: true)
     }
 }
 

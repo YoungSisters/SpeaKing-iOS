@@ -7,17 +7,17 @@
 
 import UIKit
 
-class GrammarCollectionViewCell: UICollectionViewCell {
+class GrammarCollectionViewCell: UITableViewCell {
     
     static let cellIdentifier = "grammarCell"
 
     var resultTextView = SPResultTextView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        style()
-        layout()
+        self.style()
+        self.layout()
     }
     
     required init?(coder: NSCoder) {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FormalityCheckCollectionViewCell: UICollectionViewCell {
+class FormalityCheckCollectionViewCell: UITableViewCell {
     
     static let cellIdentifier = "FormalityCheckCell"
     
@@ -22,10 +22,10 @@ class FormalityCheckCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        style()
+        self.style()
         layout()
     }
     

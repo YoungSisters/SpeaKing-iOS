@@ -9,7 +9,7 @@ import UIKit
 
 import Charts
 
-class PronunciationScoreCollectionViewCell: UICollectionViewCell {
+class PronunciationScoreCollectionViewCell: UITableViewCell {
     static let cellIdentifier = "PronunciationScoreCell"
     
     private var chartView = PieChartView()
@@ -26,10 +26,10 @@ class PronunciationScoreCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        style()
+        self.style()
         layout()
         configureChartView()
     }

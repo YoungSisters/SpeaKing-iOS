@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SpeakingResultCollectionReusableView: UICollectionReusableView {
+class SpeakingResultCollectionReusableView: UITableViewHeaderFooterView {
     
     static let identifier = "HeaderView"
     
@@ -44,8 +44,8 @@ class SpeakingResultCollectionReusableView: UICollectionReusableView {
         }
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         
         style()
         layout()
@@ -62,7 +62,7 @@ class SpeakingResultCollectionReusableView: UICollectionReusableView {
 
 extension SpeakingResultCollectionReusableView {
     func style() {
-        self.backgroundColor = .clear
+//        self.backgroundColor = .clear
     }
     
     func layout() {

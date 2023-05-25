@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
+class SpeakingSpeedCollectionViewCell: UITableViewCell {
     static let cellIdentifier = "SpeakingSpeedCell"
     
     private var standardSpeed = 0.0
@@ -29,10 +29,10 @@ class SpeakingSpeedCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        style()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        self.style()
         layout()
 
         configureChart()

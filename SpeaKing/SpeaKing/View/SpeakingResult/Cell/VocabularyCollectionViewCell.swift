@@ -8,7 +8,7 @@
 import UIKit
 import Charts
 
-class VocabularyCollectionViewCell: UICollectionViewCell {
+class VocabularyCollectionViewCell: UITableViewCell {
     static let cellIdentifier = "VocabularyCell"
     
 //    private let values: [Double] = [3, 2, 2, 1, 1]
@@ -16,10 +16,10 @@ class VocabularyCollectionViewCell: UICollectionViewCell {
     
     var chartView = BarChartView()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        style()
+        self.style()
         layout()
 
         configureChart()

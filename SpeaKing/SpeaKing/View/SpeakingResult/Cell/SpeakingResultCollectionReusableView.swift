@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SnapKit
+
 class SpeakingResultCollectionReusableView: UICollectionReusableView {
     
     static let identifier = "HeaderView"
@@ -21,6 +23,17 @@ class SpeakingResultCollectionReusableView: UICollectionReusableView {
         
         return label
     }()
+    
+    var grammarSwitchView = GrammarResultSwitchView()
+    
+    var isGrammar: Bool {
+        get {
+            return self.isGrammar
+        }
+        set {
+            self.grammarSwitchView.isHidden = !newValue
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,6 +61,13 @@ extension SpeakingResultCollectionReusableView {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(24)
+            make.centerY.equalToSuperview()
+        }
+        
+        addSubview(grammarSwitchView)
+        
+        grammarSwitchView.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(24)
             make.centerY.equalToSuperview()
         }
     }

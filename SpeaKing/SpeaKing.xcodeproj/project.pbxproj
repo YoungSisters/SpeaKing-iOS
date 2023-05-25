@@ -60,7 +60,7 @@
 		897BFF3829D9E37D00D12C06 /* SignUpDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897BFF3729D9E37D00D12C06 /* SignUpDoneViewController.swift */; };
 		898AA49729C6BC6400411364 /* SpeakingResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49629C6BC6400411364 /* SpeakingResultView.swift */; };
 		898AA49929C6BC6F00411364 /* SpeakingResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */; };
-		898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */; };
+		898AA49C29C6D5AF00411364 /* GrammarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49B29C6D5AF00411364 /* GrammarCollectionViewCell.swift */; };
 		898AA49E29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */; };
 		898AA4A029C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */; };
 		898CE57929C0809700724370 /* NewSpeakingCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */; };
@@ -92,6 +92,7 @@
 		89BF77AF29ED1C5A008A0FD7 /* MeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */; };
 		89BF77B129ED2841008A0FD7 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BF77B029ED2841008A0FD7 /* KeychainManager.swift */; };
 		89D523292A1F546E0046A415 /* DownloandAndSaveFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D523282A1F546E0046A415 /* DownloandAndSaveFile.swift */; };
+		89D5232F2A1FE4470046A415 /* GrammarResultSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D5232E2A1FE4470046A415 /* GrammarResultSwitchView.swift */; };
 		89E268C22A11625B00AEA846 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 89E268C12A11625B00AEA846 /* Realm */; };
 		89E268C42A11625B00AEA846 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 89E268C32A11625B00AEA846 /* RealmSwift */; };
 		89E268C62A11629F00AEA846 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E268C52A11629F00AEA846 /* Audio.swift */; };
@@ -186,7 +187,7 @@
 		897BFF3729D9E37D00D12C06 /* SignUpDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpDoneViewController.swift; sourceTree = "<group>"; };
 		898AA49629C6BC6400411364 /* SpeakingResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultView.swift; sourceTree = "<group>"; };
 		898AA49829C6BC6F00411364 /* SpeakingResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultViewController.swift; sourceTree = "<group>"; };
-		898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingResultTextViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		898AA49B29C6D5AF00411364 /* GrammarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarCollectionViewCell.swift; sourceTree = "<group>"; };
 		898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronunciationScoreCollectionViewCell.swift; sourceTree = "<group>"; };
 		898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakingSpeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		898CE57829C0809700724370 /* NewSpeakingCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpeakingCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		89BF77AE29ED1C5A008A0FD7 /* MeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeModel.swift; sourceTree = "<group>"; };
 		89BF77B029ED2841008A0FD7 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		89D523282A1F546E0046A415 /* DownloandAndSaveFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloandAndSaveFile.swift; sourceTree = "<group>"; };
+		89D5232E2A1FE4470046A415 /* GrammarResultSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarResultSwitchView.swift; sourceTree = "<group>"; };
 		89E268C52A11629F00AEA846 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		89E3714A29B481290048DAA9 /* SpeaKing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeaKing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E3714D29B481290048DAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -484,7 +486,8 @@
 			isa = PBXGroup;
 			children = (
 				89038A6A29C96A3C00238B75 /* SpeakingResultCollectionReusableView.swift */,
-				898AA49B29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift */,
+				89D5232E2A1FE4470046A415 /* GrammarResultSwitchView.swift */,
+				898AA49B29C6D5AF00411364 /* GrammarCollectionViewCell.swift */,
 				898AA49D29C6E53E00411364 /* PronunciationScoreCollectionViewCell.swift */,
 				898AA49F29C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift */,
 				89B867CF29CB655500A97402 /* FormalityCheckCollectionViewCell.swift */,
@@ -810,11 +813,12 @@
 				891A4B5829DAB380000676BB /* SPUserDefaults.swift in Sources */,
 				89D523292A1F546E0046A415 /* DownloandAndSaveFile.swift in Sources */,
 				89FA95002A1D956F00E47ACA /* SpeakingListModel.swift in Sources */,
+				89D5232F2A1FE4470046A415 /* GrammarResultSwitchView.swift in Sources */,
 				8959C57F29D697E200E20DE3 /* NavigationDelegate.swift in Sources */,
 				89B867D029CB655500A97402 /* FormalityCheckCollectionViewCell.swift in Sources */,
 				898FCC152A16F562004C2DA0 /* SpeakingResultModel.swift in Sources */,
 				89601C5629C0D94B003A669E /* CategoryNewTableViewCell.swift in Sources */,
-				898AA49C29C6D5AF00411364 /* SpeakingResultTextViewCollectionViewCell.swift in Sources */,
+				898AA49C29C6D5AF00411364 /* GrammarCollectionViewCell.swift in Sources */,
 				89E3714E29B481290048DAA9 /* AppDelegate.swift in Sources */,
 				89AFB29B29EDAC5F001828B7 /* FileService.swift in Sources */,
 				898AA4A029C6E57700411364 /* SpeakingSpeedCollectionViewCell.swift in Sources */,

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class SpeakingResultTextViewCollectionViewCell: UICollectionViewCell {
+class GrammarCollectionViewCell: UICollectionViewCell {
     
-    static let cellIdentifier = "resultTextViewCell"
-    
+    static let cellIdentifier = "grammarCell"
+
     var resultTextView = SPResultTextView()
     
     override init(frame: CGRect) {
@@ -29,7 +29,7 @@ class SpeakingResultTextViewCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension SpeakingResultTextViewCollectionViewCell {
+extension GrammarCollectionViewCell {
     func style() {
         self.backgroundColor = .clear
         resultTextView.textView.isEditable = false

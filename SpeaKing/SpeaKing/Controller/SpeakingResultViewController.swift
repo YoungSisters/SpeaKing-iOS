@@ -49,23 +49,35 @@ class SpeakingResultViewController: UIViewController {
         
         // 플레이어 설정
         var urlString = ""
-        if let urlPath = realm.object(ofType: Audio.self, forPrimaryKey: result.speakingUuid)?.url {
-            urlString = urlPath
-            setupAudioPlayer(urlString: urlString)
-        } else {
-            DownloadAndSaveFile.downloadAndSaveAudioFile(result.speakingUuid, result.url) { savedPath in
-                let audioData = Audio(id: self.result.speakingUuid, url: savedPath)
-                
-                DispatchQueue.main.async {
-                    try! self.realm.write {
-                        self.realm.add(audioData)
-                    }
-                }
-                
-                urlString = savedPath
-                self.setupAudioPlayer(urlString: urlString)
-            }
-        }
+//        DownloadAndSaveFile.downloadAndSaveAudioFile(result.speakingUuid, result.url) { savedPath in
+//            let audioData = Audio(id: self.result.speakingUuid, url: savedPath)
+//            
+//            DispatchQueue.main.async {
+////                try! self.realm.write {
+////                    self.realm.add(audioData)
+////                }
+//                urlString = savedPath
+//                self.setupAudioPlayer(urlString: urlString)
+//            }
+//        }
+//        
+//        if let urlPath = realm.object(ofType: Audio.self, forPrimaryKey: result.speakingUuid)?.url {
+//            urlString = urlPath
+//            setupAudioPlayer(urlString: urlString)
+//        } else {
+//            DownloadAndSaveFile.downloadAndSaveAudioFile(result.speakingUuid, result.url) { savedPath in
+//                let audioData = Audio(id: self.result.speakingUuid, url: savedPath)
+//                
+//                DispatchQueue.main.async {
+//                    try! self.realm.write {
+//                        self.realm.add(audioData)
+//                    }
+//                }
+//                
+//                urlString = savedPath
+//                self.setupAudioPlayer(urlString: urlString)
+//            }
+//        }
     }
     
     func setupSpeakingResultView() {

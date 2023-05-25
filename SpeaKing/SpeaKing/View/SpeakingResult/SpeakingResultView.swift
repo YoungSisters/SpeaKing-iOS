@@ -25,7 +25,7 @@ class SpeakingResultView: UIView {
         
         collectionView.register(SpeakingResultCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SpeakingResultCollectionReusableView.identifier)
         
-        collectionView.register(SpeakingResultTextViewCollectionViewCell.self, forCellWithReuseIdentifier: SpeakingResultTextViewCollectionViewCell.cellIdentifier)
+        collectionView.register(GrammarCollectionViewCell.self, forCellWithReuseIdentifier: GrammarCollectionViewCell.cellIdentifier)
         collectionView.register(PronunciationScoreCollectionViewCell.self, forCellWithReuseIdentifier: PronunciationScoreCollectionViewCell.cellIdentifier)
         collectionView.register(SpeakingSpeedCollectionViewCell.self, forCellWithReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier)
         collectionView.register(VocabularyCollectionViewCell.self, forCellWithReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier)
@@ -134,23 +134,26 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         
         switch section {
         case .textView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingResultTextViewCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingResultTextViewCollectionViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GrammarCollectionViewCell.cellIdentifier, for: indexPath) as! GrammarCollectionViewCell
             
             cell.resultTextView.setTextViewText(text: result.correctedText)
             
             return cell
+            
         case .pronunciationScore:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PronunciationScoreCollectionViewCell.cellIdentifier, for: indexPath) as! PronunciationScoreCollectionViewCell
             
             cell.setPronunciationScore(score: result.pronunciation)
             
             return cell
+            
         case .speed:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingSpeedCollectionViewCell
             
             cell.setSpeakingSpeed(speed: result.speed)
             
             return cell
+            
         case .vocabulary:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VocabularyCollectionViewCell.cellIdentifier, for: indexPath) as! VocabularyCollectionViewCell
             
@@ -159,6 +162,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             return cell
+            
         case .formality:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FormalityCheckCollectionViewCell.cellIdentifier, for: indexPath) as! FormalityCheckCollectionViewCell
             
@@ -169,6 +173,9 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         }
     }
+    
+    
+    // MARK: sizeForItemAt
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let section = SpeakingResultCollectionViewSection(rawValue: indexPath.section) else { return CGSize() }
@@ -189,7 +196,8 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
-    // Sections
+    // MARK: Sections
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 5
     }
@@ -198,6 +206,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SpeakingResultCollectionReusableView.identifier, for: indexPath) as! SpeakingResultCollectionReusableView
+            headerView.isGrammar = indexPath.section == 0
             headerView.setTitleLabelText(text: headerTitle[indexPath.section])
             return headerView
         default:
@@ -255,6 +264,8 @@ extension SpeakingResultView {
 extension SpeakingResultView {
     func setSpeakingResult(result: NewSpeakingResultModel) {
         self.speakingResult = result
+        self.playerView.setTitle(title: speakingResult?.title ?? "SpeaKing")
+        self.collectionView.reloadData()
     }
     
     func setOverallDuration(duration: TimeInterval) {

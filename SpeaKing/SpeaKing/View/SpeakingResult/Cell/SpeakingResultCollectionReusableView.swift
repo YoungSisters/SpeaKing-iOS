@@ -24,7 +24,7 @@ class SpeakingResultCollectionReusableView: UICollectionReusableView {
         return label
     }()
     
-    var grammarSwitchView = GrammarResultSwitchView()
+    private var grammarSwitchView = GrammarResultSwitchView()
     
     var isGrammar: Bool {
         get {
@@ -32,6 +32,15 @@ class SpeakingResultCollectionReusableView: UICollectionReusableView {
         }
         set {
             self.grammarSwitchView.isHidden = !newValue
+        }
+    }
+    
+    var isSwitchOn: Bool {
+        get {
+            return self.isSwitchOn
+        }
+        set {
+            self.grammarSwitchView.resultSwitch.isOn = newValue
         }
     }
     
@@ -74,5 +83,9 @@ extension SpeakingResultCollectionReusableView {
     
     func setTitleLabelText(text: String) {
         self.titleLabel.text = text
+    }
+    
+    func addSwitchTarget(_ target: Any?, action: Selector) {
+        grammarSwitchView.resultSwitch.addTarget(target, action: action, for: .valueChanged)
     }
 }

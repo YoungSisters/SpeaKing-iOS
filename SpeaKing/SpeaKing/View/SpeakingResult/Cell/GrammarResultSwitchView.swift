@@ -21,7 +21,7 @@ class GrammarResultSwitchView: UIView {
         return label
     }()
     
-    private var resultSwitch: UISwitch = {
+    var resultSwitch: UISwitch = {
         let sw = UISwitch()
         
         sw.onTintColor = Color.Purple

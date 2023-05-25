@@ -62,6 +62,8 @@ class SpeakingResultView: UIView {
     
     var delegate: PlayerDelegate?
     
+    private var shouldGrammarResultShown = false
+    
     private var speakingResult: NewSpeakingResultModel?
     
     override init(frame: CGRect) {
@@ -136,7 +138,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .textView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GrammarCollectionViewCell.cellIdentifier, for: indexPath) as! GrammarCollectionViewCell
             
-            cell.resultTextView.setTextViewText(text: result.correctedText)
+            cell.resultTextView.setTextViewText(text: shouldGrammarResultShown ? result.correctedText : result.text)
             
             return cell
             
@@ -206,8 +208,11 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SpeakingResultCollectionReusableView.identifier, for: indexPath) as! SpeakingResultCollectionReusableView
-            headerView.isGrammar = indexPath.section == 0
             headerView.setTitleLabelText(text: headerTitle[indexPath.section])
+            headerView.isGrammar = indexPath.section == 0
+            headerView.isSwitchOn = self.shouldGrammarResultShown
+            headerView.addSwitchTarget(self, action: #selector(switchValueChanged))
+            
             return headerView
         default:
             assert(false)
@@ -216,6 +221,16 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.frame.width - 48, height: 50)
+    }
+}
+
+// MARK: - Grammar Switch
+extension SpeakingResultView {
+    @objc func switchValueChanged(_ sender: UISwitch) {
+        shouldGrammarResultShown = sender.isOn
+        UIView.performWithoutAnimation({
+            self.collectionView.reloadSections([0])
+        })
     }
 }
 

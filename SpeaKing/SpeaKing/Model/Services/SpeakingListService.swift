@@ -42,4 +42,27 @@ class SpeakingListService {
                 }
             }
     }
+    
+    static func getSpeakingResult(_ speakingID: Int, completion: @escaping (NewSpeakingResultModel) -> Void) {
+        guard let token = KeychainManager.get()?.token else {
+            assert(false, "Can't find token")
+        }
+        
+        let url = Constants.BASE_URL + Constants.SPEAKING + "/\(speakingID)"
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(token)"
+        ]
+        
+        AF.request(url, method: .get, headers: headers)
+            .validate()
+            .responseDecodable(of: NewSpeakingResponseModel.self) { response in
+                switch response.result {
+                case .success(let result):
+                    completion(result.result)
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            }
+    }
 }

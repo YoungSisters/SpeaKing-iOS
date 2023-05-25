@@ -80,4 +80,11 @@ extension HomeViewController: HomeViewDelegate {
     func pushNewSpeaking() {
         self.navigationController?.pushViewController(NewSpeakingViewController(), animated: true)
     }
+    
+    func pushSpeakingResult(speakingID: Int) {
+        // TODO: 스피킹 상세 정보 불러오기
+        SpeakingListService.getSpeakingResult(speakingID) { result in
+            self.navigationController?.pushViewController(SpeakingResultViewController(result: result), animated: true)
+        }
+    }
 }

@@ -10,6 +10,7 @@ import SnapKit
 
 protocol HomeViewDelegate {
     func pushNewSpeaking()
+    func pushSpeakingResult(speakingID: Int)
 }
 
 class HomeView: UIView {
@@ -30,7 +31,6 @@ class HomeView: UIView {
         super.init(frame: frame)
         
         backgroundColor = Color.Background
-        self.dismissKeyboardWhenTappedAround()
         configureTableView()
         setTableViewDelegate()
     }
@@ -113,5 +113,10 @@ extension HomeView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 200 : 180
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let speakingID = speakingList[indexPath.row].speakingId
+        delegate?.pushSpeakingResult(speakingID: speakingID)
     }
 }

@@ -152,7 +152,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .speed:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpeakingSpeedCollectionViewCell.cellIdentifier, for: indexPath) as! SpeakingSpeedCollectionViewCell
             
-            cell.setSpeakingSpeed(speed: result.speed)
+            cell.setSpeakingSpeed(isFormal: result.selectedformality == "Formality", speed: result.speed)
             
             return cell
             

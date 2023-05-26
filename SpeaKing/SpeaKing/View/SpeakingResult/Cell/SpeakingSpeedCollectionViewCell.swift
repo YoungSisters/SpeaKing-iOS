@@ -144,7 +144,7 @@ extension SpeakingSpeedCollectionViewCell {
         }
     }
     
-    func setSpeakingSpeed(speed value: String) {
+    func setSpeakingSpeed(isFormal: Bool, speed value: String) {
         guard let speed = Double(value) else {
             assert(false)
             return
@@ -152,6 +152,27 @@ extension SpeakingSpeedCollectionViewCell {
         
         self.userSpeed = speed
         // TODO: 상황 따른 기준 속도 설정..
+        let commentText = ["조금만 더 빠르게 말해볼까요?", "딱 좋아요!😄", "조금만 더 천천히 말해볼까요?"]
+        
+        if isFormal {
+            standardSpeed = 125
+            if userSpeed < 100 {
+                commentLabel.text = commentText[0]
+            } else if userSpeed <= 150 {
+                commentLabel.text = commentText[1]
+            } else {
+                commentLabel.text = commentText[2]
+            }
+        } else {
+            standardSpeed = 135
+            if userSpeed < 120 {
+                commentLabel.text = commentText[0]
+            } else if userSpeed <= 150 {
+                commentLabel.text = commentText[1]
+            } else {
+                commentLabel.text = commentText[2]
+            }
+        }
         
         setChart(values: [standardSpeed, userSpeed])
         

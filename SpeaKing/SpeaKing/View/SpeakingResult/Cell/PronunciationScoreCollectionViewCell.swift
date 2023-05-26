@@ -56,7 +56,7 @@ extension PronunciationScoreCollectionViewCell {
         let labelStackView = UIStackView(arrangedSubviews: [resultLabel, resultCommentLabel])
         labelStackView.axis = .vertical
         labelStackView.alignment = .center
-        labelStackView.spacing = 0
+        labelStackView.spacing = 2
         
         addSubview(labelStackView)
 
@@ -79,8 +79,19 @@ extension PronunciationScoreCollectionViewCell {
             return
         }
         
+        self.setResultCommentLabelText(score: score)
         self.setResultLabel(score: value)
         self.setDataCount(score)
+    }
+    
+    private func setResultCommentLabelText(score: Double) {
+        if score < 3 {
+            resultCommentLabel.text = "조금만 더 노력해볼까요?💪"
+        } else if score < 4 {
+            resultCommentLabel.text = "좋아요!😄"
+        } else {
+            resultCommentLabel.text = "최고예요!👍"
+        }
     }
     
     private func setResultLabel(score: String) {

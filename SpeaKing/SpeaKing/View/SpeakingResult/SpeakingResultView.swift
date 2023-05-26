@@ -171,7 +171,7 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
             let data = result.nlp[indexPath.row]
             
             cell.setResult(before: data.sentence, after: data.paraphrasing, isFormal: data.formality == "Formal" ? true : false)
-            
+      
             return cell
         }
     }
@@ -180,13 +180,16 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
     // MARK: sizeForItemAt
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let section = SpeakingResultCollectionViewSection(rawValue: indexPath.section) else { return CGSize() }
+        guard let section = SpeakingResultCollectionViewSection(rawValue: indexPath.section), let result = speakingResult else {
+            assert(false)
+            return CGSize()
+        }
         
         let width = collectionView.frame.width - 32
 
         switch section {
         case .textView:
-            return CGSize(width: width, height: 250)
+            return CGSize(width: width, height: 300)
         case .pronunciationScore:
             return CGSize(width: width, height: 125)
         case .speed:
@@ -194,7 +197,17 @@ extension SpeakingResultView: UICollectionViewDelegate, UICollectionViewDataSour
         case .vocabulary:
             return CGSize(width: width, height: 200)
         case .formality:
-            return CGSize(width: width, height: 225)
+            let length = result.nlp[indexPath.row].sentence.count
+            var height = 200.0
+            if length <= 40 {
+                height = 200
+            } else if length <= 88 {
+                height = 250
+            } else {
+                height = 300
+            }
+            print()
+            return CGSize(width: width, height: height)
         }
     }
     
